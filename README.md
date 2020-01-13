@@ -1,3 +1,3 @@
-# mini-c-projects
+# study-projects
 
-These are my c projects and practice exercises
+These are my projects and practice exercises
