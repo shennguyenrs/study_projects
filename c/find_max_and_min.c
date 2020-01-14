@@ -13,9 +13,7 @@
 void max(int *arr, int n) {
   int flag = *(arr+0);
   for (int i=1; i<n; i++) {
-    if (flag < *(arr+i)) {
-      flag = *(arr+i);
-    }
+    flag = *(arr+i)<flag ? flag : *(arr+i);
   }
   printf("The maxium number of the array is: %d\n", flag);
 }
@@ -23,9 +21,7 @@ void max(int *arr, int n) {
 void min(int *arr, int n) {
   int flag = *(arr+0);
   for (int i=1; i<n; i++) {
-    if (flag > *(arr+i)) {
-      flag = *(arr+i);
-    }
+    flag = *(arr+i)>flag ? flag : *(arr+i);
   }
   printf("The minium number of the array is: %d\n", flag);
 }
