@@ -29,10 +29,10 @@ for i in range(int(input())):
             break
         else:
             if arr[lo] > check_num:
-                high = lo
+                high = lo - 1
             else:
-                low = lo
-    flag[i] = 1
+                low = lo + 1
+    return flag[i] = 1
 
 for k in flag:
     print(k, end='\n')
