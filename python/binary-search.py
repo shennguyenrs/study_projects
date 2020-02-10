@@ -10,9 +10,10 @@
 from math import floor
 
 arr = []
-flag = []
+result = []
+flag = 1
 
-for i in range(int(input())):
+for _ in range(int(input())):
     n, check_num = map(int, input().split())
     for j in map(int, input().split()):
         arr.append(j)
@@ -25,14 +26,15 @@ for i in range(int(input())):
     while arr[lo] != check_num:
         lo = floor((low+high)/2)
         if low > high:
-            flag[i] = -1
+            flag = -1
             break
         else:
             if arr[lo] > check_num:
                 high = lo - 1
             else:
                 low = lo + 1
-    return flag[i] = 1
 
-for k in flag:
+    result.append(flag)
+
+for k in result:
     print(k, end='\n')
