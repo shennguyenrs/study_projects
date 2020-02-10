@@ -9,11 +9,11 @@
 
 from math import floor
 
-arr = []
-result = []
+arr = [] #The array contains the numbers to be checked
+result = [] #The array contains result 1 or -1 depend on the test cases
 flag = 1
 
-for _ in range(int(input())):
+for _ in range(int(input())): #Input the test case
     n, check_num = map(int, input().split())
     for j in map(int, input().split()):
         arr.append(j)
