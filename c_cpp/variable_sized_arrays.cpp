@@ -1,3 +1,11 @@
+/* ****************************************************************** */
+/* #3 Variable Sized Arrays (HackerRank)                              */
+/*                                                                    */
+/* variable_sized_arrays.cpp                                          */
+/* Created 26.02.2020 by shennguyenrs                                 */
+/*                                                                    */
+/* ****************************************************************** */
+
 #include <vector>
 #include <iostream>
 using namespace std;
