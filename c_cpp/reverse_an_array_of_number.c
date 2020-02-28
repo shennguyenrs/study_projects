@@ -1,5 +1,5 @@
 /* ****************************************************************** */
-/* #1 Reverse any array function                                      */
+/* Reverse any array function                                         */
 /*                                                                    */
 /* reverse_an_array_of_number.c                                       */
 /* Created 13.01.2020 by shennguyenrs                                 */

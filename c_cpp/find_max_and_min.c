@@ -1,5 +1,5 @@
 /* ****************************************************************** */
-/* #2 Find the maxium and minium number in the array                  */
+/* Find the maxium and minium number in the array                     */
 /*                                                                    */
 /* find_max_and_min.c                                                 */
 /* Created 13.01.2020 by shennguyenrs                                 */

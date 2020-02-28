@@ -1,3 +1,12 @@
+"""
+/* ********************************************* */
+/* String Search                                 */  
+/*                                               */ 
+/* string_search.py                              */
+/* Created 09/02/2020 by shennguyenrs            */ 
+/* ********************************************* */
+"""
+
 pattern = input(str()) #input the pattern
 string = input(str()) #input the search string
 result = []

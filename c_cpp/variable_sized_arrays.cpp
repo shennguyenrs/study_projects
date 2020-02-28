@@ -1,5 +1,5 @@
 /* ****************************************************************** */
-/* #3 Variable Sized Arrays (HackerRank)                              */
+/* Variable Sized Arrays (HackerRank)                                 */
 /*                                                                    */
 /* variable_sized_arrays.cpp                                          */
 /* Created 26.02.2020 by shennguyenrs                                 */
