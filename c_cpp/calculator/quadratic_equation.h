@@ -27,8 +27,8 @@ void quadratic_equation()
     if (delta>0)
     {
       printf("The quadratic equation %0.3lfx**2 + %0.3lfx + %0.3lf = 0 has two distinct real roots:", a, b, c);
-      printf("\nx1 is %0.3f",0.5*a*(-b+sqrt(delta)));
-      printf("\nx2 is %0.3f", 0.5*a*(-b-sqrt(delta)));
+      printf("\nx1 is %0.3f",(-b+sqrt(delta))/(2*a));
+      printf("\nx2 is %0.3f", (-b-sqrt(delta))/(2*a));
     }
     else if (delta==0)
     {
