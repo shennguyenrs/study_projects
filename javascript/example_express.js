@@ -10,4 +10,4 @@ const server = app.listen(port,() => {
     // const port = server.address().port;
     
     console.log('Server is listening at http://%s:%s', host, port);
-} )
+});
