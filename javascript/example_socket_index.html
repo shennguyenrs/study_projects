@@ -6,10 +6,28 @@
     <title>Socket Example</title>
   </head>
   <body>
-    <script src="./node_modules/socket.io/lib/socket.js"></script>
     <h1>This is a example for Socket.io</h1>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io.connect();
+      const socket = io();
+      /*
+      // Write a message from the server
+      socket.on('message', data => {
+        document.write(data);
+      });
+      // Write an emit object
+      socket.on('testEvent', data => {
+        document.write(data.description);
+      });
+      // Send an message to server
+      socket.emit('ClientEvent', 'Send a event from Client');
+      */
+
+      // Broadcast
+      socket.on('broadcast', data => {
+        document.body.innerHTML = '';
+        document.write(data.description);
+      });
     </script>
   </body>
 </html>
