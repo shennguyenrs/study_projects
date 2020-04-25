@@ -32,6 +32,7 @@
         user = data.username;
         document.body.innerHTML =
           '<input type="text" name="chat-box" id="chat-box" placeholder="Enter your message"/><button type="button" name="button" onclick="SendMessages()">Send message</button><div id="messages-box"></div>';
+      });
 
       // Display messages to messages-box
       socket.on('newmsg', data => {
