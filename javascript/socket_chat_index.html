@@ -11,34 +11,34 @@
 
       // Function to get the username
       function setUsername() {
-        socket.emit('SetUsername', document.getElementById('name').value);
+        socket.emit("SetUsername", document.getElementById("name").value);
       }
 
-      // Fuction to send messages
+      // Function to send messages
       function SendMessages() {
-        var msg = document.getElementById('chat-box').value;
+        var msg = document.getElementById("chat-box").value;
         if (msg) {
-          socket.emit('SendMsg', {message: msg, username: user});
+          socket.emit("SendMsg", { message: msg, username: user });
         }
       }
 
       // Display error if username has existed
-      socket.on('userExists', data => {
-        document.getElementById('error-box').innerHTML = data;
+      socket.on("userExists", (data) => {
+        document.getElementById("error-box").innerHTML = data;
       });
 
       // Display chat-box after accept new username
-      socket.on('userSet', data => {
+      socket.on("userSet", (data) => {
         user = data.username;
         document.body.innerHTML =
           '<input type="text" name="chat-box" id="chat-box" placeholder="Enter your message"/><button type="button" name="button" onclick="SendMessages()">Send message</button><div id="messages-box"></div>';
       });
 
       // Display messages to messages-box
-      socket.on('newmsg', data => {
+      socket.on("newmsg", (data) => {
         if (user) {
-          document.getElementById('messages-box').innerHTML +=
-            '<div><b>' + data.username + '</b> :' + data.message + '</div>';
+          document.getElementById("messages-box").innerHTML +=
+            "<div><b>" + data.username + "</b> :" + data.message + "</div>";
         }
       });
     </script>
