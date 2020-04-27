@@ -1,22 +1,19 @@
-"""
-Return modulo of big string number n with divisor
+def mod(code, length, divisor):
+    """
+    Return modulo of big string number code with divisor.
 
-Paramaters:
-    n (str): IBAN string
+    Paramaters:
+        code (str): IBAN string.
+        length (int): Length of the code by country.
+        divisor (int): By default, divisor is 97 by ISO 7064.
 
-Returns:
-    rem (int): Remander of modulo calculation
-"""
+    Returns:
+        rem (int): Remander of modulo calculation
+    """
 
-def mod(n):
-    # Define a remander
-    # and length of the string
-    # divisor is 97 according to ISO 7064
     rem = 0
-    length = len(n)
-    divisor = 97
 
     for i in range(0, length):
-        rem = (rem*10 + int(n[i]))%divisor
+        rem = (rem*10 + int(code[i]))%divisor
 
     return rem

@@ -1,19 +1,18 @@
-"""
-Convert country code to number
-
-Parameter:
-    code (str): Country code with 2 letter
-    let_num (array): Array that contains table of letters to numbers
-    header (array): Header of csv file
-    fnum (int): First number converted from code
-    snum (int): Second number converted from the code
-
-Return:
-    A string number of fnum and snum
-"""
 import csv
 
 def toNumber(code):
+    """
+    Convert country code to number.
+
+    Parameter:
+        code (str): Country code with 2 letter.
+        let_num (array): Array that contains table of letters to numbers.
+        fnum (int): First number converted from code.
+        snum (int): Second number converted from the code.
+
+    Return:
+        A string number of fnum and snum.
+    """
 
     let_num = []
 

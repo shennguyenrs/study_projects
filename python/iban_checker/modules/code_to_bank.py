@@ -1,17 +1,18 @@
-"""
-Extract bank name and BIC from the IBAN code
-
-Parameters:
-    code (int): 3 digits of bank (Finland) in the IBAN code
-    bank_arr (array): Array contains bank name, bank number and BIC
-    result (array): Array contains bank name and BIC
-
-Return:
-    A array with bank name and BIC of that bank
-"""
 import csv
 
 def toBank(code):
+    """
+    Extract bank name and BIC from the IBAN code.
+
+    Parameters:
+        code (str): IBAN code after moved country code and check digits to the end.
+        bank_arr (array): Array contains bank name, bank number and BIC.
+        bank_code (str): A string takes out the bank code which is matched the lenth with bank code (Finland) in the table.
+        result (array): Array contains bank name and BIC.
+
+    Return:
+        A array with bank name and BIC of that bank.
+    """
 
     bank_arr = []
     result = []
@@ -25,9 +26,18 @@ def toBank(code):
                 bank_arr.append(row)
 
     for i in bank_arr:
-        if int(code) == bank_arr[i][1]:
+        bank_code = ""
+
+        for j in range(0, len(bank_arr[i][1])):
+            bank_code += code[j]
+
+        if int(bank_code) == bank_arr[i][1]:
             result[0] = bank_arr[i][0]
             result[1] = bank_arr[i][2]
             break
+
+    if result is None:
+        result[0] = "Not found bank name"
+        result[1] = "Not found BIC"
 
     return result

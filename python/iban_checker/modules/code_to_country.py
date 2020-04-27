@@ -1,17 +1,17 @@
-"""
-Extract Country name and default length of IBAN Number to an array
-
-Parameters:
-    code (str): String of country code with 2 digits
-    country_arr (array): Array of country with headers: Country name, country code and length of IBAN
-
-Return:
-    Return array result with country name and length
-
-"""
 import csv
 
 def toCountry(code):
+    """
+    Extract Country name and default length of IBAN Number to an array
+
+    Parameters:
+        code (str): String of country code with 2 digits.
+        country_arr (array): With headers: Country name, country code and length of IBAN.
+
+    Return:
+        Return array result with country name and length.
+
+    """
 
     country_arr = []
     result = []
