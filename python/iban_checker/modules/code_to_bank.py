@@ -5,13 +5,17 @@ def toBank(code):
     Extract bank name and BIC from the IBAN code.
 
     Parameters:
-        code (str): IBAN code after moved country code and check digits to the end.
-        bank_arr (array): Array contains bank name, bank number and BIC.
-        bank_code (str): A string takes out the bank code which is matched the lenth with bank code (Finland) in the table.
-        result (array): Array contains bank name and BIC.
+    -----------
+        code : str
+            IBAN code after moved country code and check digits to the end.
 
     Return:
-        A array with bank name and BIC of that bank.
+        result : array
+            Array contains bank name and BIC.
+
+    Raises:
+    -------
+
     """
 
     bank_arr = []
