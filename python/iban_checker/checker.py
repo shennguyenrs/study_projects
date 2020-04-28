@@ -20,9 +20,9 @@ def checker(iban_code):
     """
 
     # Import modules
-    from iban_checker.modules.code_to_country import toCountry
-    from iban_checker.modules.code_to_number import toNumber
-    from iban_checker.modules.code_to_bank import toBank
+    from iban_checker.modules.code_to_country import to_country
+    from iban_checker.modules.code_to_number import to_number
+    from iban_checker.modules.code_to_bank import to_bank
     from iban_checker.modules.mod import mod
 
     # Remove all spaces
@@ -33,8 +33,8 @@ def checker(iban_code):
     country_code = ""
     country_code = iban_code[0] + iban_code[1]
 
-    c_name = toCountry(country_code)[0]
-    c_length = toCountry(country_code)[1]
+    c_name = to_country(country_code)[0]
+    c_length = to_country(country_code)[1]
 
     # Check inputted IBAN length
     if c_length != len(iban_code):
@@ -50,7 +50,7 @@ def checker(iban_code):
             new_iban += iban_code[i]
 
         # Add converted country code to new IBAN
-        new_iban += toNumber(country_code)
+        new_iban += to_number(country_code)
 
         # Check IBAN Valid or not
         valid = mod(new_iban, c_length)
@@ -60,8 +60,8 @@ def checker(iban_code):
             result[0] = c_name
 
             # Get Bank name and BIC
-            result[1] = toBank(new_iban)[0]
-            result[2] = toBank(new_iban)[1]
+            result[1] = to_bank(new_iban)[0]
+            result[2] = to_bank(new_iban)[1]
 
         else:
             print("Your IBAN number is invalid")
