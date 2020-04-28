@@ -27,6 +27,8 @@ def to_country(code):
     path = file_path("resources", "countries.csv")
 
     if os.path.isfile(path):
+
+        # Open the file
         with open(path) as file:
             reader = csv.reader(file)
             header = next(reader)
@@ -35,6 +37,7 @@ def to_country(code):
                 for row in reader:
                     country_arr.append(row)
 
+        # Search for the country code
         for i in country_arr:
             if code == country_arr[i][1]:
                 result[0] = country_arr[i][0]

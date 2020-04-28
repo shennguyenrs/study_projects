@@ -26,20 +26,26 @@ def to_bank(code):
     path = file_path("resources", "banks.csv")
 
     if os.path.isfile(path):
+
+        # Open file to read
         with open(path) as file:
             reader = csv.reader(file)
             header = next(reader)
 
+            # Write file to array
             if header is not None:
                 for row in reader:
                     bank_arr.append(row)
 
+        # Add bank name and BIC to result
         for i in bank_arr:
             bank_code = ""
 
+            # Split the bank code from IBAN by the length depend on the bank
             for j in range(0, len(bank_arr[i][1])):
                 bank_code += code[j]
 
+            # Add the bank name and BIC if the lengths are equal
             if int(bank_code) == bank_arr[i][1]:
                 result[0] = bank_arr[i][0]
                 result[1] = bank_arr[i][2]

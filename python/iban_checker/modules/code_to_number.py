@@ -2,7 +2,7 @@ import csv
 import os
 from iban_checker.modules.file_path import file_path
 
-def toNumber(code):
+def to_number(code):
     """
     Convert country code to number.
 
