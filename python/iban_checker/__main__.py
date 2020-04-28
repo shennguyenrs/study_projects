@@ -1,4 +1,8 @@
 from iban_checker import app
 
-if __name__ == '__name__':
+def main():
+
     app.run()
+
+if __name__ == '__main__':
+    main()
