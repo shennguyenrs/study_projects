@@ -1,6 +1,8 @@
 import csv
+import os
+from iban_checker.modules.file_path import file_path
 
-def toBank(code):
+def to_bank(code):
     """
     Extract bank name and BIC from the IBAN code.
 
@@ -10,6 +12,7 @@ def toBank(code):
             IBAN code after moved country code and check digits to the end.
 
     Return:
+    -------
         result : array
             Array contains bank name and BIC.
 
@@ -20,28 +23,30 @@ def toBank(code):
 
     bank_arr = []
     result = []
+    path = file_path("resources", "banks.csv")
 
-    with open("../resources/banks.csv") as file:
-        reader = csv.reader(file)
-        header = next(reader)
+    if os.path.isfile(path):
+        with open(path) as file:
+            reader = csv.reader(file)
+            header = next(reader)
 
-        if header is not None:
-            for row in reader:
-                bank_arr.append(row)
+            if header is not None:
+                for row in reader:
+                    bank_arr.append(row)
 
-    for i in bank_arr:
-        bank_code = ""
+        for i in bank_arr:
+            bank_code = ""
 
-        for j in range(0, len(bank_arr[i][1])):
-            bank_code += code[j]
+            for j in range(0, len(bank_arr[i][1])):
+                bank_code += code[j]
 
-        if int(bank_code) == bank_arr[i][1]:
-            result[0] = bank_arr[i][0]
-            result[1] = bank_arr[i][2]
-            break
+            if int(bank_code) == bank_arr[i][1]:
+                result[0] = bank_arr[i][0]
+                result[1] = bank_arr[i][2]
+                break
 
-    if result is None:
-        result[0] = "Not found bank name"
-        result[1] = "Not found BIC"
+        if result is None:
+            result[0] = "Not found bank name"
+            result[1] = "Not found BIC"
 
     return result
