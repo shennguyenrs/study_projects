@@ -14,7 +14,7 @@ def file_path(dir_name, file_name):
     Returns:
     --------
         path : str
-        Path to the file
+            Path to the file
 
     Raises:
     -------
