@@ -21,7 +21,7 @@ def file_path(dir_name, file_name):
 
     """
 
-    to_parent_dir = os.chdir(os.path.dirname(os.getcwd()))
+    to_parent_dir = os.getcwd()
     path = os.path.join(to_parent_dir, dir_name, file_name)
 
     return path
