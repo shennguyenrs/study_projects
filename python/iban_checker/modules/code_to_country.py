@@ -43,5 +43,8 @@ def to_country(code):
                 result[0] = country_arr[i][0]
                 result[1] = country_arr[i][2]
                 break
+    
+    if len(result) is None:
+        raise 
 
     return result
