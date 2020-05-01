@@ -54,7 +54,7 @@ def run():
 
                 else:
                     print("\n"+iban_code + " is valid")
-                    print(Country:\t{0}".format(checker_result[0]))
+                    print("Country:\t{0}".format(checker_result[0]))
                     print("Bank:\t{0}".format(checker_result[1]))
                     print("BIC:\t{0}".format(checker_result[2]))
                     sub_control = False
