@@ -9,9 +9,9 @@ def checker(iban_code):
 
     Returns:
     --------
-        result : int or array
-            If result = 0, IBAN is invalid.
-            if result = 1, IBAN is wrong length.
+        c_result : int or array
+            If c_result = 0, IBAN is invalid.
+            if c_result = 1, IBAN is wrong length.
             Else it will print information of IBAN: Country, Bank and BIC.
 
     Raises:
@@ -38,7 +38,7 @@ def checker(iban_code):
     # Check inputted IBAN length
     if c_length != len(iban_code):
         print("Your IBAN number is not correct in length! Please enter again!")
-        result = 1
+        c_result = 1
 
     else:
         # Re-arrage IBAN to new string
@@ -62,15 +62,15 @@ def checker(iban_code):
         valid = mod(new_iban)
 
         if valid == 1:
-            result = []
-            result.append(c_name)
+            c_result = []
+            c_result.append(c_name)
 
             # Get Bank name and BIC
-            result.append(to_bank(new_iban)[0])
-            result.append(to_bank(new_iban)[1])
+            c_result.append(to_bank(new_iban)[0])
+            c_result.append(to_bank(new_iban)[1])
 
         else:
             print("Your IBAN number is invalid")
-            result = 0
+            c_result = 0
 
-    return result
+    return c_result
