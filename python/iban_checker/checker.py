@@ -59,7 +59,6 @@ def checker(iban_code):
         new_iban += iban_code[3]
 
         # Check IBAN Valid or not
-        print(new_iban)
         valid = mod(new_iban)
 
         if valid == 1:

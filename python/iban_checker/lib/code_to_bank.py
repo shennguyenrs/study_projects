@@ -17,7 +17,6 @@ def to_bank(code):
     Raises:
     -------
         IndexError: Database is empty
-        IndexError: Return list is empty
 
     """
 
@@ -48,10 +47,8 @@ def to_bank(code):
                 ctob.append(database[i][2])
                 break
 
-        # Raise if result list is empty
-        try:
-            ctob[0]
-        except IndexError:
-            print("Result list is empty")
-        else:
-            return ctob
+        if ctob == []:
+            ctob.append("Can not found Bank in database")
+            ctob.append("Can not found BIC in database")
+
+        return ctob
