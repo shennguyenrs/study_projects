@@ -14,6 +14,7 @@ def run():
     """
 
     from iban_checker.checker import checker
+    from iban_checker.generator import generator
 
     print("------------------------------------------------")
     print("-----Welcome to IBAN Checker and Generator------")
@@ -35,11 +36,9 @@ def run():
 
         elif tool == 1:
             print("------------------------------------------------")
-
             sub_control = True
 
             while sub_control:
-
                 # Input IBAN Code to check
                 print("Input your IBAN number: ")
                 iban_code = str(input())
@@ -62,8 +61,16 @@ def run():
 
         elif tool == 2:
             print("------------------------------------------------")
+            print("Enter country code: ")
+            c_code = str(input())
+            print("Enter bank codde: ")
+            b_code = str(input())
+            print("Enter ban account number: ")
+            b_account = str(input())
 
+            generator_result = generator(c_code, b_code, b_account)
 
+            print("\nYour IBAN is", generator_result)
             print("------------------------------------------------")
 
         else:
