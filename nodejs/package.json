@@ -1,0 +1,14 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "my practice javascript",
+  "main": "hello_world.js",
+  "author": "Shen Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.0",
+    "socket.io": "^2.3.0"
+  }
+}
