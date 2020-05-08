@@ -1,2 +1,8 @@
+# Folders
 node_modules
 __pycache__
+
+# Files
+yarn.lock
+.stylelintrc.json
+package.json
