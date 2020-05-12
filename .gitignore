@@ -1,8 +1,10 @@
-# Folders
+# Directories
 node_modules
+fontawesome-free-5.13.0-web
 __pycache__
 
 # Files
-yarn.lock
-.stylelintrc.json
-package.json
+.lock
+.vim
+.json
+
