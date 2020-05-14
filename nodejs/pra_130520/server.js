@@ -1,38 +1,37 @@
+// Require modules
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
+require("dotenv/config");
+const mongoose = require("mongoose");
 
 const port = 3000;
-const saltround = 10;
+//const saltround = 10;
 
+// Settings
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/login", (req, res) => {
-  res.render("login.ejs");
-});
+// Connect to Database
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to Database");
+  }
+);
 
-app.post("/", (req, res) => {
-  var email = req.body.email;
-  var password = req.body.password;
-  console.log("New login: " + email + " " + password);
-  res.end("homepage.ejs");
-});
+// Import Routes
+const loginRoute = require("./routers/login");
+const registerRoute = require("./routers/register");
 
-app.get("/register", (req, res) => {
-  res.render("register.ejs");
-});
+// Middle Wares
+app.use("/login", loginRoute);
+app.use("/register", registerRoute);
 
-app.post("/register", (req, res) => {
-  var username = req.body.username;
-  var email = req.body.email;
-  var password = req.body.password;
-  console.log("New register: " + username + " " + email + " " + password);
-  res.end("Success Register");
-});
-
+// Application listen
 app.listen(port, () => {
   console.log("Server is listening on port " + port);
 });

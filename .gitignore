@@ -8,3 +8,4 @@ __pycache__
 *.vim
 *.json
 *.log
+.env
