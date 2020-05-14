@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 
 // Create database
 const UserSchema = mongoose.Schema({
-  date: Date.now,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
   username: {
     type: String,
     require: true,
@@ -11,6 +14,7 @@ const UserSchema = mongoose.Schema({
   email: {
     type: String,
     require: true,
+    unique: 1,
   },
   password: {
     type: String,

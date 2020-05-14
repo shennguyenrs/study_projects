@@ -2,12 +2,10 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-//const bcrypt = require("bcrypt");
 require("dotenv/config");
 const mongoose = require("mongoose");
 
 const port = 3000;
-//const saltround = 10;
 
 // Settings
 app.set("view engine", "ejs");
@@ -24,10 +22,12 @@ mongoose.connect(
 );
 
 // Import Routes
+const indexRoute = require("./routers/index");
 const loginRoute = require("./routers/login");
 const registerRoute = require("./routers/register");
 
 // Middle Wares
+app.use("/index", indexRoute);
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 
