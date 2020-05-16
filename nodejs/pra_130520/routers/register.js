@@ -2,26 +2,36 @@
 const router = require("express").Router();
 const addUser = require("../models/user");
 const bcrypt = require("bcrypt");
+const { registerValidation } = require("../validations");
 
-const salt = bcrypt.genSalt();
+const salt = 10;
 
-// Routers
+// Get
 router.get("/", (req, res) => {
-  res.render("register.ejs");
+  res.render("register");
 });
 
-// Submit user registered information
+// Post
 router.post("/", async (req, res) => {
   try {
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
-    addUser.save({
+    // Validate information before send information
+    registerValidation(req.body);
+
+    // Hash the login password
+    const hashPassword = bcrypt.hash(req.body.password, salt);
+
+    // Define user after validations
+    const user = new addUser({
       username: req.body.username,
       email: req.body.email,
       password: hashPassword,
     });
-    res.send("Register Succeed");
-  } catch {
-    res.send("Register Failed");
+    // Add user to database
+    user.save();
+    res.redirect("/index");
+  } catch (err) {
+    res.status(400).send();
+    console.log(err);
   }
 });
 
