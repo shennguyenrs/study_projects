@@ -1,54 +1,58 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Noto Sans", sans-serif;
-    color: white;
+  font-family: "Noto Sans", sans-serif;
+  color: white;
 }
 
 .add-warper {
-    background-color: #3a0ca3;
-    padding: 1em;
-    text-align: center;
+  background-color: #3a0ca3;
+  padding: 1em;
+  text-align: center;
 }
 
 h3 {
-    margin: 1em;
+  margin: 1em;
 }
 
 #inputItem {
-    width: 60vW;
-    height: 2em;
-    margin-right: 0.2em;
-    border-style: 0px solid #3a0ca3;
-    border-width: 0.5px;
+  width: 60vw;
+  height: 2em;
+  margin-right: 0.2em;
+  border-style: 0px solid #3a0ca3;
+  border-width: 0.5px;
 }
 
 #button {
-    padding: 0.5em 1.5em;
-    font-weight: bold;
-    background-color: #f72585;
-    border-style: none;
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  background-color: #f72585;
+  border-style: none;
 }
 
 #message {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 .items-warper {
-    padding: 1em 2em;
-    background-color: #4cc9f0;
-    height: 90vh;
-    font-size: 18px;
+  padding: 1em 2em;
+  background-color: #4cc9f0;
+  height: 90vh;
+  font-size: 18px;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .done-task {
-    font-style: italic;
-    text-decoration: line-through;
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+i {
+  font-size: 32px;
 }

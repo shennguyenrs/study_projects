@@ -1,31 +1,38 @@
-// Press Enter to add the item
-var input = document.getElementById("inputItem");
-if (!!input) {
-    input.addEventListener("keyup", e => {
-        if (e.keyCode === 13) {
-            e.preventDefault();
-            document.getElementById("button").click();
-    }});
-}
+window.onload = () => {
+  // Press Enter to add the item
+  let enterkey = this.document.getElementById("inputItem");
+  enterkey.addEventListener("keydown", (e) => {
+    if (e.code === "Enter") {
+      e.preventDefault();
+      this.document.getElementById("button").click();
+    }
+  });
+
+  // Checked and unchecked items by click
+  let list = document.querySelector("ul");
+  list.addEventListener("click", (e) => {
+    let targetItem = e.target;
+    if (targetItem.tagName === "LI") {
+      targetItem.classList.toggle("done-task");
+    }
+  });
+};
 
 // Add Items function
 function addItem() {
-    let item = document.getElementById("inputItem");
-    let node = document.createElement("li");
-    // Alert if the input task is empty
-    if (item === null) {
-        document.getElementById("message").innerHTML = "The task name is empty! Please enter again!";
-    }
+  let item = document.getElementById("inputItem");
+  let node = document.createElement("li");
 
-    let textnode = document.createTextNode(item.value);
-    node.appendChild(textnode);
-    document.getElementById("list").appendChild(node);
+  // Alert if the input task is empty
+  if (item === null) {
+    document.getElementById("message").innerHTML =
+      "The task name is empty! Please enter again!";
+  }
+
+  let textnode = document.createTextNode(item.value);
+  node.appendChild(textnode);
+  document.getElementById("list").appendChild(node);
+
+  // Clear input form after submit
+  item.value = "";
 }
-
-// Check and un-check items by clicking 
-var list = document.querySelector("ul");
-list.addEventListener("click", ev => {
-    if (ev.target.tagName === "li") {
-        ev.target.classList.toggle("done-task");
-      }
-    }, false);

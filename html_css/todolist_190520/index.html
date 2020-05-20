@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List 190520</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fontawesome-free-5.13.0-web/css/all.css"
+    />
     <script src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <section class="add-warper">
-        <h3>My Todo List Practice</h3>
-        <input type="text" id="inputItem" placeholder="Enter an item..." >
-        <input type="submit" id="button" onclick="addItem()" value="Add">
-        <p id="message"></p>
+      <h3>My Todo List Practice</h3>
+      <input type="text" id="inputItem" placeholder="Enter an item..." />
+      <input type="submit" id="button" onclick="addItem()" value="Add" />
+      <p id="message"></p>
     </section>
 
     <section class="items-warper">
-        <ul id="list">
-            <li class="done-task">done test</li>
-            <li>undone test</li>
-        </ul>
+      <ul id="list">
+        <li class="done-task">
+          done test <i class="fas fa-minus-circle"></i
+          ><i class="fas fa-pen"></i>
+        </li>
+        <li>
+          undone test<i class="fas fa-minus-circle"></i
+          ><i class="fas fa-pen"></i>
+        </li>
+      </ul>
     </section>
-</body>
+  </body>
 </html>
