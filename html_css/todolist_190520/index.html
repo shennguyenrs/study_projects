@@ -4,17 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List 190520</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="asset/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../fontawesome-free-5.13.0-web/css/all.css"
-    />
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="asset/css/all.min.css" />
+    <script src="asset/script.js"></script>
   </head>
   <body>
     <section class="add-warper">
@@ -26,13 +22,13 @@
 
     <section class="items-warper">
       <ul id="list">
-        <li class="done-task">
-          done test <i class="fas fa-minus-circle"></i
-          ><i class="fas fa-pen"></i>
+        <li>
+          <span class="done-task">done test</span><i class="fas fa-pen"></i
+          ><i class="fas fa-minus-circle"></i>
         </li>
         <li>
-          undone test<i class="fas fa-minus-circle"></i
-          ><i class="fas fa-pen"></i>
+          <span>undone task</span><i class="fas fa-pen"></i
+          ><i class="fas fa-minus-circle"></i>
         </li>
       </ul>
     </section>

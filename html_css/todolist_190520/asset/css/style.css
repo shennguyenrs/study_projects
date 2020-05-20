@@ -6,6 +6,7 @@
 body {
   font-family: "Noto Sans", sans-serif;
   color: white;
+  height: 812px;
 }
 
 .add-warper {
@@ -38,14 +39,26 @@ h3 {
 }
 
 .items-warper {
-  padding: 1em 2em;
+  padding: 1em 1em;
   background-color: #4cc9f0;
-  height: 90vh;
   font-size: 18px;
+  height: 80%;
 }
 
 ul {
   list-style: none;
+}
+
+li {
+  display: grid;
+  grid-template-columns: auto 25px 25px;
+  margin-bottom: 10px;
+}
+
+i {
+  font-size: 12px;
+  align-self: center;
+  text-align: center;
 }
 
 .done-task {
@@ -53,6 +66,6 @@ ul {
   text-decoration: line-through;
 }
 
-i {
-  font-size: 32px;
+.fa-minus-circle {
+  color: #f72585;
 }
