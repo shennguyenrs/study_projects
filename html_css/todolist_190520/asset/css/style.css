@@ -28,6 +28,7 @@ h3 {
 }
 
 #button {
+  color: white;
   padding: 0.5em 1.5em;
   font-weight: bold;
   background-color: #f72585;
@@ -36,12 +37,13 @@ h3 {
 
 #message {
   margin-top: 1em;
+  font-size: 14px;
 }
 
 .items-warper {
   padding: 1em 1em;
   background-color: #4cc9f0;
-  font-size: 18px;
+  font-size: 16px;
   height: 80%;
 }
 
@@ -55,17 +57,35 @@ li {
   margin-bottom: 10px;
 }
 
+li input {
+  display: none;
+}
+
 i {
   font-size: 12px;
   align-self: center;
   text-align: center;
 }
 
-.done-task {
+.done {
   font-style: italic;
   text-decoration: line-through;
 }
 
 .fa-minus-circle {
   color: #f72585;
+}
+
+li.on-edit span {
+  display: none;
+}
+
+li.on-edit input {
+  display: block;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #f72585;
+  font-size: 18px;
+  padding: 5px;
+  max-width: 90%;
 }
