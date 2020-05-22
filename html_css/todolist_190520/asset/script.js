@@ -1,4 +1,7 @@
 window.onload = () => {
+  // Detect focus input on loading
+  document.querySelector("li.on-edit input").focus();
+
   // Press Enter to add the item
   let enterkey = this.document.getElementById("inputItem");
   enterkey.addEventListener("keydown", (e) => {
@@ -41,7 +44,7 @@ window.onload = () => {
 
 // Add Items function
 function addItem() {
-  let item = document.getElementById("inputItem").value;
+  let item = document.getElementById("inputItem");
   let span = document.createElement("span");
   let inputform = document.createElement("input");
   let edit = document.createElement("i");
@@ -52,11 +55,11 @@ function addItem() {
   remove.className = "fas fa-minus-circle";
 
   // Alert if the input task is empty
-  if (item.length === 0) {
+  if (item.value.length === 0) {
     document.getElementById("message").innerHTML =
       "The task name is empty! Please enter again!";
   } else {
-    span.innerText = item;
+    span.innerText = item.value;
     inputform.type = "text";
 
     node.appendChild(span);
@@ -74,11 +77,10 @@ function addItem() {
 // Edit Item function
 function editItem(targetItem) {
   let line = targetItem.parentNode;
-  let span = line.getElementsByTagName("SPAN");
-  let inputform = line.getElementsByTagName("INPUT");
+  let span = line.querySelector("span");
+  let inputform = line.querySelector("input");
 
   inputform.value = span.innerText;
-  console.log(span.innerHTML);
 
   // Change style of editing form
   line.classList.toggle("on-edit", true);
@@ -91,5 +93,11 @@ function editItem(targetItem) {
       span.innerText = inputform.value;
       line.classList.toggle("on-edit", false);
     }
+  });
+
+  // Listen for Blur - out of input form
+  inputform.addEventListener("blur", (e) => {
+    span.innerText = inputform.value;
+    line.classList.toggle("on-edit", false);
   });
 }

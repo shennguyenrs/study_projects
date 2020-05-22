@@ -84,8 +84,15 @@ li.on-edit input {
   display: block;
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #f72585;
   font-size: 18px;
+  color: white;
   padding: 5px;
-  max-width: 90%;
+  width: 0px;
+}
+
+li.on-edit input:focus {
+  border-bottom: 2px solid #f72585;
+  width: 90%;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
