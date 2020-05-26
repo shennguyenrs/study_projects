@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class counter extends Component {
   state = {
-    count: 1,
+    count: 0,
     tags: ["tag1", "tag2", "tag3"],
   };
 
@@ -13,7 +13,7 @@ export default class counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrement()}
+          onClick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           Increments
@@ -39,8 +39,7 @@ export default class counter extends Component {
     return this.state.tags.map((tag) => <li key={tag}>{tag}</li>);
   }
 
-  handleIncrement() {
-    console.log("Increment clicked");
-    return (this.state.count += 1);
-  }
+  handleIncrement = (product) => {
+    this.setState({ count: this.state.count + 1 });
+  };
 }
