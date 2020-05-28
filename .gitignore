@@ -4,7 +4,6 @@ fontawesome-free-5.13.0-web
 __pycache__
 
 # Files
-*.lock
 *.vim
 *.log
 .env
