@@ -4,7 +4,12 @@ const navbar = ({ info }) => {
   return (
     <>
       <nav className="navbar navbar-light bg-light">
-        Navigation Bar <span className="badge badge-info">{info}</span>
+        <div className="row">
+          <div className="col-9">Navigation Bar</div>
+          <div className="col-1">
+            <span className="badge badge-info">{info}</span>
+          </div>
+        </div>
       </nav>
     </>
   );

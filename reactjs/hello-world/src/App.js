@@ -24,6 +24,7 @@ export default class App extends Component {
           onReset={this.handleReset}
           onDelete={this.handleDelete}
           onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
         />
       </>
     );
@@ -46,6 +47,13 @@ export default class App extends Component {
       c.value = 0;
       return c;
     });
+    this.setState({ counters });
+  };
+
+  handleDecrement = (counter) => {
+    let counters = [...this.state.counters];
+    let index = this.state.counters.indexOf(counter);
+    counters[index].value--;
     this.setState({ counters });
   };
 }
