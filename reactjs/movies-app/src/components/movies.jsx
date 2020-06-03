@@ -2,20 +2,25 @@ import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
 import Like from "./common/like";
 import Pagination from "./common/pagination";
+import { paginate } from "../utils/paginate";
 
 export default class Movies extends Component {
   state = {
     movies: getMovies(),
     pageSize: 4,
+    currentPage: 1,
   };
 
   render() {
-    if (this.state.movies.length === 0)
-      return <p>There are no movies in the database.</p>;
+    let { length: count } = this.state.movies;
+    let { pageSize, currentPage, movies: allMovies } = this.state;
+    let movies = paginate(allMovies, currentPage, pageSize);
+
+    if (count === 0) return <p>There are no movies in the database.</p>;
     return (
       <>
         <p className="text-center m-4">
-          Showing {this.state.movies.length} movies in the database.
+          Showing {count} movies in the database.
         </p>
         <table className="table container">
           <thead>
@@ -27,7 +32,7 @@ export default class Movies extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.movies.map((movie) => (
+            {movies.map((movie) => (
               <tr key={movie._id}>
                 <td className="align-middle">{movie.title}</td>
                 <td className="align-middle">{movie.genre.name}</td>
@@ -54,16 +59,17 @@ export default class Movies extends Component {
           </tbody>
         </table>
         <Pagination
-          itemsCount={this.state.movies.length}
-          pageSize={this.state.pageSize}
-          changePage={this.changePage}
+          itemsCount={count}
+          currentPage={currentPage}
+          pageSize={pageSize}
+          onChangePage={this.changePage}
         />
       </>
     );
   }
 
   changePage = (page) => {
-    console.log(page);
+    this.setState({ currentPage: page });
   };
 
   deleteItem = (movie) => {
