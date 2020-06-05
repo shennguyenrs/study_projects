@@ -14,9 +14,9 @@ export default class Movies extends Component {
   render() {
     let { length: count } = this.state.movies;
     let { pageSize, currentPage, movies: allMovies } = this.state;
-    let movies = paginate(allMovies, currentPage, pageSize);
 
     if (count === 0) return <p>There are no movies in the database.</p>;
+    let movies = paginate(allMovies, currentPage, pageSize);
     return (
       <>
         <p className="text-center m-4">

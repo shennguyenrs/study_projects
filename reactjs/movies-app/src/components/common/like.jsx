@@ -1,6 +1,6 @@
 import React from "react";
 
-const like = (props) => {
+let like = (props) => {
   let classes = "fa-heart fas";
   if (!props.liked) classes = classes.replace("fas", "far");
   return (
