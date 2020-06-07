@@ -1,6 +1,6 @@
 import React from "react";
 
-let like = (props) => {
+let Like = (props) => {
   let classes = "fa-heart fas";
   if (!props.liked) classes = classes.replace("fas", "far");
   return (
@@ -12,4 +12,4 @@ let like = (props) => {
   );
 };
 
-export default like;
+export default Like;
