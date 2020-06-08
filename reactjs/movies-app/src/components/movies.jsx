@@ -18,6 +18,27 @@ export default class Movies extends Component {
     this.setState({ movies: getMovies(), genres: getGenres() });
   }
 
+  genresSelect = (genre) => {
+    this.setState({ selectedGenre: genre });
+  };
+
+  changePage = (page) => {
+    this.setState({ currentPage: page });
+  };
+
+  deleteItem = (movie) => {
+    let movies = this.state.movies.filter((m) => m._id !== movie._id);
+    this.setState({ movies });
+  };
+
+  handleLiked = (movie) => {
+    let movies = [...this.state.movies];
+    let index = movies.indexOf(movie);
+    movies[index] = { ...movies[index] };
+    movies[index].liked = !movies[index].liked;
+    this.setState({ movies });
+  };
+
   render() {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, movies: allMovies, genres } = this.state;
@@ -25,15 +46,18 @@ export default class Movies extends Component {
 
     if (count === 0) return <p>There are no movies in the database.</p>;
     const movies = paginate(allMovies, currentPage, pageSize);
-    console.log(movies);
     return (
       <>
-        <div className="row">
-          <div className="col-2">
-            <ListGenres items={genres} onGenresSelect={this.genresSelect()} />
+        <div className="row m-4">
+          <div className="col-3">
+            <ListGenres
+              items={genres}
+              selectedItem={this.state.selectedGenre}
+              onItemSelect={this.genresSelect}
+            />
           </div>
           <div className="col">
-            <p className="text-center m-4">
+            <p className="text-center">
               Showing {count} movies in the database.
             </p>
             <table className="table container">
@@ -83,25 +107,4 @@ export default class Movies extends Component {
       </>
     );
   }
-
-  genresSelect = (genre) => {
-    console.log(genre);
-  };
-
-  changePage = (page) => {
-    this.setState({ currentPage: page });
-  };
-
-  deleteItem = (movie) => {
-    let movies = this.state.movies.filter((m) => m._id !== movie._id);
-    this.setState({ movies });
-  };
-
-  handleLiked = (movie) => {
-    let movies = [...this.state.movies];
-    let index = movies.indexOf(movie);
-    movies[index] = { ...movies[index] };
-    movies[index].liked = !movies[index].liked;
-    this.setState({ movies });
-  };
 }

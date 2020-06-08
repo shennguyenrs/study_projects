@@ -3,13 +3,13 @@ import _ from "lodash";
 import PropTypes from "prop-types";
 
 const Pagination = (props) => {
-  const { itemsCount, pageSize, currentPage, onChangePage } = props;
-  const pagesCount = Math.ceil(itemsCount / pageSize);
+  let { itemsCount, pageSize, currentPage, onChangePage } = props;
+  let pagesCount = Math.ceil(itemsCount / pageSize);
 
   if (pagesCount === 1) return null;
-  const pages = _.range(1, pagesCount + 1);
+  let pages = _.range(1, pagesCount + 1);
 
-  const handleChangePage = (page) => (e) => {
+  let handleChangePage = (page) => (e) => {
     e.preventDefault();
     onChangePage(page);
   };

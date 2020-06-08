@@ -1,17 +1,33 @@
 import React from "react";
 
 const ListGenres = (props) => {
-  let { items } = props;
-  console.log(items);
+  let {
+    items,
+    textProperty,
+    valueProperty,
+    onItemSelect,
+    selectedItem,
+  } = props;
   return (
     <ul className="list-group">
       {items.map((item) => (
-        <li key={item._id} className="list-group-item">
-          {item.name}
+        <li
+          key={item[valueProperty]}
+          className={
+            item === selectedItem ? "list-group-item active" : "list-group-item"
+          }
+          onClick={() => onItemSelect(item)}
+        >
+          {item[textProperty]}
         </li>
       ))}
     </ul>
   );
+};
+
+ListGenres.defaultProps = {
+  textProperty: "name",
+  valueProperty: "_id",
 };
 
 export default ListGenres;
