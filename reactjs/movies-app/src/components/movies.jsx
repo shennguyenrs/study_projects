@@ -8,25 +8,29 @@ import { paginate } from "../utils/paginate";
 
 export default class Movies extends Component {
   state = {
-    movies: getMovies(),
-    genres: getGenres(),
+    movies: [],
+    genres: [],
     pageSize: 4,
     currentPage: 1,
   };
 
+  componentDidMount() {
+    this.setState({ movies: getMovies(), genres: getGenres() });
+  }
+
   render() {
-    let { length: count } = this.state.movies;
-    let { pageSize, currentPage, movies: allMovies, genres } = this.state;
+    const { length: count } = this.state.movies;
+    const { pageSize, currentPage, movies: allMovies, genres } = this.state;
     console.log(allMovies);
 
     if (count === 0) return <p>There are no movies in the database.</p>;
-    let movies = paginate(allMovies, currentPage, pageSize);
+    const movies = paginate(allMovies, currentPage, pageSize);
     console.log(movies);
     return (
       <>
         <div className="row">
           <div className="col-2">
-            <ListGenres genres={genres} />
+            <ListGenres items={genres} onGenresSelect={this.genresSelect()} />
           </div>
           <div className="col">
             <p className="text-center m-4">
@@ -79,6 +83,10 @@ export default class Movies extends Component {
       </>
     );
   }
+
+  genresSelect = (genre) => {
+    console.log(genre);
+  };
 
   changePage = (page) => {
     this.setState({ currentPage: page });

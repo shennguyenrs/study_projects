@@ -1,14 +1,16 @@
 import React from "react";
 
-let ListGenres = (props) => {
-  let { genres } = props;
-  let classes = "list-group-item list-group-item-action";
+const ListGenres = (props) => {
+  let { items } = props;
+  console.log(items);
   return (
-    <div className="list-group">
-      {genres.map((genre) => {
-        <a key={genre} href="/#" className={classes}></a>;
-      })}
-    </div>
+    <ul className="list-group">
+      {items.map((item) => (
+        <li key={item._id} className="list-group-item">
+          {item.name}
+        </li>
+      ))}
+    </ul>
   );
 };
 
