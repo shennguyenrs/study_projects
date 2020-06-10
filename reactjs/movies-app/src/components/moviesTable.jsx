@@ -1,44 +1,56 @@
-import React from "react";
-import Like from "./common/like";
+import React, { Component } from "react";
 import TableHeader from "./common/tableHeader";
+import TableBody from "./common/tableBody";
+import Like from "./common/like";
 
-const moviesTable = (props) => {
-  let { itemsCount, movies, onLiked, onDelete} = props;
-  return (
-    <>
-      <p className="text-center">
-        Showing {itemsCount} movies in the database.
-      </p>
-      <table className="table container">
-        <thead>
-          <TableHeader />
-        </thead>
-        <tbody>
-          {movies.map((movie) => (
-            <tr key={movie._id}>
-              <td className="align-middle">{movie.title}</td>
-              <td className="align-middle">{movie.genre.name}</td>
-              <td className="align-middle">{movie.numberInStock}</td>
-              <td className="align-middle">{movie.dailyRentalRate}</td>
-              <td className="align-middle">
-                <Like liked={movie.liked} onClick={() => onLiked(movie)} />
-              </td>
-              <td>
-                <button
-                  type="submit"
-                  className="btn btn-danger"
-                  onClick={() => onDelete(movie)}
-                >
-                  <i className="fas fa-trash pr-2"></i>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
-  );
-};
+export default class moviesTable extends Component {
+  headers = [
+    { name: "title", label: "Title" },
+    { name: "genre.name", label: "Genre" },
+    { name: "numberInStock", label: "Stock" },
+    { name: "dailyRentalRate", label: "Rate" },
+    {
+      key: "like",
+      content: (movie) => (
+        <Like liked={movie.liked} onClick={() => this.props.onLiked(movie)} />
+      ),
+    },
+    {
+      key: "delete",
+      content: (movie) => (
+        <button
+          type="submit"
+          className="btn btn-danger"
+          onClick={() => this.props.onDelete(movie)}
+        >
+          <i className="fas fa-trash pr-2"></i>
+          Delete
+        </button>
+      ),
+    },
+  ];
 
-export default moviesTable;
+  render() {
+    const { itemsCount, movies, sortedColumn, onSort } = this.props;
+
+    return (
+      <>
+        <p className="text-center">
+          Showing {itemsCount} movies in the database.
+        </p>
+        <table className="table container">
+          <thead>
+            <TableHeader
+              headers={this.headers}
+              sortedColumn={sortedColumn}
+              onSort={onSort}
+            />
+          </thead>
+          <tbody>
+            <TableBody movies={movies} headers={this.headers} />
+          </tbody>
+        </table>
+      </>
+    );
+  }
+}

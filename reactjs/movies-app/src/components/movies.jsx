@@ -43,6 +43,10 @@ export default class Movies extends Component {
     this.setState({ movies });
   };
 
+  sortedItems = sortedColumn => {
+    this.setState({ sortedColumn });
+  };
+
   render() {
     const { length: count } = this.state.movies;
     const {
@@ -75,8 +79,10 @@ export default class Movies extends Component {
             <MoviesTable
               itemsCount={filtered.length}
               movies={movies}
+              sortedColumn={sortedColumn}
               onLiked={this.likedItem}
               onDelete={this.deleteItem}
+              onSort={this.sortedItems}
             />
             <Pagination
               itemsCount={filtered.length}
