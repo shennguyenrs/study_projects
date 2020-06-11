@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import TableHeader from "./common/tableHeader";
-import TableBody from "./common/tableBody";
+import Table from "./common/table";
 import Like from "./common/like";
 
 export default class moviesTable extends Component {
@@ -38,18 +37,12 @@ export default class moviesTable extends Component {
         <p className="text-center">
           Showing {itemsCount} movies in the database.
         </p>
-        <table className="table container">
-          <thead>
-            <TableHeader
-              headers={this.headers}
-              sortedColumn={sortedColumn}
-              onSort={onSort}
-            />
-          </thead>
-          <tbody>
-            <TableBody movies={movies} headers={this.headers} />
-          </tbody>
-        </table>
+        <Table
+          movies={movies}
+          headers={this.headers}
+          sortedColumn={sortedColumn}
+          onSort={onSort}
+        />
       </>
     );
   }
