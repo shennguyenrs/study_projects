@@ -49,16 +49,16 @@ export default class form extends Component {
     );
   }
 
-  renderInput({ name, label }) {
-    let { account, error } = this.state;
+  renderInput(name, label) {
+    let { account, errors } = this.state;
     return (
       <Input
         name={name}
         type={name}
         label={label}
         value={account[name]}
-        error={error[name]}
-        handleChange={this.handleChange}
+        error={errors[name]}
+        onChange={this.handleChange}
       />
     );
   }
