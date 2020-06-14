@@ -1,9 +1,9 @@
 import React from "react";
 
-const movieDetails = () => {
+const movieDetails = ({ match }) => {
   return (
     <>
-      <h1>Movie ID is {}</h1>
+      <h1>Movie ID is {match.params.id}</h1>
       <button className="btn btn-primary btn-sm" type="submit">
         Save
       </button>

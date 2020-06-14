@@ -5,7 +5,9 @@ import Movies from "./components/movies";
 import NavBar from "./components/navBar";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
+import MovieDetails from "./components/movieDetails";
 import NotFound from "./components/notfound";
+import Login from "./components/common/login";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <NavBar />
 
       <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/movies/:id" component={MovieDetails} />
         <Route path="/movies" component={Movies} />
         <Route path="/customers" component={Customers} />
         <Route path="/rentals" component={Rentals} />

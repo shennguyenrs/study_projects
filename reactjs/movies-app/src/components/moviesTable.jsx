@@ -8,7 +8,9 @@ export default class moviesTable extends Component {
     {
       name: "title",
       label: "Title",
-      content: (movie) => <Link to={"/movies/${movie.id}"}>{movie.id}</Link>,
+      content: (movie) => (
+        <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+      ),
     },
     { name: "genre.name", label: "Genre" },
     { name: "numberInStock", label: "Stock" },
