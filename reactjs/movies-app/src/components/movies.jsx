@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+
+// Import Data
 import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
+
+// Import functions
+import { paginate } from "../utils/paginate";
+import { sorted } from "../utils/sorted";
+
+// Import Components
 import Pagination from "./common/pagination";
 import ListGenres from "./common/listGenres";
 import MoviesTable from "./moviesTable";
-import { paginate } from "../utils/paginate";
-import { sorted } from "../utils/sorted";
 
 export default class Movies extends Component {
   state = {
@@ -69,12 +75,7 @@ export default class Movies extends Component {
 
   render() {
     const { length: count } = this.state.movies;
-    const {
-      pageSize,
-      currentPage,
-      genres,
-      sortedColumn,
-    } = this.state;
+    const { pageSize, currentPage, genres, sortedColumn } = this.state;
 
     if (count === 0) return <p>There are no movies in the database.</p>;
     const { totalCount, movies } = this.getPagedData();

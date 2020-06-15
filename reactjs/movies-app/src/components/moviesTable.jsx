@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
+// Import Components
 import Table from "./common/table";
 import Like from "./common/like";
 
@@ -41,6 +43,9 @@ export default class moviesTable extends Component {
 
     return (
       <>
+        <Link className="btn btn-primary" to="/movies/new">
+          <i className="fas fa-plus pr-2"></i>New
+        </Link>
         <p className="text-center">
           Showing {itemsCount} movies in the database.
         </p>
