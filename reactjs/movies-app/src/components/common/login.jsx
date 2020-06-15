@@ -25,8 +25,8 @@ export default class login extends Form {
     return (
       <div className="container p-4">
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("email", "Email Address")}
-          {this.renderInput("password", "Password")}
+          {this.renderInput("email", "Email Address", "email")}
+          {this.renderInput("password", "Password", "password")}
           {this.renderButton("Login")}
         </form>
       </div>

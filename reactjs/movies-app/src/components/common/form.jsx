@@ -49,12 +49,12 @@ export default class form extends Component {
     );
   }
 
-  renderInput(name, label) {
+  renderInput(name, label, type) {
     let { account, errors } = this.state;
     return (
       <Input
         name={name}
-        type={name}
+        type={"text" || type}
         label={label}
         value={account[name]}
         error={errors[name]}

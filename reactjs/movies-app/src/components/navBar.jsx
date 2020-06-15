@@ -20,6 +20,9 @@ const navBar = () => {
         <div className="nav-item p-2">
           <NavLink to="/login">Login</NavLink>
         </div>
+        <div className="nav-item p-2">
+          <NavLink to="/register">Register</NavLink>
+        </div>
       </div>
     </nav>
   );

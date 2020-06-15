@@ -8,6 +8,7 @@ import Rentals from "./components/rentals";
 import MovieDetails from "./components/movieDetails";
 import NotFound from "./components/notfound";
 import Login from "./components/common/login";
+import Register from "./components/common/register";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
       <Switch>
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
         <Route path="/movies/:id" component={MovieDetails} />
         <Route path="/movies" component={Movies} />
         <Route path="/customers" component={Customers} />
