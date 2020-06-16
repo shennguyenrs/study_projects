@@ -1,30 +1,31 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Import Components
-import Table from "./common/table";
-import Like from "./common/like";
+import Table from './common/table';
+import Like from './common/like';
 
 export default class moviesTable extends Component {
   headers = [
     {
-      name: "title",
-      label: "Title",
+      name: 'title',
+      label: 'Title',
       content: (movie) => (
         <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
       ),
     },
-    { name: "genre.name", label: "Genre" },
-    { name: "numberInStock", label: "Stock" },
-    { name: "dailyRentalRate", label: "Rate" },
+    { name: 'genre.name', label: 'Genre' },
+    { name: 'numberInStock', label: 'Stock' },
+    { name: 'dailyRentalRate', label: 'Rate' },
     {
-      key: "like",
+      key: 'like',
       content: (movie) => (
         <Like liked={movie.liked} onClick={() => this.props.onLiked(movie)} />
       ),
     },
     {
-      key: "delete",
+      key: 'delete',
       content: (movie) => (
         <button
           type="submit"
@@ -39,23 +40,27 @@ export default class moviesTable extends Component {
   ];
 
   render() {
-    const { itemsCount, movies, sortedColumn, onSort } = this.props;
+    const { itemsCount,  ...rest } = this.props;
 
     return (
       <>
-        <Link className="btn btn-primary" to="/movies/new">
-          <i className="fas fa-plus pr-2"></i>New
+        <Link className="btn btn-primary" to="/movies/new" >
+          <i className="fas fa-plus pr-2"></i>New Movie
         </Link>
-        <p className="text-center">
+        <p className="text-center mt-2">
           Showing {itemsCount} movies in the database.
         </p>
-        <Table
-          movies={movies}
-          headers={this.headers}
-          sortedColumn={sortedColumn}
-          onSort={onSort}
-        />
+        <Table headers={this.headers} {...rest} />
       </>
     );
   }
 }
+
+moviesTable.propTypes = {
+  itemsCount: PropTypes.number,
+  movies: PropTypes.array,
+  sortedColumn: PropTypes.object,
+  onSort: PropTypes.func,
+  onDelete: PropTypes.func,
+  onLiked: PropTypes.func,
+};

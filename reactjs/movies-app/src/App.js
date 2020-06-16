@@ -1,15 +1,17 @@
-import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
-import "./App.css";
-import Movies from "./components/movies";
-import NavBar from "./components/navBar";
-import Customers from "./components/customers";
-import Rentals from "./components/rentals";
-import MovieDetails from "./components/movieDetails";
-import NotFound from "./components/notfound";
-import Login from "./components/common/login";
-import Register from "./components/common/register";
-import NewMovie from "./components/common/newMovie";
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import './App.css';
+
+// Import Components
+import Movies from './components/movies';
+import NavBar from './components/navBar';
+import Customers from './components/customers';
+import Rentals from './components/rentals';
+import MovieDetails from './components/movieDetails';
+import NotFound from './components/notfound';
+import Login from './components/common/login';
+import Register from './components/common/register';
+import NewMovie from './components/common/newMovie';
 
 function App() {
   return (

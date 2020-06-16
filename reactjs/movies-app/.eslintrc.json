@@ -5,13 +5,13 @@
         "node": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+        "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "parser":"babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -23,5 +23,6 @@
         "react"
     ],
     "rules": {
+      "quotes": [2, "single", "avoid-escape"]
     }
 }

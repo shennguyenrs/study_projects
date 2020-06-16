@@ -1,6 +1,9 @@
-import React, { Component } from "react";
-import Joi from "@hapi/joi";
-import Input from "./input";
+import React, { Component } from 'react';
+import Joi from '@hapi/joi';
+
+// Import Components
+import Input from './input';
+import InputOptions from './inputOptions';
 
 export default class form extends Component {
   state = { account: {}, errors: {} };
@@ -54,12 +57,16 @@ export default class form extends Component {
     return (
       <Input
         name={name}
-        type={"text" || type}
+        type={'text' || type}
         label={label}
         value={account[name]}
         error={errors[name]}
         onChange={this.handleChange}
       />
     );
+  }
+
+  renderOptions(name, label, objects) {
+    return <InputOptions name={name} label={label} objects={objects} />;
   }
 }

@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // Import Data
-import { getMovies } from "../services/fakeMovieService";
-import { getGenres } from "../services/fakeGenreService";
+import { getMovies } from '../services/fakeMovieService';
+import { getGenres } from '../services/fakeGenreService';
 
 // Import functions
-import { paginate } from "../utils/paginate";
-import { sorted } from "../utils/sorted";
+import { paginate } from '../utils/paginate';
+import { sorted } from '../utils/sorted';
 
 // Import Components
-import Pagination from "./common/pagination";
-import ListGenres from "./common/listGenres";
-import MoviesTable from "./moviesTable";
+import Pagination from './common/pagination';
+import ListGenres from './common/listGenres';
+import MoviesTable from './moviesTable';
 
 export default class Movies extends Component {
   state = {
@@ -19,12 +19,12 @@ export default class Movies extends Component {
     genres: [],
     pageSize: 4,
     currentPage: 1,
-    sortedColumn: { col: "title", order: "asc" },
-    selectedGenre: { _id: "", name: "All Movies" },
+    sortedColumn: { col: 'title', order: 'asc' },
+    selectedGenre: { _id: '', name: 'All Movies' },
   };
 
   componentDidMount() {
-    const genres = [{ _id: "", name: "All Movies" }, ...getGenres()];
+    const genres = [{ _id: '', name: 'All Movies' }, ...getGenres()];
     this.setState({ movies: getMovies(), genres });
   }
 

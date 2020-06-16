@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const input = ({ name, label, error, ...rest }) => {
   return (
@@ -14,6 +15,12 @@ const input = ({ name, label, error, ...rest }) => {
       {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
+};
+
+input.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+  error: PropTypes.object,
 };
 
 export default input;
