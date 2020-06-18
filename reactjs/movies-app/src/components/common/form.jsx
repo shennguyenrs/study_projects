@@ -66,7 +66,14 @@ export default class form extends Component {
     );
   }
 
-  renderOptions(name, label, objects) {
-    return <InputOptions name={name} label={label} objects={objects} />;
+  renderOptions(name, label, objects, selected) {
+    return (
+      <InputOptions
+        name={name}
+        label={label}
+        objects={objects}
+        selected={selected}
+      />
+    );
   }
 }

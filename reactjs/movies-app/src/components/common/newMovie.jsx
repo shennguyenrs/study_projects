@@ -11,12 +11,11 @@ export default class newMovie extends Form {
   state = {
     data: {
       title: '',
-      genre: '',
+      genreId: '',
       numberInStock: '',
       dailyRentalRate: '',
-      publishDate: '',
     },
-    genres: getGenres(),
+    genres: [],
     errors: {},
   };
 
@@ -24,7 +23,6 @@ export default class newMovie extends Form {
     title: Joi.string().required().label('Title'),
     numberInStock: Joi.number().max(10).required().label('Stock'),
     dailyRentalRate: Joi.number().max(5).required().label('Rate'),
-    publishDate: Joi.date().required().label('Date'),
   };
 
   doSubmit = () => {
@@ -32,6 +30,9 @@ export default class newMovie extends Form {
     // Call Backend
     console.log('Submitted');
   };
+
+  componentDidMount(){
+  }
 
   render() {
     const { genres } = this.state;
@@ -43,7 +44,6 @@ export default class newMovie extends Form {
           {this.renderOptions('genre', 'Genre', genres)}
           {this.renderInput('numberInStock', 'Stock', 'number')}
           {this.renderInput('dailyRentalRate', 'Rate', 'number')}
-          {this.renderInput('publishDate', 'Publish Date', 'date')}
           {this.renderButton('Add movie')}
         </form>
       </div>

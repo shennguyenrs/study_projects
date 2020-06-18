@@ -15,7 +15,6 @@ export default class movieDetails extends Form {
       genre: '',
       numberInStock: '',
       dailyRentalRate: '',
-      publishDate: '',
     },
     genres: getGenres(),
     errors: {},
@@ -25,7 +24,6 @@ export default class movieDetails extends Form {
     title: Joi.string().required().label('Title'),
     numberInStock: Joi.number().max(10).required().label('Stock'),
     dailyRentalRate: Joi.number().max(5).required().label('Rate'),
-    publishDate: Joi.date().required().label('Date'),
   };
 
   doSubmit = () => {
@@ -34,19 +32,27 @@ export default class movieDetails extends Form {
     console.log('Submitted');
   };
 
+  fetchData = () => {
+    let data = {};
+    let { match } = this.props;
+    data = getMovie(match.params.id);
+    this.setState({ data });
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
   render() {
-    const { genres } = this.state;
-    const { match } = this.props;
-    console.log(match.params.id);
+    const { data, genres } = this.state;
 
     return (
       <div className="container mt-4">
         <form onSubmit={this.doSubmit}>
           {this.renderInput('title', 'Title')}
-          {this.renderOptions('genre', 'Genre', genres)}
+          {this.renderOptions('genre', 'Genre', genres, data.genre.name)}
           {this.renderInput('numberInStock', 'Stock', 'number')}
           {this.renderInput('dailyRentalRate', 'Rate', 'number')}
-          {this.renderInput('publishDate', 'Publish Date', 'date')}
           {this.renderButton('Save movie')}
         </form>
       </div>
