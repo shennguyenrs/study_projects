@@ -1,9 +1,8 @@
-import React from "react";
-import TableHeader from "./tableHeader";
-import TableBody from "./tableBody";
+import React from 'react';
+import TableHeader from './tableHeader';
+import TableBody from './tableBody';
 
 const table = ({ movies, headers, sortedColumn, onSort }) => {
-
   return (
     <table className="table container">
       <thead>

@@ -23,12 +23,12 @@ const inputOptions = ({
 inputOptions.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
-  objects: PropTypes.object,
+  objects: PropTypes.array,
   textProperty: PropTypes.string,
-  valueProperty: PropTypes.string
+  valueProperty: PropTypes.string,
 };
 
-inputOptions.defaultProp = {
+inputOptions.defaultProps = {
   textProperty: 'name',
   valueProperty: '_id',
 };

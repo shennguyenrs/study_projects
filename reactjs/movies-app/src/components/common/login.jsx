@@ -5,7 +5,7 @@ import Joi from '@hapi/joi';
 import Form from './form';
 
 export default class login extends Form {
-  state = { account: { email: '', password: '' }, errors: {} };
+  state = { data: { email: '', password: '' }, errors: {} };
 
   schema = {
     email: Joi.string()

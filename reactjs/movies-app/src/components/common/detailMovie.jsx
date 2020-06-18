@@ -2,12 +2,13 @@ import React from 'react';
 import Joi from '@hapi/joi';
 
 // Import Data
-import { getGenres } from '../../services/fakeGenreService.js';
+import { getGenres } from '../../services/fakeGenreService';
+import { getMovie } from '../../services/fakeMovieService';
 
 // Import Components
 import Form from './form';
 
-export default class newMovie extends Form {
+export default class movieDetails extends Form {
   state = {
     data: {
       title: '',
@@ -35,16 +36,18 @@ export default class newMovie extends Form {
 
   render() {
     const { genres } = this.state;
+    const { match } = this.props;
+    console.log(match.params.id);
 
     return (
       <div className="container mt-4">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.doSubmit}>
           {this.renderInput('title', 'Title')}
           {this.renderOptions('genre', 'Genre', genres)}
           {this.renderInput('numberInStock', 'Stock', 'number')}
           {this.renderInput('dailyRentalRate', 'Rate', 'number')}
           {this.renderInput('publishDate', 'Publish Date', 'date')}
-          {this.renderButton('Add movie')}
+          {this.renderButton('Save movie')}
         </form>
       </div>
     );

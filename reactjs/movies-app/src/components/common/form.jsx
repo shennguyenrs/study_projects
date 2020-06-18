@@ -6,7 +6,7 @@ import Input from './input';
 import InputOptions from './inputOptions';
 
 export default class form extends Component {
-  state = { account: {}, errors: {} };
+  state = { data: {}, errors: {} };
 
   validateProperty = ({ name, value }) => {
     let object = { [name]: value };
@@ -16,8 +16,8 @@ export default class form extends Component {
   };
 
   validate = () => {
-    let { account } = this.state;
-    let { error } = Joi.validate(account, this.schema, { abortEarly: false });
+    let { data } = this.state;
+    let { error } = Joi.validate(data, this.schema, { abortEarly: false });
 
     if (!error) return null;
     let errors = {};
@@ -39,9 +39,9 @@ export default class form extends Component {
     if (errorMessages) errors[input.name] = errorMessages;
     else delete errors[input.name];
 
-    let account = { ...this.state.account };
-    account[input.name] = input.value;
-    this.setState({ account, errors });
+    let data = { ...this.state.data };
+    data[input.name] = input.value;
+    this.setState({ data, errors });
   };
 
   renderButton(label) {
@@ -53,13 +53,13 @@ export default class form extends Component {
   }
 
   renderInput(name, label, type) {
-    let { account, errors } = this.state;
+    let { data, errors } = this.state;
     return (
       <Input
         name={name}
         type={'text' || type}
         label={label}
-        value={account[name]}
+        value={data[name]}
         error={errors[name]}
         onChange={this.handleChange}
       />
