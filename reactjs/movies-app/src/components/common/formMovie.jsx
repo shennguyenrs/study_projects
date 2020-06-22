@@ -59,13 +59,13 @@ export default class formMovie extends Form {
   }
 
   render() {
-    const { genres } = this.state;
+    const { data, genres } = this.state;
 
     return (
       <div className="container mt-4">
         <form onSubmit={this.handleSubmit}>
           {this.renderInput('title', 'Title')}
-          {this.renderOptions('genre', 'Genre', genres)}
+          {this.renderOptions('genre', 'Genre', genres, data.genreId)}
           {this.renderInput('numberInStock', 'Stock', 'number')}
           {this.renderInput('dailyRentalRate', 'Rate', 'number')}
           {this.renderButton('Save movie')}

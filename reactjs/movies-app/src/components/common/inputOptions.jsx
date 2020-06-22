@@ -8,17 +8,11 @@ export default class inputOptions extends Component {
     this.setState({ value: e.target.value });
   };
 
-  valueSelected = () => {
-    this.setState({ value: this.props.selected });
-  };
-
-  componentDidMount() {
-    this.valueSelected();
-  }
+  componentDidUpdate() {}
 
   render() {
     const { name, label, objects, textProperty, valueProperty } = this.props;
-    let { value } = this.state;
+    const { value } = this.state;
 
     return (
       <div className="form-group">
