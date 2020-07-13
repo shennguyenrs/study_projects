@@ -15,17 +15,53 @@ class App extends Component {
   }
 
   handleAdd = async () => {
-    let obj = { title: 'a', body: 'b' };
-    let { data: post } = await axios.post(apiEndpoint, obj);
-    console.log(post);
+    let originalPosts = this.state.posts;
+    let post = { title: 'a', body: 'b' };
+
+    let posts = [post, ...this.state.posts];
+    this.setState({ posts });
+
+    try {
+      let { data: post } = await axios.post(apiEndpoint, post);
+    } catch (e) {
+      /* handle error */
+      alert('Somethings wrong with updating to api');
+      this.setState({ posts: originalPosts });
+    }
   };
 
-  handleUpdate = (post) => {
-    console.log('Update', post);
+  handleUpdate = async (post) => {
+    let originalPosts = this.state.posts;
+    post.title = 'UPDATED';
+
+    let posts = [...this.state.posts];
+    let index = posts.indexOf(post);
+    posts[index] = { ...post };
+
+    this.setState({ posts });
+
+    try {
+      await axios.put(apiEndpoint + '/' + post.id, post);
+    } catch (e) {
+      /* handle error */
+      alert('Somethings wrong with updating to api');
+      this.setState({ posts: originalPosts });
+    }
   };
 
-  handleDelete = (post) => {
-    console.log('Delete', post);
+  handleDelete = async (post) => {
+    let originalPosts = this.state.posts;
+
+    let posts = this.state.posts.filter((p) => p.id !== post.id);
+    this.setState({ posts });
+
+    try {
+      await axios.delete(apiEndpoint + '/' + post.id);
+    } catch (e) {
+      /* handle error */
+      alert('Somethings wrong with updating to api');
+      this.setState({ posts: originalPosts });
+    }
   };
 
   render() {
