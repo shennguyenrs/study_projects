@@ -8,8 +8,6 @@ export default class inputOptions extends Component {
     this.setState({ value: e.target.value });
   };
 
-  componentDidUpdate() {}
-
   render() {
     const { name, label, objects, textProperty, valueProperty } = this.props;
     const { value } = this.state;
@@ -23,6 +21,7 @@ export default class inputOptions extends Component {
           className="form-control"
           onChange={this.handleChange}
         >
+          <options value="" />
           {objects.map((object) => (
             <option key={object[valueProperty]}>{object[textProperty]}</option>
           ))}
@@ -36,7 +35,6 @@ inputOptions.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   objects: PropTypes.array,
-  selected: PropTypes.string,
   textProperty: PropTypes.string,
   valueProperty: PropTypes.string,
 };
