@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
   // Declare a, b and c followed the equation
-  unsigned int a=1, b=1, c=1;
+  unsigned int a=0, b=0, c=0;
   double leftPart, denomirator;
 
   // Declare variables
@@ -42,7 +42,7 @@ int main()
         {
           c = leftPart/(27*pow(b,2)); // Take from the equation
           unsigned int sum = a+b+c;
-          count = sum<=x ? count+1 : count+0;
+          count += sum<=x ? 1 : 0;
         }
 
         // Increment b
