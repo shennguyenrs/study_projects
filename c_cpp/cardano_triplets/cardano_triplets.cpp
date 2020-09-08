@@ -1,10 +1,14 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
+#include<chrono>
 using namespace std;
 
 int main()
 {
+  // Start timer
+  auto start = chrono::high_resolution_clock::now();
+
   // Declare variables
   unsigned int q, n, i=0;
   vector<unsigned int> vec;
@@ -57,6 +61,11 @@ int main()
 
     cout << count << endl;
   }
+
+  // Stop timer
+  auto stop = chrono::high_resolution_clock::now();
+  auto duration = chrono::duration_cast<chrono::seconds>(stop-start);
+  cout << duration.count() << 's' << endl;
 
   return 0;
 }
