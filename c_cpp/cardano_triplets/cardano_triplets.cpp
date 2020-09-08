@@ -5,12 +5,8 @@ using namespace std;
 
 int main()
 {
-  // Declare a, b and c followed the equation
-  unsigned int a=0, b=0, c=0;
-  double leftPart, denomirator;
-
   // Declare variables
-  unsigned int q, n, i=0, count=0;
+  unsigned int q, n, i=0;
   vector<unsigned int> vec;
 
   // Program flow
@@ -24,6 +20,10 @@ int main()
 
   for(unsigned int x: vec)
   {
+    //Declare count for every element in vec
+    unsigned int a=0, b=0, c=0, count=0;
+    double leftPart, denomirator;
+
     while(a+b<x)
     {
       while(a+b<x)
