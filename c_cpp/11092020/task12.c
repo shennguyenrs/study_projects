@@ -1,12 +1,14 @@
+/* Task 12: Solve quadratic equation with Vieta's Formula
+ */
+
 #include <stdio.h>
 #include <math.h>
 
 /*Solve quadratic equation*/
-void quadratic_equation() 
+int main() 
 {
   double a, b, c;
 
-  printf("----------------------------------------------------");
   printf("\nEnter your number of quadratic equation ax**2 + bx + c = 0");
   printf("\nEnter a = ");
   scanf("%lf", &a);
@@ -43,7 +45,6 @@ void quadratic_equation()
     }
 
   }
-  
-  printf("\n----------------------------------------------------\n");
 
+  return 0;
 }
