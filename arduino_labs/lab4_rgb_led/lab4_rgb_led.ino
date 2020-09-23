@@ -1,5 +1,3 @@
-#include<Arduino.h>
-
 // Define pins
 #define RED 11 // Red pin
 #define GREEN 9 // Green pin
@@ -13,7 +11,6 @@ void changeValue(int red, int green, int blue)
     analogWrite(BLUE, blue);
 }
 
-// Color modes
 // Rainbow color changing
 void rainbowColor()
 {
