@@ -6,9 +6,11 @@
 
 int main()
 {
+  // Declare variables
   float a, b, c, p;
   float square;
 
+  // Input sides of triangle
   printf("Input the first side: ");
   scanf("%f", &a);
   printf("\nInput the second side: ");
@@ -16,6 +18,7 @@ int main()
   printf("\nInput the third side: ");
   scanf("%f", &c);
 
+  // Calculate p and square of triangle
   p = (a+b+c)/2.0;
   square = sqrt(p*(p-a)*(p-b)*(p-c));
 

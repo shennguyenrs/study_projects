@@ -3,13 +3,12 @@
 
 #include<stdio.h>
 
-int FindMax(int a, int b)
-{
-  return a > b ? a : b;
-}
+// Function to find max number between 2 numbers
+#define FindMax(a, b) (a>b ? a : b)
 
 int main()
 {
+  // Declare variables
   int a, b, c;
   int max;
   
