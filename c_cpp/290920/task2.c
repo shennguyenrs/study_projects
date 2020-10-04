@@ -5,7 +5,6 @@
 
 // Declare global variables
 const int ROW = 11;
-const int COL = 2;
 
 int main()
 {
@@ -50,7 +49,6 @@ int main()
       }
       else if(yearOfMid>year)
       {
-        begin = 0;
         end = mid;
       }
       else
