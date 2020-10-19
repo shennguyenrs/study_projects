@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <sqlite3.h>
 
-void CreateTable()
+#include "opentable.c"
+
+int main()
 {
   // Decare table schema
   sqlite3 * table;
@@ -21,7 +23,7 @@ void CreateTable()
   char * errmsg;
 
   // Create Table
-  table = OpenTable();
+  table = opentable();
   exit = sqlite3_exec(table, sql, NULL, NULL, &errmsg);
 
   // Notify if create table has error
@@ -37,4 +39,6 @@ void CreateTable()
 
   // Close table
   sqlite3_close(table);
+
+  return 0;
 }

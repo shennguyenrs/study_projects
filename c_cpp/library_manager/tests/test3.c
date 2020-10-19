@@ -4,16 +4,26 @@
 
 int main()
 {
-    char * str;
+    char * str1;
+    char * str2;
 
-    str = malloc(1024*sizeof(char));
+    str1 = malloc(1024*sizeof(char));
+    str2 = malloc(1024*sizeof(char));
 
-    scanf("%[^\n]", str);
+    printf("Input anything: ");
+    fgets(str1, 1024, stdin);
 
-    int len = strlen(str);
-    str = realloc(str, len);
+    printf("Input anything: ");
+    fgets(str2, 1024, stdin);
 
-    printf("%s", str);
+    int len = strlen(str1);
+    str1 = realloc(str1, len);
+
+    len = strlen(str2);
+    str2 = realloc(str2, len);
+
+    printf("%s", str1);
+    printf("%s", str2);
 
     return 0;
 }

@@ -17,7 +17,7 @@ int MenuOne()
     // Input validation
     do 
     {
-        printf("Input function number:");
+        printf("Input function number: ");
         scanf("%d", &choose);
 
         isTrue = (choose==0 || choose==1);

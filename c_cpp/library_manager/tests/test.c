@@ -71,7 +71,7 @@ int main()
         sqlite3_open("books.db", &database);
 
         // Queries
-        char * selectQuery = "SELECT * FROM Books;";
+        char * selectQuery = "SELECT * FROM Books WHERE amount = 2;";
         /*char * deleteQuery = "DELETE FROM Books WHERE isbn = 3;";*/
         char * values = "INSERT INTO Books VALUES(1, 'C Programming', 1, 'Textbook');" 
                         "INSERT INTO Books VALUES(2, 'C++ Programming', 1, 'Textbook');"

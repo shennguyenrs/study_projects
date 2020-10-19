@@ -1,15 +1,24 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include "MenuOne.c"
-#include "MenuTwo.c"
+// Declare global variables
+static char * fileName = "books.db";
+
+// Sub functions
+#include "callback.c"
 #include "OpenTable.c"
 #include "CheckDatabase.c"
 #include "CreateTable.c"
+#include "ShowGenre.c"
+
+// Main functions
+#include "MenuOne.c"
+#include "MenuTwo.c"
 
 #include "AddNewTitle.c"
-#include "SearchTitle.c"
-#include "EditTitle.c"
+#include "SearchKeyword.c"
+#include "SearchIsbn.c"
+#include "DeleteBook.c"
 #include "ListGenre.c"
 
 int main()
@@ -17,7 +26,6 @@ int main()
     // Declare variables
     unsigned int choose;
     unsigned int count;
-    char * fileName = "books.db";
     FILE * file;
 
     // Welcome Screen
@@ -52,19 +60,22 @@ int main()
                 AddNewTitle();
                 continue;
             case 2:
-                SearchTitle();
+                SearchIsbn();
                 continue;
             case 3:
-                EditTitle();
+                SearchKeyword();
                 continue;
             case 4:
-                ListGenre();
+                DeleteBook();
+                continue;
+            case 5:
+                ListByGenre();
                 continue;
             case 0:
                 break;
         }
     }
-    while(1);
+    while(choose!=0);
 
     return 0;
 }

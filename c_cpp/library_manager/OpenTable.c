@@ -7,7 +7,12 @@ sqlite3 * OpenTable()
   sqlite3 * table;
 
   // Open tables
-  sqlite3_open("books.db", &table);
+  int exit = sqlite3_open(fileName, &table);
+
+  if(exit!=SQLITE_OK)
+  {
+    printf("Error when open database!\n");
+  }
 
   return table;
 }

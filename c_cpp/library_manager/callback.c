@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void callback(void * data, int argc, char ** argv, char ** azColName)
+int callback(void * data, int argc, char ** argv, char ** azColName)
 {
     int i = 0;
 
@@ -10,4 +10,6 @@ void callback(void * data, int argc, char ** argv, char ** azColName)
         printf("%s: %s\n", azColName[i], argv[i] ? argv[i] : NULL);
     }
     printf("\n");
+
+    return 0;
 }
