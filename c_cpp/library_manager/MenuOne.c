@@ -18,7 +18,7 @@ int MenuOne()
     do 
     {
         printf("Input function number: ");
-        scanf("%d", &choose);
+        scanf("%d%*c", &choose);
 
         isTrue = (choose==0 || choose==1);
 

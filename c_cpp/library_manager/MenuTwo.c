@@ -19,8 +19,7 @@ int MenuTwo()
     do 
     {
         printf("Input function number: ");
-        scanf("%d", &choose);
-
+        scanf("%d%*c", &choose);
 
         // Change isTrue conditions if
         // there is a new function

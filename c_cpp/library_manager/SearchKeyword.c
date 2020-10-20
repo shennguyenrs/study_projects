@@ -17,7 +17,7 @@ void SearchKeyword()
     printf("\n");
 
     printf("Input search keyword: ");
-    scanf("%s", keyword);
+    scanf("%s%*c", keyword);
 
     len = strlen(keyword);
     keyword = realloc(keyword, len);

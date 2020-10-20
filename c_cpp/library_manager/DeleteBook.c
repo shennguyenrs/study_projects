@@ -3,34 +3,6 @@
 #include <string.h>
 #include <sqlite3.h>
 
-// Do query with ISBN-10
-char * DeleteIsbn10(char isbn[10])
-{
-    // Query statement
-    char * query = "DELETE FROM Books WHERE isbn10=";
-    char end[] = ";";
-
-    // Concat the query string
-    strcat(query, isbn);
-    strcat(query, end);
-
-    return query;
-}
-
-// Do query with ISBN-13
-char * DeleteIsbn13(char isbn[13])
-{
-    // Query statement
-    char * query = "DELETE FROM Books WHERE isbn13=";
-    char end[] = ";";
-
-    // Concat the query string
-    strcat(query, isbn);
-    strcat(query, end);
-
-    return query;
-}
-
 void DeleteBook()
 {
     // Declare variables
@@ -75,16 +47,21 @@ void DeleteBook()
 
     // Prepare sql query bases on result
     char * query;
+    char end[] = ";";
     sqlite3 * table;
 
     if(len==10)
     {
-        query = DeleteIsbn10(isbn);
+        query = "DELETE FROM Books WHERE isbn10=";
     }
     else
     {
-        query = DeleteIsbn13(isbn);
+        query = "DELETE FROM Books WHERE isbn13=";;
     }
+
+    // Concat the query string
+    strcat(query, isbn);
+    strcat(query, end);
 
     // Open table and excute the statement
     table = OpenTable();

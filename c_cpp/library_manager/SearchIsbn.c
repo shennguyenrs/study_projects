@@ -4,34 +4,6 @@
 #include <string.h>
 #include <sqlite3.h>
 
-// Do query with ISBN-10
-char * SearchIsbn10(char isbn[10])
-{
-    // Query statement
-    char * query = "SELECT * FROM Books WHERE isbn10=";
-    char end[] = ";";
-
-    // Concat the query string
-    strcat(query, isbn);
-    strcat(query, end);
-
-    return query;
-}
-
-// Do query with ISBN-13
-char * SearchIsbn13(char isbn[13])
-{
-    // Query statement
-    char * query = "SELECT * FROM Books WHERE isbn13=";
-    char end[] = ";";
-
-    // Concat the query string
-    strcat(query, isbn);
-    strcat(query, end);
-
-    return query;
-}
-
 void SearchIsbn()
 {
     // Declare variables
@@ -76,16 +48,21 @@ void SearchIsbn()
 
     // Prepare sql query bases on result
     char * query;
+    char end[] = ";";
     sqlite3 * table;
 
     if(len==10)
     {
-        query = SearchIsbn10(isbn);
+        query = "SELECT * FROM Books WHERE isbn10=";
     }
     else
     {
-        query = SearchIsbn13(isbn);
+        query = "SELECT * FROM Books WHERE isbn13=";
     }
+
+    // Concat the query string
+    strcat(query, isbn);
+    strcat(query, end);
 
     // Open table and excute the statement
     table = OpenTable();

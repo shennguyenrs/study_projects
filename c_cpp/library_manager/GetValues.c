@@ -19,43 +19,43 @@ struct BookInfor getValue()
     unsigned int len;
 
     // Isbn 13
-    printf("\nISBN-13 (Without -): ");
+    printf("ISBN-13 (Without dash): ");
     fgets(input.isbn13, 13, stdin);
 
     // Isbn 10
-    printf("\nISBN-10: ");
+    printf("ISBN-10 (Without dash): ");
     fgets(input.isbn10, 10, stdin);
 
     // Title
-    printf("\nTitle: ");
+    printf("Title: ");
     fgets(input.title, 1024, stdin);
     len = strlen(input.title);
     input.title = realloc(input.title, len);
 
     // Author
-    printf("\nAuthor: ");
+    printf("Author: ");
     fgets(input.author, 1024, stdin);
     len = strlen(input.author);
     input.author = realloc(input.author, len);
     
     // Publisher
-    printf("\nPublisher: ");
+    printf("Publisher: ");
     fgets(input.publisher, 1024, stdin);
     len = strlen(input.publisher);
     input.publisher = realloc(input.publisher, len);
 
     // Amount
-    printf("\nAmount: ");
-    scanf("%s", input.amount);
+    printf("Amount: ");
+    scanf("%s%*c", input.amount);
 
     // Genre
-    printf("\nGenre: ");
+    printf("Genre: ");
     fgets(input.genre, 1024, stdin);
     len = strlen(input.genre);
     input.genre = realloc(input.genre, len);
 
     // Language
-    printf("\nLanguage: ");
+    printf("Language: ");
     fgets(input.language, 1024, stdin);
     len = strlen(input.language);
     input.language = realloc(input.language, len);

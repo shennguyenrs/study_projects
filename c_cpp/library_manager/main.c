@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 // Declare global variables
-static char * fileName = "books.db";
+#include "FileName.h"
 
 // Sub functions
 #include "callback.c"

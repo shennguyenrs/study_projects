@@ -20,7 +20,7 @@ void ListByGenre()
     ShowGenre();
 
     printf("Input genre: ");
-    scanf("%s", keyword);
+    scanf("%s%*c", keyword);
 
     len = strlen(keyword);
     keyword = realloc(keyword, len);
