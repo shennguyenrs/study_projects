@@ -13,7 +13,7 @@ int Menu()
   printf("\n");
   printf("\nChoose an number to start:");
 
-  scanf("%d", &choice);
+  scanf("%d%*c", &choice);
 
   return choice;
 }

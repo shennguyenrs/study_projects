@@ -12,9 +12,9 @@ void CalculateTime()
   do
   {
     printf("\nInput the distance (km): ");
-    scanf("%f", &distance);
+    scanf("%f%*c", &distance);
     printf("Input the average velocity (km/h): ");
-    scanf("%f", &velocity);
+    scanf("%f%*c", &velocity);
   }
   while(distance<=0 && velocity<=0);
 

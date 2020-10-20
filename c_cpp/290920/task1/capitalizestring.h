@@ -10,26 +10,18 @@ const int MAX_STRING = 1024;
 void CapitalizeString()
 {
   // Declare variables
-  char * str = (char*)malloc(MAX_STRING*sizeof(char)); // Reserve memory for the string
+  char * str = (char*) malloc(MAX_STRING*sizeof(char)); // Reserve memory for the string
   int count=0, len, i;
 
   printf("\n3 - Capitalize String\n");
-  printf("\nInput your string (without spaces): ");
-
-  /*
-  // Not work on gcc 8 9 10
-  // but work on clang 7
-  scanf("%1024[^\n]", str);  //Scan a whole line until \n
-  fgets(str, MAX_STRING, stdin);
-  */
-
-  scanf("%s", str); // Scan without space
+  printf("\nInput your string: ");
+  fgets(str, 1024, stdin);
 
   // Len the string 
   len = strlen(str);
 
   // Resize the memory of the string
-  str = (char*)realloc(str, len);
+  str = (char*) realloc(str, len);
 
   // Check if the character is small
   // and print out the capital character

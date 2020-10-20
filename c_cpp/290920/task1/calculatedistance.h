@@ -21,9 +21,9 @@ void CalculateDistance()
   printf("\nInput the coordinate separates by a space: x y\n");
 
   printf("First point coordinate: ");
-  scanf("%f %f", &firstPoint.xCor, &firstPoint.yCor);
+  scanf("%f %f%*c", &firstPoint.xCor, &firstPoint.yCor);
   printf("Second point coordinate: ");
-  scanf("%f %f", &secondPoint.xCor, &secondPoint.yCor);
+  scanf("%f %f%*c", &secondPoint.xCor, &secondPoint.yCor);
 
   // Calculate distance
   horDis = firstPoint.xCor - secondPoint.xCor;
