@@ -32,7 +32,7 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print("Keypad 4x4");
   delay(wait);
-    lcd.clear();
+  lcd.clear();
 }
 
 void loop()
