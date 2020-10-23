@@ -1,25 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Declare global variables
-#include "FileName.h"
-
-// Sub functions
-#include "callback.c"
-#include "OpenTable.c"
-#include "CheckDatabase.c"
-#include "CreateTable.c"
-#include "ShowGenre.c"
-
-// Main functions
-#include "MenuOne.c"
-#include "MenuTwo.c"
-
-#include "AddNewTitle.c"
-#include "SearchKeyword.c"
-#include "SearchIsbn.c"
-#include "DeleteBook.c"
-#include "ListGenre.c"
+#include "libs/Books.h"
 
 int main()
 {

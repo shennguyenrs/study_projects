@@ -18,13 +18,6 @@ class Customers
     void SetAppliedCredit(float a) { appliedCredit = a; }
     void SetLimitedCredit(float a) { limitedCredit = a; }
 
-    // Get functions
-    int GetAccountNumber() { return accountNumber; }
-    float GetBalance() { return balance; }
-    float GetCharges() { return charges; }
-    float GetAppliedCredit() { return appliedCredit; }
-    float GetLimitedCredit() { return limitedCredit; }
-
     // Calculate new balance
     void NewBalance() 
     { 

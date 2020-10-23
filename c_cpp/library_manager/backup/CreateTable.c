@@ -6,14 +6,14 @@ void CreateTable()
   // Decare table schema
   sqlite3 * table;
   char * sql = "CREATE TABLE Books("
-              "isbn13 INT PRIMARY KEY NOT NULL,"
-              "isbn10 INT NOT NULL,"
+              "isbn13 TEXT PRIMARY KEY NOT NULL,"
+              "isbn10 TEXT,"
               "title TEXT NOT NULL,"
               "author TEXT NOT NULL,"
-              "publisher TEXT NOT NULL,"
+              "publisher TEXT,"
               "amount INT NOT NULL,"
-              "genre TEXT NOT NULL,"
-              "language TEXT NOT NULL"
+              "genre TEXT,"
+              "language TEXT"
               ");";
 
   // Declare variables

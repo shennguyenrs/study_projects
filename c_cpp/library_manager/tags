@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddNewTitle	libs/Books.c	/^void AddNewTitle()$/;"	f
+BookInfo	libs/Books.h	/^struct BookInfo$/;"	s
+CheckDatabase	libs/Books.c	/^int CheckDatabase()$/;"	f
+CreateTable	libs/Books.c	/^void CreateTable()$/;"	f
+DeleteBook	libs/Books.c	/^void DeleteBook()$/;"	f
+ListByGenre	libs/Books.c	/^void ListByGenre()$/;"	f
+MAX_STRING	libs/Books.h	22;"	d
+MenuOne	libs/Books.c	/^int MenuOne()$/;"	f
+MenuTwo	libs/Books.c	/^int MenuTwo()$/;"	f
+OpenTable	libs/Books.c	/^sqlite3 * OpenTable()$/;"	f
+SearchIsbn	libs/Books.c	/^void SearchIsbn()$/;"	f
+SearchKeyword	libs/Books.c	/^void SearchKeyword()$/;"	f
+ShowGenre	libs/Books.c	/^void ShowGenre()$/;"	f
+amount	libs/Books.h	/^    char amount[2];$/;"	m	struct:BookInfo
+author	libs/Books.h	/^    char * author;$/;"	m	struct:BookInfo
+callback	libs/Books.c	/^int callback(void * data, int argc, char ** argv, char ** azColName)$/;"	f
+fileName	libs/Books.h	/^const char * fileName = "books.db";$/;"	v
+genre	libs/Books.h	/^    char * genre;$/;"	m	struct:BookInfo
+getValue	libs/Books.c	/^struct BookInfo getValue()$/;"	f
+isbn10	libs/Books.h	/^    char isbn10[10];$/;"	m	struct:BookInfo
+isbn13	libs/Books.h	/^    char isbn13[13];$/;"	m	struct:BookInfo
+language	libs/Books.h	/^    char * language;$/;"	m	struct:BookInfo
+main	main.c	/^int main()$/;"	f
+publisher	libs/Books.h	/^    char * publisher;$/;"	m	struct:BookInfo
+title	libs/Books.h	/^    char * title;$/;"	m	struct:BookInfo
