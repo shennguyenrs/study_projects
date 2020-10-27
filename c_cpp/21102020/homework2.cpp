@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Declare constants
@@ -17,6 +18,9 @@ int main()
   cout << "           Homework 2         " << endl;
   cout << "==============================" << endl;
   cout << endl;
+
+  // Set precision
+  cout << fixed << setprecision(2);
 
   do
   {

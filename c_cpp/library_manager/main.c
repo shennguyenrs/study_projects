@@ -19,10 +19,12 @@ int main()
     do
     {
         // Check database exist
-        if((file = fopen(fileName, "r"))==NULL)
+        if((file = fopen(filename, "r"))==NULL)
         {
+            printf("Not found database in local!\n");
             // Create new database
             CreateTable();
+            printf("\n");
         }
 
         // Check data in database

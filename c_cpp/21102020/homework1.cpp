@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 class Customers
@@ -40,6 +41,9 @@ int main()
   cout << "           Homework 1           " << endl;
   cout << "================================" << endl; 
   cout << endl;
+
+  // Set precision
+  cout << fixed << setprecision(2);
   
   do
   {

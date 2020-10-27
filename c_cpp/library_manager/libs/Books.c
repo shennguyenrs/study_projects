@@ -6,6 +6,9 @@
 
 #include "Books.h"
 
+// Declare database file name
+const char filename[] = "books.db";
+
 /* Sub-functions */
 
  /*
@@ -34,7 +37,7 @@ sqlite3 * OpenTable()
   sqlite3 * table;
 
   // Open tables
-  int exit = sqlite3_open(fileName, &table);
+  int exit = sqlite3_open(filename, &table);
 
   // Print out the message if error
   if(exit!=SQLITE_OK)
