@@ -5,35 +5,46 @@ using namespace std;
 class Customers
 {
   private:
-    unsigned int accountNumber{0};
-    float balance{0};
-    float charges{0};
-    float appliedCredit{0};
-    float limitedCredit{0};
+    unsigned int accountNumber;
+    float balance;
+    float charges;
+    float appliedCredit;
+    float limitedCredit;
 
   public:
-    // Set functions
-    void SetAccountNumber(int a) { accountNumber = a; }
-    void SetBalance(float a) { balance = a; }
-    void SetCharges(float a) { charges = a; }
-    void SetAppliedCredit(float a) { appliedCredit = a; }
-    void SetLimitedCredit(float a) { limitedCredit = a; }
+    // Initializer
+    Customers(unsigned int a, float b, float c, float d, float e) :
+      accountNumber(a),
+      balance(b),
+      charges(c),
+      appliedCredit(d),
+      limitedCredit(e)
+    {}
 
+    // Set new values
+    void setBalance(float newBalance)
+    {
+      balance = newBalance;
+    }
+    
     // Calculate new balance
-    void NewBalance() 
+    void calculateNewBalance() 
     { 
       float newBalance = balance + charges - appliedCredit;
-      SetBalance(newBalance);
+      setBalance(newBalance);
     }
 
     // Check if customer's credit exceeds
-    bool IsCreditExceed() { return balance > limitedCredit ? true : false; }
+    bool isCreditExceed() 
+    { 
+      return balance > limitedCredit ? true : false; 
+    }
 };
 
 int main()
 {
   // Declare variables
-  unsigned int n{1};
+  unsigned int n{0};
   bool isTrue{false};
   
   // Welcome screen
@@ -45,6 +56,8 @@ int main()
   // Set precision
   cout << fixed << setprecision(2);
   
+  // Input information
+  // and print out messages loop
   do
   {
     // Menu
@@ -75,7 +88,7 @@ int main()
       float appliedCredit{0};
       float limitedCredit{0};
 
-      // Input values
+      // Input values prompts
       cout << "Account Number: ";
       cin >> accountNumber;
       
@@ -91,22 +104,23 @@ int main()
       cout << "Credit Limit: ";
       cin >> limitedCredit;
 
-      // Set values to class
-      Customers cus;
-      cus.SetAccountNumber(accountNumber);
-      cus.SetBalance(balance);
-      cus.SetCharges(charges);
-      cus.SetAppliedCredit(appliedCredit);
-      cus.SetLimitedCredit(limitedCredit);
+      cout << endl;
+
+      // Create new object
+      // and set the values to object
+      Customers customer(accountNumber, balance, charges, appliedCredit, limitedCredit);
 
       // Calculate new balance
-      cus.NewBalance();
+      customer.calculateNewBalance();
 
-      // Check if balance exceeds
-      if(cus.IsCreditExceed())
+      // Print out the messages
+      // if the credit of customer is exceeded
+      if(customer.isCreditExceed())
       {
         cout << "Credit Limit Exceeded!" << endl;
       }
+
+      cout << "------------------------------" << endl;
     }
   }
   while(n!=0);
