@@ -6,7 +6,7 @@ using namespace std;
 
 //#ifndef _CUSTOMER_H_
 //#define _CUSTOMER_H_
-//
+
 const unsigned int accountNumber = 0;
 const unsigned int balance = 1;
 const unsigned int charge = 2;
@@ -55,6 +55,5 @@ class Customers
     // Convert string to numbers
     float toNumber(string input);
 };
-
 
 //#endif
