@@ -27,7 +27,8 @@ New Balance = Begining Balance + Charges - Applied Credit
 ```
 
 ## Usage
-Make output file using the script. The script also include creating tags that requied installed `exuberant-ctags` package.
+Make output file using the script. The script also include creating tags that required installed `exuberant-ctags` package.
+** This script can only be run on Debian or Ubuntu **
 ```
 sh ./makenrun.sh filename headername
 ```

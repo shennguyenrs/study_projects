@@ -45,6 +45,11 @@ int main()
     // and print out result
     if(choose=="1")
     {
+      // Prompt
+      cout << "Cautions: Only allow positive integer and floating-point number!" << endl; 
+      cout << "          Error message will be print out, if type error occurs!" << endl; 
+      cout << endl;
+
       cout << "Enter gross sales: ";
       cin >> sales;
 
@@ -62,8 +67,8 @@ int main()
       else
       {
         cout << endl;
-        cout << "You entered charaters!" << endl;
-        cout << "Please enter a number!" << endl;
+        cout << "You entered charaters or negative value!" << endl;
+        cout << "Please enter again!" << endl;
         cout << "-----------------------------" << endl;
         cout << endl;
       }
