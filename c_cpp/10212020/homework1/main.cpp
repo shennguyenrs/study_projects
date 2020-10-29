@@ -43,8 +43,8 @@ int main()
     // Main function of program
     if(choose=="1")
     {
-      // Declare variables
-      string values[5];
+      // Create a values array as a size of headers
+      string values[sizeof(headers)/sizeof(headers[0])];
 
       // Input values prompts
       cout << "Enter the values to customer account" << endl;
