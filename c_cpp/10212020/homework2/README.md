@@ -9,7 +9,7 @@ const float BASE = 150.0;
 
 ## Usage
 Make output file using the script. This script also includes creating tags that required installed `exuberant-ctags` package.
-** This script can only be run on Debian or Ubuntu **
+**This script can only be run on Debian or Ubuntu**
 ```
 sh ./makenrun.sh filename headername
 ```
