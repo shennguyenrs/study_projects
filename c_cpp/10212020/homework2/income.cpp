@@ -16,31 +16,31 @@ float Income::toNumber()
   return n;
 }
 
-  // Validate string if it is a float
-  bool Income::validateFloat()
-  {
-    bool result{true};
-    unsigned int i{0};
-    unsigned int len = input.length();
-    char period = '.';
+// Validate string if it is a float
+bool Income::validateFloat()
+{
+  bool result{true};
+  unsigned int i{0};
+  unsigned int len = input.length();
+  char period = '.';
 
-    // Find alphabets or punctuations
-    // except period
-    for(; i<len; i++)
+  // Find alphabets or punctuations
+  // except period
+  for(; i<len; i++)
+  {
+    if(!isdigit(input[i]) && input[i]!=period)
     {
-      if(!isdigit(input[i]) && input[i]!=period)
-      {
-        result = false;
-        break;
-      }
+      result = false;
+      break;
     }
-
-    return result;
   }
 
-  // Calculate income
-  float Income::toIncome()
-  {
-    Income grossSales(input);
-    return BASE + BONUS_RATIO*grossSales.toNumber();
-  }
+  return result;
+}
+
+// Calculate income
+float Income::toIncome()
+{
+  Income grossSales(input);
+  return BASE + BONUS_RATIO*grossSales.toNumber();
+}
