@@ -47,7 +47,12 @@ int main()
       string values[5];
 
       // Input values prompts
-      cout << "Enter the values of customer" << endl;
+      cout << "Enter the values to customer account" << endl;
+      cout << "Cautions: Only integer and floating-point number are allowed!" << endl;
+      cout << "          If errors occur, the messages will be print out" << endl; 
+      cout << "          after every forms are inputted!" << endl;
+
+      cout << endl;
       cout << "Account Number: ";
       cin >> values[accountNumber];
       

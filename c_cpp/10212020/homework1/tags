@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Customers	customer.hpp	/^    Customers(): customer() {};$/;"	f	class:Customers
+Customers	customer.hpp	/^class Customers$/;"	c
+accountNumber	customer.hpp	/^const unsigned int accountNumber = 0;$/;"	v
+appliedCredit	customer.hpp	/^const unsigned int appliedCredit = 3;$/;"	v
+balance	customer.hpp	/^const unsigned int balance = 1;$/;"	v
+calculateNewBalance	customer.cpp	/^void Customers::calculateNewBalance() $/;"	f	class:Customers
+charge	customer.hpp	/^const unsigned int charge = 2;$/;"	v
+customer	customer.hpp	/^    vector<pair<string,string>> customer;$/;"	m	class:Customers
+getBalance	customer.cpp	/^string Customers::getBalance()$/;"	f	class:Customers
+isCreditExceed	customer.cpp	/^bool Customers::isCreditExceed() $/;"	f	class:Customers
+limitedCredit	customer.hpp	/^const unsigned int limitedCredit = 4;$/;"	v
+main	main.cpp	/^int main()$/;"	f
+setBalance	customer.cpp	/^void Customers::setBalance(string newBalance)$/;"	f	class:Customers
+setValues	customer.cpp	/^void Customers::setValues(string values[])$/;"	f	class:Customers
+toNumber	customer.cpp	/^float Customers::toNumber(string input)$/;"	f	class:Customers
+validateCustomer	customer.cpp	/^bool Customers::validateCustomer()$/;"	f	class:Customers
+validateDigits	customer.cpp	/^bool Customers::validateDigits(string input)$/;"	f	class:Customers

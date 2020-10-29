@@ -16,7 +16,7 @@ const unsigned int limitedCredit = 4;
 const string headers[]
 {
   "Account Number",
-  "Balance",
+  "Beginning Balance",
   "Charge",
   "Applied Credit",
   "Limit Credit"
@@ -41,7 +41,7 @@ class Customers
     void setValues(string values[]);
 
     // Set new balance
-    void setBalance(float newBalance);
+    void setBalance(string newBalance);
 
     // Get balance value
     string getBalance();

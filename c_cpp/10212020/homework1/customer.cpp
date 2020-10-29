@@ -12,19 +12,32 @@ bool Customers::validateDigits(string input)
   unsigned int i{0};
   unsigned int len = input.length();
   char period = '.';
+  char dash = '-';
 
   // Find alphabets or punctuations
-  // except period
+  // except period and the begining dash
   for(; i<len; i++)
   {
-    if(!isdigit(input[i]) && input[i]!=period)
+    if(i==0)
     {
-      result = false;
+      result = input[i]==dash || isdigit(input[i]) ? true : false;
+    }
+    else
+    {
+      result = input[i]==period || isdigit(input[i]) ? true : false;
+    }
+
+    // Break loop if false
+    if(result==false)
+    {
       break;
     }
   }
 
-  return result;
+  // Check for second period
+  bool secondPeriod = input.find(period, input.find(period)+1)!=string::npos ? true : false;
+
+  return result && !secondPeriod;
 }
 
 // Validate customer's values
@@ -60,7 +73,7 @@ void Customers::setValues(string values[])
 }
 
 // Set new balance
-void Customers::setBalance(float newBalance)
+void Customers::setBalance(string newBalance)
 {
   // Erase value in the position
   customer.erase(customer.begin()+balance);
@@ -68,7 +81,7 @@ void Customers::setBalance(float newBalance)
   // Insert new value
   customer.insert(
       customer.begin()+balance, 
-      make_pair(headers[balance], to_string(newBalance))
+      make_pair(headers[balance], newBalance)
       );
 }
 
@@ -86,7 +99,14 @@ void Customers::calculateNewBalance()
                   - toNumber(customer[appliedCredit].second)
                   ;
 
-  setBalance(newBalance);
+  // Convert new balance to string
+  stringstream ss;
+  ss << newBalance;
+
+  string str = ss.str();
+
+  // Set new balance to account
+  setBalance(str);
 }
 
 // Check if customer's credit exceeds
