@@ -53,19 +53,19 @@ int main()
       cout << "          after every forms are inputted!" << endl;
 
       cout << endl;
-      cout << "Account Number: ";
+      cout << headers[accountNumber] << ": ";
       cin >> values[accountNumber];
       
-      cout << "Beginning Balance: ";
+      cout << headers[balance] << ": ";
       cin >> values[balance];
 
-      cout << "Total Charges: ";
+      cout << headers[charge] << ": ";
       cin >> values[charge];
 
-      cout << "Applied Credit: ";
+      cout << headers[appliedCredit] << ": ";
       cin >> values[appliedCredit];
 
-      cout << "Credit Limit: ";
+      cout << headers[limitedCredit] << ": ";
       cin >> values[limitedCredit];
 
       cout << "------------------------------" << endl;
