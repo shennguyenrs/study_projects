@@ -21,11 +21,16 @@ const string headers[]
 };
 ```
 
+The formula to calculate new balance after check for exceed.
+```
+New Balance = Begining Balance + Charges - Applied Credit
+```
+
 ## Usage
-Make output file using the script: 
+Make output file using the script. The script also include creating tags that requied installed `exuberant-ctags` package.
 ```
 sh ./makenrun.sh filename headername
 ```
 ``` bash
-sh ./makenrun.sh main income
+sh ./makenrun.sh main customer
 ```
