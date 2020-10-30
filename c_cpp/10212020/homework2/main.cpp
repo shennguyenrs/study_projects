@@ -46,6 +46,7 @@ int main()
     if(choose=="1")
     {
       // Prompt
+      cout << endl;
       cout << "Cautions: Only allow positive integer and floating-point number!" << endl; 
       cout << "          Error message will be print out, if type error occurs!" << endl; 
       cout << endl;
