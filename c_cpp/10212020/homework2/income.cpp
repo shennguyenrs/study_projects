@@ -35,7 +35,10 @@ bool Income::validateFloat()
     }
   }
 
-  return result;
+  // Check for second period
+  bool secondPeriod = input.find(period, input.find(period)+1)!=string::npos ? true : false;
+
+  return result && !secondPeriod;
 }
 
 // Calculate income
