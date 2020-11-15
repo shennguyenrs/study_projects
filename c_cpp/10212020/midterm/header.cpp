@@ -63,12 +63,12 @@ set<char> Polynomial::getUniVar()
 
 void Polynomial::insertUniVar(Monomial mono)
 {
-  char var = mono.getVar();
+  string var = mono.makeKey();
 
   // Do not insert if var is 0
-  if(var!='0')
+  if(var!="0")
   {
-    uniqueVar.insert(var);
+    uniqueVar.insert(var[VAR]);
   }
 }
 
@@ -215,6 +215,14 @@ void Polynomial::printMap()
     float coeff = plItr->second;
     string varExp = plItr->first;
 
+    // Do not print + at the beginning
+    // and if coefficient is negative
+    cout << (coeff<0 || plItr==polynomial.begin() ? " " : " + ") << coeff;
+
+    // Do no print variable if monomial is non-variable monomial
+    if(varExp=="0") { continue; }
+
+    // Add caret between variable and exponent
     char var;
     int exp;
     char caret{'^'};
@@ -230,15 +238,7 @@ void Polynomial::printMap()
     
     ssWithCaret >> withCaret;
 
-    // Print out the polynomial
-    // do not print + at the beginning
-    if(plItr==polynomial.begin())
-    {
-      cout << coeff << withCaret;
-      continue;
-    }
-    
-    cout << (coeff<0 ? " " : " + ") << coeff << withCaret;
+    cout << withCaret;
   }
 }
 
@@ -251,16 +251,53 @@ float Polynomial::doEvaluate(map<char, float> varDict)
     float coeff = plItr->second;
     string varExp = plItr->first;
 
+    // For non-variable monomial
+    if(varExp=="0")
+    {
+      result += coeff;
+      continue;
+    }
+
     char var;
     int exp;
-    stringstream ss(varExp);
+    stringstream ss;
+    unsigned int lenVar{0};
+
+    ss << varExp;
+    
+    while(ss >> var)
+    {
+      ss >> exp;
+
+      lenVar++;
+    }
+
+    // For one variable monomial
+    ss.clear();
+    ss << varExp;
+      
+    if(lenVar==1)
+    {
+      while(ss >> var)
+      {
+        ss >> exp;
+
+        result += (coeff*pow(varDict.find(var)->second, exp));
+      }
+      continue;
+    }
+
+    // For more than one variables in monomial
+    float withoutCoeff{1};
 
     while(ss >> var)
     {
       ss >> exp;
 
-      result += (coeff*pow(varDict.find(var)->second, exp));
+      withoutCoeff *= pow(varDict.find(var)->second, exp);
     }
+
+    result += coeff*withoutCoeff;
   }
 
   return result;
