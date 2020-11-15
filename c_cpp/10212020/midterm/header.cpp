@@ -85,12 +85,10 @@ void Polynomial::updateMono(string newKey, float newValue)
 
 void Polynomial::negativePoly()
 {
-  float value = plItr->second;
-
   // Multiply value of variable to -1 to change the polynomial to negative
   for(plItr=polynomial.begin(); plItr!=polynomial.end(); plItr++)
   {
-    value = value * -1;
+    plItr->second *= -1;
   }
 }
 
@@ -353,24 +351,8 @@ unsigned int MultiPolynomials::findMultiply()
 
 Polynomial MultiPolynomials::doOperate()
 {
-  // Change all the polynomials with the minus operate
-  for(mpItr=multiPolynomials.begin(); mpItr!=multiPolynomials.end(); mpItr++)
-  {
-    char opr = mpItr->second;
-    Polynomial poly = mpItr->first;
-
-    if(opr==MINUS)
-    {
-      // Change all the value in the polynomial
-      poly.negativePoly();
-
-      // Replace the minus operator to plus
-      opr = PLUS;
-    }
-  }
-
   // Do the multiply operators with the polynomials have operator is multiply
-  unsigned int count = findMultiply();
+  auto count = findMultiply();
 
   while(count>0)
   {

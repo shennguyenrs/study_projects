@@ -200,6 +200,15 @@ int main()
         if(!poly.isEmpty())
         {
           multiPoly.insertTotUniVar(poly);
+
+          // Change to negative polynomial if operator of polynomial is minus
+          if(operate[0]==MINUS)
+          {
+            poly.negativePoly();
+            multiPoly.insertPoly(poly, PLUS);
+            break;
+          }
+
           multiPoly.insertPoly(poly, operate[0]);
         }
         
