@@ -109,8 +109,8 @@ string Polynomial::operateSameVar(char opr, string oldKey, string key)
   // Clear stringstream
   ss.clear();
 
-  ss << var << key;
-  ss >> exp;
+  ss << key;
+  ss >> var >> exp;
 
   // Return bases on operator
   // add the exponent for multiply operator
