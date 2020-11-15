@@ -109,7 +109,7 @@ string Polynomial::operateSameVar(char opr, string oldKey, string key)
   // Clear stringstream
   ss.clear();
 
-  ss << key[EXP];
+  ss << var << key;
   ss >> exp;
 
   // Return bases on operator

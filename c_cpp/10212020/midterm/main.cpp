@@ -179,7 +179,7 @@ int main()
           }
 
           // Multiply operating
-          if(opr==MINUS)
+          if(opr==MULTIPLY)
           {
             poly.operateMultiply(mono); 
             continue;

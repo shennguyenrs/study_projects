@@ -13,7 +13,6 @@ const char MULTIPLY = '*';
 const char DIVIDE = '/';
 
 const unsigned int VAR = 0;
-const unsigned int EXP = 1;
 
 const string EXIT = "0";
 const unsigned int FIRST = 1;
@@ -54,7 +53,6 @@ class Monomial
 
     // Make combination for dictionary data type
     pair <string, float> makeDict();
-
 };
 //#endif
 
@@ -177,10 +175,6 @@ class MultiPolynomials
     // Do multiply multi variables and exponents
     // returns string of key combination from multiply operating
     string multiplyKeys(string key1, string key2);
-
-    // Evaluation polynomial base on value of variables
-    // returns a floating point number
-    float doEvaluate(map<char, float> varDict);
 };
 
 //endif
@@ -199,7 +193,7 @@ void parseStr(
     char* var,
     int* exp,
     char* opr
-    );
+);
  
 // Unsigned Integer validation
 // returns true if n is a integer

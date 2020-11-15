@@ -6,7 +6,6 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 DIVIDE	header.hpp	/^const char DIVIDE = '\/';$/;"	v
 EXIT	header.hpp	/^const string EXIT = "0";$/;"	v
-EXP	header.hpp	/^const unsigned int EXP = 1;$/;"	v
 FIRST	header.hpp	/^const unsigned int FIRST = 1;$/;"	v
 MINUS	header.hpp	/^const char MINUS = '-';$/;"	v
 MULTIPLY	header.hpp	/^const char MULTIPLY = '*';$/;"	v
@@ -35,8 +34,8 @@ insertUniVar	header.cpp	/^void Polynomial::insertUniVar(Monomial mono)$/;"	f	cla
 intConvert	header.cpp	/^unsigned int intConvert(string n)$/;"	f
 isEmpty	header.cpp	/^bool MultiPolynomials::isEmpty()$/;"	f	class:MultiPolynomials
 isEmpty	header.cpp	/^bool Polynomial::isEmpty()$/;"	f	class:Polynomial
-isEqual	header.hpp	22;"	d
-isExit	header.hpp	21;"	d
+isEqual	header.hpp	21;"	d
+isExit	header.hpp	20;"	d
 isFloat	header.cpp	/^bool isFloat(string n)$/;"	f
 isInt	header.cpp	/^bool isInt(string n)$/;"	f
 isMonoValid	header.cpp	/^bool isMonoValid(string str, unsigned int index)$/;"	f
