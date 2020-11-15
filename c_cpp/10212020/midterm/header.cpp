@@ -445,8 +445,9 @@ Polynomial MultiPolynomials::operatePlus()
 
 Polynomial MultiPolynomials::operateMultiply(Polynomial poly1, Polynomial poly2)
 {
-  auto poly= poly1.getPoly();
-  auto prevPoly= poly2.getPoly();
+  auto poly = poly1.getPoly();
+  auto prevPoly = poly2.getPoly();
+
   map<string, float>::iterator polyItr; 
   map<string, float>::iterator prevItr; 
 
@@ -496,8 +497,9 @@ string MultiPolynomials::multiplyKeys(string key1, string key2)
   char var;
   int exp;
   stringstream ss(key1+key2);
-  map<char, float> newKey;
-  map<char, float>::iterator nkItr;
+
+  map<char, int> newKey;
+  map<char, int>::iterator nkItr;
 
   while(ss >> var)
   {
