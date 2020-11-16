@@ -206,10 +206,22 @@ int main()
           {
             poly.negativePoly();
             multiPoly.insertPoly(poly, PLUS);
+            
+            // Print out inputted polynomial
+            cout << endl;
+            cout << "Your inputted polynomial: ";
+            poly.printMap();
+            cout << endl;
+
             break;
           }
 
           multiPoly.insertPoly(poly, operate[0]);
+          // Print out inputted polynomial
+          cout << endl;
+          cout << "Your inputted polynomial: ";
+          poly.printMap();
+          cout << endl;
         }
         
         // Exit to top menu from inputting Monomials

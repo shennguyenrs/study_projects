@@ -359,11 +359,12 @@ Polynomial MultiPolynomials::doOperate()
     for(mpItr=multiPolynomials.begin(); mpItr!=multiPolynomials.end(); mpItr++)
     {
       char opr = mpItr->second;
-      Polynomial poly = mpItr->first;
-      Polynomial prevPoly = prev(mpItr)->first;
 
       if(opr==MULTIPLY)
       {
+        Polynomial poly = mpItr->first;
+        Polynomial prevPoly = prev(mpItr)->first;
+
         auto resultPoly = operateMultiply(poly, prevPoly);
 
         // Remove the previous polynomial in MultiPolynomials
