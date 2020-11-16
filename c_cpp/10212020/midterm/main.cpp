@@ -13,14 +13,15 @@ int main()
   cout << fixed << setprecision(2);
 
   // Welcome
-  cout << "================================" << endl; 
-  cout << "       Mid-term Project         " << endl;
-  cout << "================================" << endl; 
+  cout << "==========================================" << endl; 
+  cout << "       Polynomials Calculator + - *       " << endl;
+  cout << "==========================================" << endl; 
   cout << endl;
 
   // User guide
   cout << "User guide" << endl;
   cout << "----------" << endl;
+  cout << "0    : Exitcode for any input form" << endl;
   cout << endl;
   cout << "Operators for polynomial" << endl;
   cout << "------------------------" << endl;
@@ -30,11 +31,28 @@ int main()
   cout << "*    : Multiply this polynomial to the previous one" << endl;
   cout << endl;
   cout << "Operators for nominal" << endl;
+  cout << "------------------------" << endl;
   cout << "=    : End the input nominal" << endl;
   cout << "+    : Add this nominal to the previous one" << endl;
   cout << "-    : Minus this nominal to the previous one" << endl;
   cout << "*    : Multiply this nominal to the previous one" << endl;
   cout << "/    : Divide this nominal to the previous one" << endl;
+  cout << endl;
+  cout << "Pattern for inputted monomials" << endl;
+  cout << "------------------------" << endl;
+  cout << "- Operators:          The first monomial do not allow operators * and / ecxcept the next monomials" << endl; 
+  cout << "                      (-) Invalid the first monomial: *10x^2" << endl;
+  cout << "                      (+) Valid other monomial:       *10x^2" << endl;
+  cout << "- Coefficient:        Do not allow input monomial without coefficient" << endl; 
+  cout << "                      (-) Invalid input:                 x^2" << endl;
+  cout << "                      (+) Valid input:                 *0x^2" << endl;
+  cout << "- Variable:           Do not allow input more than one variable in a monomial" << endl; 
+  cout << "                      (-) Invalid input:            /3y^6x^2" << endl;
+  cout << "                      (+) Valid input:                 /3y^6" << endl;
+  cout << "- Caret & exponent:   Always place caret between variable and exponent" << endl; 
+  cout << "                      Only allow integer exponent" << endl; 
+  cout << "                      (-) Invalid input:               /5x2.3" << endl;
+  cout << "                      (+) Valid input:                  /5x^2" << endl;
   cout << endl;
   
   do
