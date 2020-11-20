@@ -1,13 +1,27 @@
 CC=g++
 LINKERFLAG=-lm
 
-OBJ := main.cpp
+ARR := mainArray.cpp
+ARR += ArrayHeader.cpp
 
-main: $(OBJ)
-	@echo "Making excutable file..."
+LKL := mainLinked.cpp
+LKL += LinkedlistHeader.cpp
+
+array: $(ARR)
+	@echo "Making excutable file for array database..."
 	$(CC) -o $@ $^ $(LINKERFLAG)
 	@echo "Done"
 
+linked: $(LKL)
+	@echo "Making excutable file for linkedlist database..."
+	$(CC) -o $@ $^ $(LINKERFLAG)
+	@echo "Done"
+
+tag:
+	@echo "Making tags file..."
+	ctags --recurse=yes -h .cpp.hpp.c.h
+	@echo "Done"
+
 clean:
-	rm -f main
+	rm -f array linked
 	@echo "Done"
