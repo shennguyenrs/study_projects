@@ -61,7 +61,7 @@ Node* LinkedDatabase::isExist(Node** head, string str)
     if(temp==NULL) return NULL;
 
     // If found the record
-    delete prev;
+    //delete prev;
     return temp;
   }
 
@@ -84,7 +84,7 @@ Node* LinkedDatabase::isExist(Node** head, string str)
   if(temp==NULL) return NULL;
 
   // If found the record
-  delete prev;
+  //delete prev;
   return temp;
 }
 
@@ -103,7 +103,7 @@ void LinkedDatabase::deleteItem(Node** head, string str)
   if(thisRec==*head)
   {
     *head = thisRec->next;
-    delete thisRec;
+    //delete thisRec;
     cout << "Delete record successfully" << endl;
     return;
   }
@@ -121,8 +121,8 @@ void LinkedDatabase::deleteItem(Node** head, string str)
 
   // Delete the record after have prev
   prev->next = thisRec->next;
-  delete thisRec;
-  delete temp;
+  //delete thisRec;
+  //delete temp;
   cout << "Delete record successfully" << endl;
 }
 
@@ -165,6 +165,9 @@ void LinkedDatabase::printRecords(Node *node)
     cout << "X Coordinate: " << xCor << endl;
     cout << "Y Coordinate: " << yCor << endl;
     cout << endl;
+
+    // Move to the next node
+    node = node->next;
   }
 }
 

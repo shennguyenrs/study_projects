@@ -27,9 +27,6 @@ class Location
       yCor{y}
     {};
 
-    // Destructor
-    ~Location();
-
     // Return city name
     string getCity();
 

@@ -11,6 +11,8 @@ int main()
   //chrono::duration<double, milli> dur = stop - start;
   //cout << dur.count();
 
+  auto start = chrono::high_resolution_clock::now();
+
   // Insert test data
   ArrayDatabase data;
 
@@ -29,7 +31,45 @@ int main()
   Location lo5("Vaa", 5, 6);
   data.insertItem(lo5);
 
+  auto stop = chrono::high_resolution_clock::now();
+  chrono::duration<double, milli> dur = stop - start;
+  cout << "Insert time (in  milliseconds): " << dur.count();
+  cout << endl;
+
+  start = chrono::high_resolution_clock::now();
+  cout << endl;
+
+  // Search record
+  data.searchItem("Vaasa");
+  //data.searchItem("5,6");
+
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Search time (in  milliseconds): " << dur.count();
+  cout << endl;
+
+  start = chrono::high_resolution_clock::now();
+  cout << endl;
+
+  // Delete record
+  //data.deleteItem("Kok");
+  data.deleteItem("1,3");
+  
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Delete time (in  milliseconds): " << dur.count();
+  cout << endl;
+
+  start = chrono::high_resolution_clock::now();
+  cout << endl;
+
+  // Print out records
   data.printRecords();
+
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Printing time (in  milliseconds): " << dur.count();
+  cout << endl;
 
   return 0;
 }
