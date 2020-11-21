@@ -2,17 +2,17 @@ CC=g++
 LINKERFLAG=-lm
 
 STACK := stack.cpp
-STACK += DictinStack.cpp
+STACK += StackDict.cpp
 
 QUEUE := queue.cpp
-QUEUE += DictinQueue.cpp
+QUEUE += QueueDict.cpp
 
-stackmake: $(STACK)
+stack: $(STACK)
 	@echo "Making stack implement dictionary..."
 	$(CC) -o $@ $^ $(LINKERFLAG)
 	@echo "Done"
 
-queuemake: $(QUEUE)
+queue: $(QUEUE)
 	@echo "Making stack implement dictionary..."
 	$(CC) -o $@ $^ $(LINKERFLAG)
 	@echo "Done"

@@ -1,7 +1,7 @@
-#include "DictinStack.hpp"
+#include "StackDict.hpp"
 
 template <typename Key, typename E>
-void Dictionary<Key, E>::clear()
+void StackDict<Key, E>::clear()
 {
   stack<Key, E> newStack1;
   stack<Key, E> newStack2;
@@ -11,13 +11,13 @@ void Dictionary<Key, E>::clear()
 }
 
 template <typename Key, typename E>
-void Dictionary<Key, E>::insert(const Key &k, const E &e)
+void StackDict<Key, E>::insert(const Key &k, const E &e)
 {
   dictA.push(make_pair(k, e));
 }
 
 template <typename Key, typename E>
-E Dictionary<Key, E>::remove(const Key &k)
+E StackDict<Key, E>::remove(const Key &k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
@@ -56,7 +56,7 @@ E Dictionary<Key, E>::remove(const Key &k)
 }
 
 template <typename Key, typename E>
-E Dictionary<Key, E>::removeAny()
+E StackDict<Key, E>::removeAny()
 {
   // Priority to delete record from dictB
   if(!dictB.empty())
@@ -79,7 +79,7 @@ E Dictionary<Key, E>::removeAny()
 }
 
 template <typename Key, typename E>
-E Dictionary<Key, E>::find(const Key &k) const
+E StackDict<Key, E>::find(const Key &k) const
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
@@ -117,7 +117,7 @@ E Dictionary<Key, E>::find(const Key &k) const
 }
 
 template <typename Key, typename E>
-int Dictionary<Key, E>::size()
+int StackDict<Key, E>::size()
 {
   if(!dictB.empty())
   {
@@ -126,4 +126,3 @@ int Dictionary<Key, E>::size()
 
   return dictA.size();
 }
-
