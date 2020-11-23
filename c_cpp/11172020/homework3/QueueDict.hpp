@@ -3,35 +3,42 @@
 //#ifndef _DICTIONARY_H_
 //#define _DICTIONARY_H_
 
-#include "DictADT.hpp"
-
 #include <iostream>
+#include <string>
 #include <queue>
 using namespace std;
 
 // The Dictionary abstract class.
-template <typename Key, typename E>
-class QueueDict : public Dictionary<Key, E>
+class QueueDict 
 {
   private:
-    queue<Key, E> dictA;
-    queue<Key, E> dictB;
+    queue<pair<string, string>> dictA;
+    queue<pair<string, string>> dictB;
 
   public:
+    // Constructor
+    QueueDict() {}
+    
+    // Destructor
+    ~QueueDict()
+    {
+      clear();
+    }
+
     // Reinitialize dictionary
     void clear();
 
     // Insert record
-    void insert(const Key& k, const E& e);
+    void insert(const string& k, const string& e);
 
     // Remove and return record
-    E remove(const Key& k);
+    string remove(const string& k);
 
     // Remove and return an arbitrary record
-    E removeAny();
+    string removeAny();
 
     // Find record and return an arbitrary if many record matchs
-    E find(const Key& k) const;
+    string find(const string& k);
 
     // Return dictionary size
     int size();

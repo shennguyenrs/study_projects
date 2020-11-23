@@ -1,29 +1,26 @@
-#include "DictinQueue.hpp"
+#include "QueueDict.hpp"
 
-template <typename Key, typename E>
-void Dictionary<Key, E>::clear()
+void QueueDict::clear()
 {
-  queue<Key, E> newQueue1;
-  queue<Key, E> newQueue2;
+  queue<pair<string, string>> newQueue1;
+  queue<pair<string, string>> newQueue2;
 
   dictA.swap(newQueue1);
   dictB.swap(newQueue2);
 }
 
-template <typename Key, typename E>
-void Dictionary<Key, E>::insert(const Key &k, const E &e)
+void QueueDict::insert(const string& k, const string& e)
 {
   dictA.push(make_pair(k, e));
 }
 
-template <typename Key, typename E>
-E Dictionary<Key, E>::remove(const Key &k)
+string QueueDict::remove(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    Key key = dictB.front()->first;
-    E e = dictB.front()->second;
+    string key = (dictB.front()).first;
+    string e = (dictB.front()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -34,8 +31,8 @@ E Dictionary<Key, E>::remove(const Key &k)
   // Find key in dictA
   while(!dictA.empty())
   {
-    Key key = dictA.front()->first;
-    E e = dictA.front()->second;
+    string key = (dictA.front()).first;
+    string e = (dictA.front()).second;
 
     if(k==key)
     {
@@ -55,13 +52,12 @@ E Dictionary<Key, E>::remove(const Key &k)
   return NULL;
 }
 
-template <typename Key, typename E>
-E Dictionary<Key, E>::removeAny()
+string QueueDict::removeAny()
 {
   // Priority to delete record from dictB
   if(!dictB.empty())
   {
-    E e = dictB.front()->second;
+    string e = (dictB.front()).second;
     dictB.pop();
     return e;
   }
@@ -69,7 +65,7 @@ E Dictionary<Key, E>::removeAny()
   // If dictB is empty, then delete the top of dict A
   if(!dictA.empty())
   {
-    E e = dictA.front()->second;
+    string e = (dictA.front()).second;
     dictA.pop();
     return e;
   }
@@ -78,14 +74,13 @@ E Dictionary<Key, E>::removeAny()
   return NULL;
 }
 
-template <typename Key, typename E>
-E Dictionary<Key, E>::find(const Key &k) const
+string QueueDict::find(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    Key key = dictB.front()->first;
-    E e = dictB.front()->second;
+    string key = (dictB.front()).first;
+    string e = (dictB.front()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -96,8 +91,8 @@ E Dictionary<Key, E>::find(const Key &k) const
   // Find key in dictA
   while(!dictA.empty())
   {
-    Key key = dictA.front()->first;
-    E e = dictA.front()->second;
+    string key = (dictA.front()).first;
+    string e = (dictA.front()).second;
 
     if(k==key)
     {
@@ -116,12 +111,11 @@ E Dictionary<Key, E>::find(const Key &k) const
   return NULL;
 }
 
-template <typename Key, typename E>
-int Dictionary<Key, E>::size()
+int QueueDict::size()
 {
   if(!dictB.empty())
   {
-    return dictA.size() + dictB.size;
+    return dictA.size() + dictB.size();
   }
 
   return dictA.size();

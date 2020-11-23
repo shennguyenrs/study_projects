@@ -1,29 +1,26 @@
 #include "StackDict.hpp"
 
-template <typename Key, typename E>
-void StackDict<Key, E>::clear()
+void StackDict::clear()
 {
-  stack<Key, E> newStack1;
-  stack<Key, E> newStack2;
+  stack<pair<string, string>> newStack1;
+  stack<pair<string, string>> newStack2;
 
   dictA.swap(newStack1);
   dictB.swap(newStack2);
 }
 
-template <typename Key, typename E>
-void StackDict<Key, E>::insert(const Key &k, const E &e)
+void StackDict::insert(const string& k, const string& e)
 {
   dictA.push(make_pair(k, e));
 }
 
-template <typename Key, typename E>
-E StackDict<Key, E>::remove(const Key &k)
+string StackDict::remove(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    Key key = dictB.top()->first;
-    E e = dictB.top()->second;
+    string key = (dictB.top()).first;
+    string e = (dictB.top()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -34,8 +31,8 @@ E StackDict<Key, E>::remove(const Key &k)
   // Find key in dictA
   while(!dictA.empty())
   {
-    Key key = dictA.top()->first;
-    E e = dictA.top()->second;
+    string key = (dictA.top()).first;
+    string e = (dictA.top()).second;
 
     if(k==key)
     {
@@ -55,13 +52,12 @@ E StackDict<Key, E>::remove(const Key &k)
   return NULL;
 }
 
-template <typename Key, typename E>
-E StackDict<Key, E>::removeAny()
+string StackDict::removeAny()
 {
   // Priority to delete record from dictB
   if(!dictB.empty())
   {
-    E e = dictB.top()->second;
+    string e = (dictB.top()).second;
     dictB.pop();
     return e;
   }
@@ -69,7 +65,7 @@ E StackDict<Key, E>::removeAny()
   // If dictB is empty, then delete the top of dict A
   if(!dictA.empty())
   {
-    E e = dictA.top()->second;
+    string e = (dictA.top()).second;
     dictA.pop();
     return e;
   }
@@ -78,14 +74,13 @@ E StackDict<Key, E>::removeAny()
   return NULL;
 }
 
-template <typename Key, typename E>
-E StackDict<Key, E>::find(const Key &k) const
+string StackDict::find(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    Key key = dictB.top()->first;
-    E e = dictB.top()->second;
+    string key = (dictB.top()).first;
+    string e = (dictB.top()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -96,8 +91,8 @@ E StackDict<Key, E>::find(const Key &k) const
   // Find key in dictA
   while(!dictA.empty())
   {
-    Key key = dictA.top()->first;
-    E e = dictA.top()->second;
+    string key = (dictA.top()).first;
+    string e = (dictA.top()).second;
 
     if(k==key)
     {
@@ -116,12 +111,11 @@ E StackDict<Key, E>::find(const Key &k) const
   return NULL;
 }
 
-template <typename Key, typename E>
-int StackDict<Key, E>::size()
+int StackDict::size()
 {
   if(!dictB.empty())
   {
-    return dictA.size() + dictB.size;
+    return dictA.size() + dictB.size();
   }
 
   return dictA.size();
