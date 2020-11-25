@@ -1,3 +1,6 @@
+#include <cstdlib>
+#include <ctime>
+
 #include "StackDict.hpp"
 
 void StackDict::clear()
@@ -54,20 +57,39 @@ string StackDict::remove(const string& k)
 
 string StackDict::removeAny()
 {
-  // Priority to delete record from dictB
-  if(!dictB.empty())
+  // Move items to dictA if dictB is not empty
+  while(!dictB.empty())
   {
+    string key = (dictB.top()).first;
     string e = (dictB.top()).second;
+
+    // Insert to dictB
+    dictA.push(make_pair(key, e));
+    
     dictB.pop();
-    return e;
   }
 
-  // If dictB is empty, then delete the top of dict A
-  if(!dictA.empty())
+  srand(static_cast<unsigned int>(time(0)));
+  unsigned int dictSize = size();
+  unsigned int pos = rand()%dictSize;
+  unsigned int i{0};
+
+  // Pop out record in random position in dictA
+  while(!dictA.empty())
   {
+    string key = (dictA.top()).first;
     string e = (dictA.top()).second;
+
+    if(i==pos)
+    {
+      dictA.pop();
+      return e;
+    }
+
+    dictB.push(make_pair(key, e));
     dictA.pop();
-    return e;
+
+    i++;
   }
 
   // If both dict is empty, return NULL
