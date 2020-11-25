@@ -1,12 +1,16 @@
-#include "LinkedlistHeader.hpp"
+#include "LinkedlistHeader/LinkedlistHeader.hpp"
 
 #include <iostream>
 #include <chrono>
 #include <ratio>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
+  // Set precision
+  cout << fixed << setprecision(3);
+
   auto start = chrono::high_resolution_clock::now();
 
   // Insert items
@@ -30,7 +34,7 @@ int main()
 
   auto stop = chrono::high_resolution_clock::now();
   chrono::duration<double, milli> dur = stop - start;
-  cout << "Insert time (in  milliseconds): " << dur.count();
+  cout << "Insert 5 records (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -42,7 +46,7 @@ int main()
 
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Search time (in  milliseconds): " << dur.count();
+  cout << "Search record for \"Vaasa\" (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -57,7 +61,7 @@ int main()
   
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Delete time (in  milliseconds): " << dur.count();
+  cout << "Delete record have x=1 y=3 (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -68,7 +72,7 @@ int main()
 
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Printing time (in  milliseconds): " << dur.count();
+  cout << "Printing records (in milliseconds): " << dur.count();
   cout << endl;
 
   delete head;

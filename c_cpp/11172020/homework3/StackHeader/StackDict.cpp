@@ -1,29 +1,29 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "QueueDict.hpp"
+#include "StackDict.hpp"
 
-void QueueDict::clear()
+void StackDict::clear()
 {
-  queue<pair<string, string>> newQueue1;
-  queue<pair<string, string>> newQueue2;
+  stack<pair<string, string>> newStack1;
+  stack<pair<string, string>> newStack2;
 
-  dictA.swap(newQueue1);
-  dictB.swap(newQueue2);
+  dictA.swap(newStack1);
+  dictB.swap(newStack2);
 }
 
-void QueueDict::insert(const string& k, const string& e)
+void StackDict::insert(const string& k, const string& e)
 {
   dictA.push(make_pair(k, e));
 }
 
-string QueueDict::remove(const string& k)
+string StackDict::remove(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    string key = (dictB.front()).first;
-    string e = (dictB.front()).second;
+    string key = (dictB.top()).first;
+    string e = (dictB.top()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -34,8 +34,8 @@ string QueueDict::remove(const string& k)
   // Find key in dictA
   while(!dictA.empty())
   {
-    string key = (dictA.front()).first;
-    string e = (dictA.front()).second;
+    string key = (dictA.top()).first;
+    string e = (dictA.top()).second;
 
     if(k==key)
     {
@@ -52,16 +52,16 @@ string QueueDict::remove(const string& k)
   // Swap data back to dictA
   dictA.swap(dictB);
 
-  return NULL;
+  return "Not found";
 }
 
-string QueueDict::removeAny()
+string StackDict::removeAny()
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    string key = (dictB.front()).first;
-    string e = (dictB.front()).second;
+    string key = (dictB.top()).first;
+    string e = (dictB.top()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -77,8 +77,8 @@ string QueueDict::removeAny()
   // Pop out record in random position in dictA
   while(!dictA.empty())
   {
-    string key = (dictA.front()).first;
-    string e = (dictA.front()).second;
+    string key = (dictA.top()).first;
+    string e = (dictA.top()).second;
 
     if(i==pos)
     {
@@ -92,17 +92,16 @@ string QueueDict::removeAny()
     i++;
   }
 
-  // If both dict is empty, return NULL
-  return NULL;
+  return "Not found";
 }
 
-string QueueDict::find(const string& k)
+string StackDict::find(const string& k)
 {
   // Move items to dictA if dictB is not empty
   while(!dictB.empty())
   {
-    string key = (dictB.front()).first;
-    string e = (dictB.front()).second;
+    string key = (dictB.top()).first;
+    string e = (dictB.top()).second;
 
     // Insert to dictB
     dictA.push(make_pair(key, e));
@@ -113,8 +112,8 @@ string QueueDict::find(const string& k)
   // Find key in dictA
   while(!dictA.empty())
   {
-    string key = (dictA.front()).first;
-    string e = (dictA.front()).second;
+    string key = (dictA.top()).first;
+    string e = (dictA.top()).second;
 
     if(k==key)
     {
@@ -126,14 +125,10 @@ string QueueDict::find(const string& k)
     dictA.pop();
   }
 
-  // If not found key in dictA
-  // Swap data back to dictA
-  dictA.swap(dictB);
-
-  return NULL;
+  return "Not found";
 }
 
-int QueueDict::size()
+int StackDict::size()
 {
   if(!dictB.empty())
   {

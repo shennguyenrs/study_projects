@@ -1,15 +1,14 @@
-#include "ArrayHeader.hpp"
+#include "ArrayHeader/ArrayHeader.hpp"
 
 #include <iostream>
 #include <chrono>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-  //auto start = chrono::high_resolution_clock::now();
-  //auto stop = chrono::high_resolution_clock::now();
-  //chrono::duration<double, milli> dur = stop - start;
-  //cout << dur.count();
+  // Set precision
+  cout << fixed << setprecision(3);
 
   auto start = chrono::high_resolution_clock::now();
 
@@ -33,7 +32,7 @@ int main()
 
   auto stop = chrono::high_resolution_clock::now();
   chrono::duration<double, milli> dur = stop - start;
-  cout << "Insert time (in  milliseconds): " << dur.count();
+  cout << "Insert 5 records (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -45,7 +44,7 @@ int main()
 
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Search time (in  milliseconds): " << dur.count();
+  cout << "Search record for \"Vaasa\" (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -57,7 +56,7 @@ int main()
   
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Delete time (in  milliseconds): " << dur.count();
+  cout << "Delete record have x=1 y=3 (in milliseconds): " << dur.count();
   cout << endl;
 
   start = chrono::high_resolution_clock::now();
@@ -68,7 +67,7 @@ int main()
 
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Printing time (in  milliseconds): " << dur.count();
+  cout << "Printing records (in milliseconds): " << dur.count();
   cout << endl;
 
   return 0;

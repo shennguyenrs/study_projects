@@ -1,11 +1,11 @@
 CC=g++
 LINKERFLAG=-lm
 
-ARR := mainArray.cpp
-ARR += ArrayHeader.cpp
+ARR := array.cpp
+ARR += ArrayHeader/ArrayHeader.cpp
 
-LKL := mainLinked.cpp
-LKL += LinkedlistHeader.cpp
+LKL := linkedlist.cpp
+LKL += LinkedlistHeader/LinkedlistHeader.cpp
 
 array: $(ARR)
 	@echo "Making excutable file for array database..."

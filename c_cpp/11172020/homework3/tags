@@ -11,28 +11,30 @@ Dictionary	DictADT.hpp	/^    Dictionary(const Dictionary&) {}$/;"	f	class:Dictio
 Dictionary	DictADT.hpp	/^class Dictionary $/;"	c
 LINKERFLAG	Makefile	/^LINKERFLAG=-lm$/;"	m
 QUEUE	Makefile	/^QUEUE := queue.cpp$/;"	m
-QueueDict	QueueDict.hpp	/^class QueueDict : public Dictionary<Key, E>$/;"	c
+QueueDict	QueueHeader/QueueDict.hpp	/^    QueueDict() {}$/;"	f	class:QueueDict
+QueueDict	QueueHeader/QueueDict.hpp	/^class QueueDict $/;"	c
 STACK	Makefile	/^STACK := stack.cpp$/;"	m
-StackDict	StackDict.hpp	/^    StackDict() {}$/;"	f	class:StackDict
-StackDict	StackDict.hpp	/^class StackDict $/;"	c
-clear	QueueDict.cpp	/^void Dictionary<Key, E>::clear()$/;"	f	class:Dictionary
-clear	StackDict.cpp	/^void StackDict::clear()$/;"	f	class:StackDict
-dictA	QueueDict.hpp	/^    queue<Key, E> dictA;$/;"	m	class:QueueDict
-dictA	StackDict.hpp	/^    stack<pair<string, string>> dictA;$/;"	m	class:StackDict
-dictB	QueueDict.hpp	/^    queue<Key, E> dictB;$/;"	m	class:QueueDict
-dictB	StackDict.hpp	/^    stack<pair<string, string>> dictB;$/;"	m	class:StackDict
-find	QueueDict.cpp	/^E Dictionary<Key, E>::find(const Key &k) const$/;"	f	class:Dictionary
-find	StackDict.cpp	/^string StackDict::find(const string &k)$/;"	f	class:StackDict
-insert	QueueDict.cpp	/^void Dictionary<Key, E>::insert(const Key &k, const E &e)$/;"	f	class:Dictionary
-insert	StackDict.cpp	/^void StackDict::insert(const string &k, const string &e)$/;"	f	class:StackDict
+StackDict	StackHeader/StackDict.hpp	/^    StackDict() {}$/;"	f	class:StackDict
+StackDict	StackHeader/StackDict.hpp	/^class StackDict $/;"	c
+clear	QueueHeader/QueueDict.cpp	/^void QueueDict::clear()$/;"	f	class:QueueDict
+clear	StackHeader/StackDict.cpp	/^void StackDict::clear()$/;"	f	class:StackDict
+dictA	QueueHeader/QueueDict.hpp	/^    queue<pair<string, string>> dictA;$/;"	m	class:QueueDict
+dictA	StackHeader/StackDict.hpp	/^    stack<pair<string, string>> dictA;$/;"	m	class:StackDict
+dictB	QueueHeader/QueueDict.hpp	/^    queue<pair<string, string>> dictB;$/;"	m	class:QueueDict
+dictB	StackHeader/StackDict.hpp	/^    stack<pair<string, string>> dictB;$/;"	m	class:StackDict
+find	QueueHeader/QueueDict.cpp	/^string QueueDict::find(const string& k)$/;"	f	class:QueueDict
+find	StackHeader/StackDict.cpp	/^string StackDict::find(const string& k)$/;"	f	class:StackDict
+insert	QueueHeader/QueueDict.cpp	/^void QueueDict::insert(const string& k, const string& e)$/;"	f	class:QueueDict
+insert	StackHeader/StackDict.cpp	/^void StackDict::insert(const string& k, const string& e)$/;"	f	class:StackDict
 main	queue.cpp	/^int main()$/;"	f
 main	stack.cpp	/^int main()$/;"	f
 operator =	DictADT.hpp	/^    void operator = (const Dictionary&) {}$/;"	f	class:Dictionary
-remove	QueueDict.cpp	/^E Dictionary<Key, E>::remove(const Key &k)$/;"	f	class:Dictionary
-remove	StackDict.cpp	/^string StackDict::remove(const string &k)$/;"	f	class:StackDict
-removeAny	QueueDict.cpp	/^E Dictionary<Key, E>::removeAny()$/;"	f	class:Dictionary
-removeAny	StackDict.cpp	/^string StackDict::removeAny()$/;"	f	class:StackDict
-size	QueueDict.cpp	/^int Dictionary<Key, E>::size()$/;"	f	class:Dictionary
-size	StackDict.cpp	/^int StackDict::size()$/;"	f	class:StackDict
+remove	QueueHeader/QueueDict.cpp	/^string QueueDict::remove(const string& k)$/;"	f	class:QueueDict
+remove	StackHeader/StackDict.cpp	/^string StackDict::remove(const string& k)$/;"	f	class:StackDict
+removeAny	QueueHeader/QueueDict.cpp	/^string QueueDict::removeAny()$/;"	f	class:QueueDict
+removeAny	StackHeader/StackDict.cpp	/^string StackDict::removeAny()$/;"	f	class:StackDict
+size	QueueHeader/QueueDict.cpp	/^int QueueDict::size()$/;"	f	class:QueueDict
+size	StackHeader/StackDict.cpp	/^int StackDict::size()$/;"	f	class:StackDict
 ~Dictionary	DictADT.hpp	/^    virtual ~Dictionary() {} \/\/ Base destructor$/;"	f	class:Dictionary
-~StackDict	StackDict.hpp	/^    ~StackDict()$/;"	f	class:StackDict
+~QueueDict	QueueHeader/QueueDict.hpp	/^    ~QueueDict()$/;"	f	class:QueueDict
+~StackDict	StackHeader/StackDict.hpp	/^    ~StackDict()$/;"	f	class:StackDict

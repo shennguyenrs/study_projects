@@ -2,10 +2,10 @@ CC=g++
 LINKERFLAG=-lm
 
 STACK := stack.cpp
-STACK += StackDict.cpp
+STACK += StackHeader/StackDict.cpp
 
 QUEUE := queue.cpp
-QUEUE += QueueDict.cpp
+QUEUE += QueueHeader/QueueDict.cpp
 
 stack: $(STACK)
 	@echo "Making stack implement dictionary..."
@@ -13,7 +13,7 @@ stack: $(STACK)
 	@echo "Done"
 
 queue: $(QUEUE)
-	@echo "Making stack implement dictionary..."
+	@echo "Making queue implement dictionary..."
 	$(CC) -o $@ $^ $(LINKERFLAG)
 	@echo "Done"
 
