@@ -86,6 +86,7 @@ void ArrayDatabase::searchItem(string str)
     cout << "City Name: " << itr->first << endl;
     cout << "X Coordinate: " << xCor << endl;
     cout << "Y Coordinate: " << yCor << endl;
+    return;
   }
 
   // If not found exists record

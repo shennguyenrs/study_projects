@@ -11,11 +11,12 @@ int main()
   // Set precision
   cout << fixed << setprecision(3);
 
-  auto start = chrono::high_resolution_clock::now();
-
-  // Insert items
   Node* head = NULL;
   LinkedDatabase data;
+
+  /* Insert records */
+
+  auto start = chrono::high_resolution_clock::now();
 
   Location lo1("Kok", 1, 2);
   data.insertItem(&head, make_pair(lo1.getCity(), lo1.makeCor()));
@@ -37,37 +38,59 @@ int main()
   cout << "Insert 5 records (in milliseconds): " << dur.count();
   cout << endl;
 
+  /* Search records */
+
+  // Search record that is not exist
   start = chrono::high_resolution_clock::now();
   cout << endl;
 
-  // Search record
   data.searchItem(&head, "Vaasa");
-  //data.searchItem(&head, "5,6");
 
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Search record for \"Vaasa\" (in milliseconds): " << dur.count();
+  cout << "Search record \"Vaasa\" (in milliseconds): " << dur.count();
   cout << endl;
 
+  // Search record that is exist
   start = chrono::high_resolution_clock::now();
   cout << endl;
 
+  data.searchItem(&head, "5,6");
+
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Search record x=5 y=6 (in milliseconds): " << dur.count();
+  cout << endl;
+
+  /* Delete records */
+
+  // Delete record that is not exist
   start = chrono::high_resolution_clock::now();
   cout << endl;
 
-  // Delete record
-  //data.deleteItem(&head, "Kok");
   data.deleteItem(&head, "1,3");
   
   stop = chrono::high_resolution_clock::now();
   dur = stop - start;
-  cout << "Delete record have x=1 y=3 (in milliseconds): " << dur.count();
+  cout << "Delete record x=1 y=3 (in milliseconds): " << dur.count();
   cout << endl;
+
+  // Delete record that is exist
+  start = chrono::high_resolution_clock::now();
+  cout << endl;
+
+  data.deleteItem(&head, "Kok");
+  
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Delete record \"Kok\" (in milliseconds): " << dur.count();
+  cout << endl;
+
+  /* Print records */
 
   start = chrono::high_resolution_clock::now();
   cout << endl;
 
-  // Print records
   data.printRecords(head);
 
   stop = chrono::high_resolution_clock::now();
