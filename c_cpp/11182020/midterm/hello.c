@@ -1,12 +1,15 @@
 #include <linux/module.h>
+#include <linux/moduleparam.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
+#include <linux/stat.h>
 
 MODULE_LISCENSE("GPL");
 MODULE_AUTHOR("An Nguyen");
 MODULE_DESCRIPTION("Hello World Linux Kernel Module");
 
 static int n = 5;
+module_param(n, int, S_IRWXU | S_IRWXG);
 MODULE_PARM_DESC(n, "Given number");
 
 static int result = 0;
