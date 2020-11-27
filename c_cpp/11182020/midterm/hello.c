@@ -9,6 +9,9 @@ MODULE_DESCRIPTION("Hello World Linux Kernel Module");
 static int n = 5;
 MODULE_PARM_DESC(n, "Given number");
 
+static int result = 0;
+MODULE_PARM_DESC(result, "Result if the given number is prime");
+
 static int isPrime(int n)
 {
   int result = 1;
@@ -24,12 +27,12 @@ static int isPrime(int n)
   return result;
 }
 
-static int __init init_module(void)
+static int __init hello_init(void)
 {
   printk(KERN_INFO "Hello World\n");
   printk(KERN_INFO "Check prime number\n");
 
-  int result = isPrime(n);
+  result = isPrime(n);
 
   if(result==1)
   {
@@ -47,10 +50,10 @@ static int __init init_module(void)
   return 0;
 }
 
-static void __exit exit_module(void)
+static void __exit hello_exit(void)
 {
   printk(KERN_INFO "Goodbye\n");
 }
 
-module_init(init_module);
-module_exit(exit_module);
+module_init(hello_init);
+module_exit(hello_exit);

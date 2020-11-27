@@ -1,9 +1,9 @@
 obj-m := hello.o
 
-KERNBUILD = /lib/modules/$(shell uname -r)/build
+KERNBUILD=/lib/modules/$(shell uname -r)/build
 
 all:
-	make -C KERNBUILD M=$(PWD) modules
+	make -C $(KERNBUILD) M=$(shell pwd) modules
 
 clean:
-	make -C KERNBUILD M=$(PWD) clean
+	make -C $(KERNBUILD) M=$(shell pwd) clean
