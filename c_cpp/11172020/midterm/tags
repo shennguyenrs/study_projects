@@ -23,6 +23,8 @@ data	ArrayHeader/ArrayHeader.hpp	/^    vector<pair<string, string>> data;$/;"	m	
 data	LinkedlistHeader/LinkedlistHeader.hpp	/^    pair<string, string> data;$/;"	m	class:Node
 deleteItem	ArrayHeader/ArrayHeader.cpp	/^void ArrayDatabase::deleteItem(string str)$/;"	f	class:ArrayDatabase
 deleteItem	LinkedlistHeader/LinkedlistHeader.cpp	/^void LinkedDatabase::deleteItem(Node** head, string str)$/;"	f	class:LinkedDatabase
+findNearest	ArrayHeader/ArrayHeader.cpp	/^void ArrayDatabase::findNearest(int x, int y, float allowedDis)$/;"	f	class:ArrayDatabase
+findNearest	LinkedlistHeader/LinkedlistHeader.cpp	/^void LinkedDatabase::findNearest(Node** head, int x, int y, float allowDis)$/;"	f	class:LinkedDatabase
 getCity	ArrayHeader/ArrayHeader.cpp	/^string Location::getCity() { return cityName; }$/;"	f	class:Location
 getCity	LinkedlistHeader/LinkedlistHeader.cpp	/^string Location::getCity() { return cityName; }$/;"	f	class:Location
 insertItem	ArrayHeader/ArrayHeader.cpp	/^void ArrayDatabase::insertItem(Location lo)$/;"	f	class:ArrayDatabase
@@ -38,7 +40,7 @@ next	LinkedlistHeader/LinkedlistHeader.hpp	/^    Node* next;$/;"	m	class:Node
 parseStr	ArrayHeader/ArrayHeader.cpp	/^void parseStr(string coordinates, int* x, int* y)$/;"	f
 parseStr	LinkedlistHeader/LinkedlistHeader.cpp	/^void parseStr(string coordinates, int* x, int* y)$/;"	f
 printRecords	ArrayHeader/ArrayHeader.cpp	/^void ArrayDatabase::printRecords()$/;"	f	class:ArrayDatabase
-printRecords	LinkedlistHeader/LinkedlistHeader.cpp	/^void LinkedDatabase::printRecords(Node *node)$/;"	f	class:LinkedDatabase
+printRecords	LinkedlistHeader/LinkedlistHeader.cpp	/^void LinkedDatabase::printRecords(Node** head)$/;"	f	class:LinkedDatabase
 searchItem	ArrayHeader/ArrayHeader.cpp	/^void ArrayDatabase::searchItem(string str)$/;"	f	class:ArrayDatabase
 searchItem	LinkedlistHeader/LinkedlistHeader.cpp	/^void LinkedDatabase::searchItem(Node** head, string str)$/;"	f	class:LinkedDatabase
 xCor	ArrayHeader/ArrayHeader.hpp	/^    int xCor;$/;"	m	class:Location

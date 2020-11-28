@@ -66,6 +66,9 @@ class ArrayDatabase
     // Search record
     void searchItem(string str);
 
+    // Calculate distance and print out the nearest location
+    void findNearest(int x, int y, float allowedDis);
+
     // Print all records
     void printRecords();
 };

@@ -84,6 +84,22 @@ int main()
   cout << "Delete record \"Kok\" (in milliseconds): " << dur.count();
   cout << endl;
 
+  /* Find and print records in allowed distance */
+
+  start = chrono::high_resolution_clock::now();
+  cout << endl;
+
+  int x = 2;
+  int y = 5;
+  float allowedDis = 4;
+
+  data.findNearest(x, y, allowedDis);
+
+  stop = chrono::high_resolution_clock::now();
+  dur = stop - start;
+  cout << "Find and print records in allowed distance (in milliseconds): " << dur.count();
+  cout << endl;
+
   /* Print out database */
   
   start = chrono::high_resolution_clock::now();

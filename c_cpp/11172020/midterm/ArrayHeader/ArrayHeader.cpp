@@ -1,6 +1,7 @@
-#include "ArrayHeader.hpp"
-
 #include <iostream>
+#include <cmath>
+
+#include "ArrayHeader.hpp"
 using namespace std;
 
 /*
@@ -90,9 +91,7 @@ void ArrayDatabase::searchItem(string str)
   }
 
   // If not found exists record
-  cout << "Not found record in the database" << endl;
-}
-
+  cout << "Not found record in the database" << endl; } 
 void ArrayDatabase::printRecords()
 {
   for(itr=data.begin(); itr!=data.end(); itr++)
@@ -107,6 +106,30 @@ void ArrayDatabase::printRecords()
     cout << "X Coordinate: " << xCor << endl;
     cout << "Y Coordinate: " << yCor << endl;
     cout << endl;
+  }
+}
+
+void ArrayDatabase::findNearest(int x, int y, float allowedDis)
+{
+  for(itr=data.begin(); itr!=data.end(); itr++)
+  {
+    int xCor;
+    int yCor;
+
+    parseStr(itr->second, &xCor, &yCor);
+
+    // Calculate distance
+    float distance = sqrt(pow(x-xCor, 2) + pow(y-yCor, 2));
+
+    if(distance<allowedDis)
+    {
+      cout << "Found a city record in allowed distance" << endl;
+      cout << "--------------------------------------" << endl;
+      cout << "City Name: " << itr->first << endl;
+      cout << "X Coordinate: " << xCor << endl;
+      cout << "Y Coordinate: " << yCor << endl;
+      cout << endl;
+    }
   }
 }
 

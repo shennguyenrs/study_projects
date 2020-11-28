@@ -2,7 +2,6 @@
 
 #include <string>
 #include <sstream>
-#include <vector>
 using namespace std;
 
 /*
@@ -75,8 +74,11 @@ class LinkedDatabase
     // Search record by name
     void searchItem(Node** head, string str);
 
+    // Calculate the distance and print out the nearest location
+    void findNearest(Node** head, int x, int y, float allowDis);
+
     // Print all records
-    void printRecords(Node* node);
+    void printRecords(Node** head);
 };
 
 //#endif

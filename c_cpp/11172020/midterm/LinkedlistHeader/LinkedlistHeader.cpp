@@ -1,6 +1,7 @@
-#include "LinkedlistHeader.hpp"
-
 #include <iostream>
+#include <cmath>
+
+#include "LinkedlistHeader.hpp"
 using namespace std;
 
 /*
@@ -151,8 +152,38 @@ void LinkedDatabase::searchItem(Node** head, string str)
   cout << endl;
 }
 
-void LinkedDatabase::printRecords(Node *node)
+void LinkedDatabase::findNearest(Node** head, int x, int y, float allowDis)
 {
+  Node* thisRec = *head;
+
+  while(thisRec!=NULL)
+  {
+    int xCor;
+    int yCor;
+
+    parseStr((thisRec->data).second, &xCor, &yCor);
+    
+    // Calculate distance from the coordinates
+    float distance = sqrt(pow(x-xCor, 2) + pow(y-yCor, 2));
+
+    if(distance<allowDis)
+    {
+      cout << "Found a record is in allowed distance" << endl;
+      cout << "--------------------------------------" << endl;
+      cout << "City Name: " << (thisRec->data).first << endl;
+      cout << "X Coordinate: " << xCor << endl;
+      cout << "Y Coordinate: " << yCor << endl;
+      cout << endl;
+    }
+
+    thisRec = thisRec->next;
+  }
+}
+
+void LinkedDatabase::printRecords(Node** head)
+{
+  Node* node = *head;
+
   while(node!=NULL)
   {
     int xCor;
