@@ -16,7 +16,7 @@
 #define WHT   "\x1B[37m"
 #define RESET "\x1B[0m"
 
-const char* breakLine = "------------------------------";
+const std::string breakLine = "------------------------------";
 
 /*
  * Class Multi threads
@@ -62,7 +62,7 @@ class CatWc : public MultiThreads
     bool isHelp{false};
     bool isFork{false};
     bool isThread{false};
-    bool isInfo{false};
+    bool isCount{false};
 
     const struct option longOpts[6] =
     {
@@ -98,7 +98,7 @@ class CatWc : public MultiThreads
     void setIsThread(bool const result);
 
     // Set isInfo
-    void setIsInfo(bool const result);
+    void setIsCount(bool const result);
 
     // Check if file is exist
     bool isExist(char* const filename);

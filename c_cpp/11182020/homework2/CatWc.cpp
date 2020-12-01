@@ -20,68 +20,73 @@ using namespace std;
  * Class CatWc functions
  */
 
-// Set max lines
 void CatWc::setMaxLine(unsigned int const lines)
 {
   maxLine = lines;
 }
 
-// Set exit from help
 void CatWc::setIsHelp(bool const result)
 {
   isHelp = result;
 }
 
-// Set isFork
 void CatWc::setIsFork(const bool result)
 {
   isFork = result;
 }
-// Set isThread
+
 void CatWc::setIsThread(const bool result)
 {
   isThread = result;
 }
 
-// Set isInfo
-void CatWc::setIsInfo(const bool result)
+void CatWc::setIsCount(const bool result)
 {
-  isInfo = result;
+  isCount = result;
 }
 
-// Check if file is exist
 bool CatWc::isExist(char* const filename)
 {
   struct stat buffer;
   return (stat(filename, &buffer)==0);
 }
 
-// Print help menu
 void CatWc::printHelp()
 {
   // Introduction
-  cout << RED << "Usage: catwc [OPTION]... [FILE]..." << RESET << endl;
-  cout << "Concatenate FILE(s) and count words with or in each file." << endl;
+  cout << RED 
+    << "Usage: catwc [OPTION]... [FILE]..." 
+    << RESET << endl;
+  cout << "Concatenate FILE(s) and count words, lines." << endl;
   cout << "Two features can be processed in concurrent by using fork and threads" << endl;
   cout << endl;
 
   // Long options and alias
   cout << GRN << "Options:" << RESET << endl;
-  cout << "  -h, --help" << "\t" << "display help menu" << endl;
-  cout << "  -f, --fork" << "\t" << "using fork to run features in concurrent with file(s)" << endl;
-  cout << "  -t, --thread" << "\t" << "using threads to run features in concurrent with file(s)" << endl;
-  cout << "      --max-line" << "\t" << "change maximum display lines." << RED << "By default maximum display line is 5." << RESET << endl;
+  cout << "  -h, --help" << "\t" 
+    << "display help menu" << endl;
+  cout << "  -f, --fork" << "\t" 
+    << "using fork to run features in concurrent" << endl;
+  cout << "  -t, --thread" << "\t" 
+    << "using threads to run features in concurrent" << endl;
+  cout << "      --max-line" << "\t" 
+    << "change maximum display lines. " 
+    << RED 
+    << "By default maximum display line is 5." 
+    << RESET << endl;
   cout << endl;
 
   // Examples
   cout << GRN << "Examples:" << RESET << endl;
-  cout << "  cat file1 file2" << "\t" << "Display the content of file1, its words count and lines count, then do the same with file2." << endl;
-  cout << " cat -wl file" << "\t" << "Display only the words count and lines count of file" << endl;
-  cout << "  cat -f file" << "\t" << "Display the content of file, its words count and line count using concurrent" << endl;
+  cout << "  cat file1 file2" << "\t" 
+    << "Display the content of file1, its words count and lines count, then do the same with file2." << endl;
+  cout << "  cat -wl file" << "\t" 
+    << "Display only the words count and lines count of file" << endl;
+  cout << "  cat -f file" << "\t" 
+    << "Display the content of file, its words count and line count using concurrent" << endl;
   cout << endl;
 }
 
-// Parse arguments
 void CatWc::parseArg()
 {
   int c;
@@ -118,7 +123,7 @@ void CatWc::parseArg()
 
       case 'c':
         {
-          setIsInfo(true);
+          setIsCount(true);
           break;
         }
 
@@ -155,7 +160,6 @@ void CatWc::parseArg()
   }
 }
 
-// Excute command
 void CatWc::doCommand()
 {
   // If argv has help flag
@@ -177,7 +181,7 @@ void CatWc::doCommand()
   }
 
   // If argv has count-only
-  if(isInfo)
+  if(isCount)
   {
     while(!files.empty())
     {
@@ -190,7 +194,9 @@ void CatWc::doCommand()
       }
 
       // If file is not exist, print out the messages
-      cout << RED << files.front() << " is not exist!" << RESET << endl;
+      cout << RED << files.front() 
+        << " is not exist!" 
+        << RESET << endl;
       files.pop();
     }
 
@@ -212,14 +218,13 @@ void CatWc::doCommand()
   }
 
   // Use threads concurrent 
-  if(isThread)
-  {
-    useThread();
-    return;
-  }
+  //if(isThread)
+  //{
+    //useThread();
+    //return;
+  //}
 }
 
-// Display file content
 void CatWc::catFile(char* const filename)
 {
   ifstream file;
@@ -249,7 +254,6 @@ void CatWc::catFile(char* const filename)
   file.close();
 }
 
-// Display words and lines count
 void CatWc::wcFile(char* const filename)
 {
   // Create open file for share memory
@@ -313,7 +317,6 @@ void CatWc::wcFile(char* const filename)
   close(fd);
 }
 
-// Not using multi threads
 void CatWc::useDefault()
 {
   while(!files.empty())
@@ -334,7 +337,6 @@ void CatWc::useDefault()
   }
 }
 
-// Using fork to cat and wc
 void CatWc::useFork()
 {
   while(!files.empty())
