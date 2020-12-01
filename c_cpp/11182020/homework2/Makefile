@@ -1,28 +1,21 @@
-CC=gcc
+CC=g++
+
 LINKERFLAG=-lm
 PTHREAD=-l pthread
 
-TEST := test.c
+MAIN := main.cpp
+MAIN += CatWc.cpp
 
-TEST2:= test2.c
-
-TEST3:= test3.c
-
-test: $(TEST)
+catwc: $(MAIN)
 	@echo "Making excutable file..."
 	$(CC) -o $@ $^ $(LINKERFLAG)
 	@echo "Done"
 
-test2: $(TEST2)
-	@echo "Making excutable file..."
-	$(CC) -o $@ $^ $(LINKERFLAG) $(PTHREAD)
-	@echo "Done"
-
-test3: $(TEST3)
-	@echo "Making excutable file..."
-	$(CC) -o $@ $^ $(LINKERFLAG) $(PTHREAD)
+tag:
+	@echo "Making tags file..."
+	ctags --recurse=yes -h .cpp.hpp.c.h
 	@echo "Done"
 
 clean:
-	rm -f test test2
+	rm -f test test2 test3 test4 test5
 	@echo "Done"
