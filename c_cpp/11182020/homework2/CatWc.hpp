@@ -5,7 +5,6 @@
 
 #include <getopt.h>
 
-
 // Text colors
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
@@ -19,38 +18,13 @@
 const std::string breakLine = "------------------------------";
 
 /*
- * Class Multi threads
- */
-
-//#ifndef _MULTI_THREADS_
-//#define _MULTI_THREADS_
-
-class MultiThreads
-{
-  private:
-
-  public:
-    // Display file content, used for threads concurrent
-    void* catFile(void* const file);
-
-    // Count words and lines, used for threads concurrent
-    void * wcFile(void* const file);
-
-    // Using thread to cat and wc 
-    void useThread();
-
-};
-
-//#endif 
-
-/*
  * Class CatWc
  */
 
 //#ifndef _CAT_WC_
 //#define _CAT_WC_
 
-class CatWc : public MultiThreads
+class CatWc
 {
   private:
     int argc;
@@ -102,6 +76,9 @@ class CatWc : public MultiThreads
 
     // Check if file is exist
     bool isExist(char* const filename);
+
+    // Create shared file in memory
+    void sharedFile(char* filename, char** fileInMemory, struct stat* fileSize);
     
     // Print out help of the funtions
     void printHelp();
@@ -127,3 +104,27 @@ class CatWc : public MultiThreads
 };
 
 //#endif
+
+/*
+ * Class Multi threads
+ */
+
+//#ifndef _MULTI_THREADS_
+//#define _MULTI_THREADS_
+
+class MultiThreads
+{
+  private:
+
+  public:
+    // Display file content, used for threads concurrent
+    void* catFile(void* const file);
+
+    // Count words and lines, used for threads concurrent
+    void* wcFile(void* const file);
+
+    // Using thread to cat and wc 
+    void useThread();
+};
+
+//#endif 

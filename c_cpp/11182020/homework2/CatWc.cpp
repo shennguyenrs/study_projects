@@ -16,6 +16,24 @@ using namespace std;
  * Class Multi Threads functions
  */
 
+void* MultiThreads::catFile(void* const file)
+{
+
+}
+
+void* MultiThreads::wcFile(void* const file)
+{
+
+}
+
+void MultiThreads::useThread()
+{
+  while(!files.empty())
+  {
+
+  }
+}
+
 /*
  * Class CatWc functions
  */
@@ -49,6 +67,23 @@ bool CatWc::isExist(char* const filename)
 {
   struct stat buffer;
   return (stat(filename, &buffer)==0);
+}
+
+void CatWc::sharedFile(
+    char* filename,
+    char** fileInMemory,
+    struct stat* fileSize)
+{
+  int fd = open(filename, O_RDONLY, S_IRUSR | S_IWUSR);
+
+  if(fstat(fd, fileSize))
+  {
+    cout << "Could not get file size" << endl;
+  }
+
+  *fileInMemory = 
+    static_cast<char*> 
+    (mmap(NULL, (*fileSize).st_size, PROT_READ, MAP_SHARED, fd, 0));
 }
 
 void CatWc::printHelp()
@@ -150,7 +185,7 @@ void CatWc::parseArg()
   // Push filename to queue
   if(optind>argc)
   {
-    cout << "Missing files name" << endl;
+    cout << RED << "Missing files name" << RESET << endl;
     return;
   }
 
@@ -234,7 +269,8 @@ void CatWc::catFile(char* const filename)
   // Display messages if open file is fail
   if(!file.is_open())
   {
-    cout << "Error to open file" << endl;
+    cout << RED << "In catFile()" << RESET << endl;
+    cout << RED << "Error to open file" << RESET << endl;
     return;
   }
 
@@ -244,7 +280,7 @@ void CatWc::catFile(char* const filename)
 
   cout << GRN << breakLine << RESET << endl;
 
-  while(getline(file, line) || i<=maxLine)
+  while(getline(file, line) && i<=maxLine)
   {
     cout << line << endl;
     i++;
@@ -257,17 +293,9 @@ void CatWc::catFile(char* const filename)
 void CatWc::wcFile(char* const filename)
 {
   // Create open file for share memory
-  int fd = open(filename, O_RDONLY, S_IRUSR | S_IWUSR);
-  struct stat sb;
-
-  if(fstat(fd, &sb))
-  {
-    cout << "Could not get file size" << endl;
-  }
-
-  char* fileInMemory = 
-    static_cast<char*> 
-    (mmap(NULL, sb.st_size, PROT_READ, MAP_SHARED, fd, 0));
+  char* fileInMemory;
+  struct stat fileSize;
+  sharedFile(filename, &fileInMemory, &fileSize);
 
   // Print break line after cat file
   cout << GRN << breakLine << RESET << endl;
@@ -311,10 +339,10 @@ void CatWc::wcFile(char* const filename)
   }
 
   // Unmap the shared file
-  munmap(fileInMemory, sb.st_size);
+  munmap(fileInMemory, fileSize.st_size);
 
   // Close file
-  close(fd);
+  //close(fd);
 }
 
 void CatWc::useDefault()
