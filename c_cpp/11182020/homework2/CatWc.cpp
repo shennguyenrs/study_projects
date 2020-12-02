@@ -1,42 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <thread>
 
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/mman.h>
-#include <pthread.h>
 
 #include "CatWc.hpp"
 using namespace std;
-
-/*
- * Class Multi Threads functions
- */
-
-void* MultiThreads::catFile(void* const file)
-{
-
-}
-
-void* MultiThreads::wcFile(void* const file)
-{
-
-}
-
-void MultiThreads::useThread()
-{
-  while(!files.empty())
-  {
-
-  }
-}
-
-/*
- * Class CatWc functions
- */
 
 void CatWc::setMaxLine(unsigned int const lines)
 {
@@ -100,6 +74,8 @@ void CatWc::printHelp()
   cout << GRN << "Options:" << RESET << endl;
   cout << "  -h, --help" << "\t" 
     << "display help menu" << endl;
+  cout << "  -c, --count-only" << "\t"
+    << "display count words and line only" << endl;
   cout << "  -f, --fork" << "\t" 
     << "using fork to run features in concurrent" << endl;
   cout << "  -t, --thread" << "\t" 
@@ -115,10 +91,10 @@ void CatWc::printHelp()
   cout << GRN << "Examples:" << RESET << endl;
   cout << "  cat file1 file2" << "\t" 
     << "Display the content of file1, its words count and lines count, then do the same with file2." << endl;
-  cout << "  cat -wl file" << "\t" 
+  cout << "  cat -c file" << "\t" 
     << "Display only the words count and lines count of file" << endl;
   cout << "  cat -f file" << "\t" 
-    << "Display the content of file, its words count and line count using concurrent" << endl;
+    << "Display the content of file, its words count and line count using fork" << endl;
   cout << endl;
 }
 
@@ -174,18 +150,24 @@ void CatWc::parseArg()
           break;
         }
 
-      case '?':
-        break;
-
+      // Case ?
       default:
-        abort();
+        {
+          cout << RED 
+            << "Your option(s) is not availabe!" << endl;
+          cout << "Use -h or --help to check user guide!" 
+            << RESET << endl;
+        exit(1);
+        }
     }
   }
 
   // Push filename to queue
-  if(optind>argc)
+  if(optind>=argc && !isHelp)
   {
-    cout << RED << "Missing files name" << RESET << endl;
+    cout << RED
+      << "Expected argument after options!"
+      << RESET << endl;
     return;
   }
 
@@ -215,6 +197,17 @@ void CatWc::doCommand()
     return;
   }
 
+  // If argv have fork or thread with count-only at the same time
+  if((isCount && isFork) || (isCount && isThread))
+  {
+    cout
+      << RED 
+      << "Can not use fork or thread with count-only at the same time" 
+      << RESET 
+      << endl;
+    return;
+  }
+
   // If argv has count-only
   if(isCount)
   {
@@ -229,8 +222,9 @@ void CatWc::doCommand()
       }
 
       // If file is not exist, print out the messages
-      cout << RED << files.front() 
-        << " is not exist!" 
+      cout << RED << "File \""
+        << files.front() 
+        << "\" is not exist!" 
         << RESET << endl;
       files.pop();
     }
@@ -253,11 +247,11 @@ void CatWc::doCommand()
   }
 
   // Use threads concurrent 
-  //if(isThread)
-  //{
-    //useThread();
-    //return;
-  //}
+  if(isThread)
+  {
+    useThread();
+    return;
+  }
 }
 
 void CatWc::catFile(char* const filename)
@@ -306,7 +300,7 @@ void CatWc::wcFile(char* const filename)
 
   if(pid<0)
   {
-    cout << "In WcFile function:" << endl;
+    cout << "In wcFile()" << endl;
     cout << "Could not create child process" << endl;
   }
   else if(pid==0)
@@ -358,8 +352,8 @@ void CatWc::useDefault()
     }
 
     // Print messages if file is not exist
-    cout << RED 
-      << files.front() << " is not exist" 
+    cout << RED << "File \""
+      << files.front() << "\" is not exist" 
       << RESET << endl;
     files.pop();
   }
@@ -377,7 +371,7 @@ void CatWc::useFork()
       if(pid<0)
       {
         cout << "In useFork()" << endl;
-        cout << "Can not create child process!" << endl;
+        cout << "Could not create child process" << endl;
       }
       else if(pid==0)
       {
@@ -397,8 +391,137 @@ void CatWc::useFork()
     }
 
     // Print messages if file is not exist
-    cout << RED 
-      << files.front() << " is not exist" 
+    cout << RED << "File \""
+      << files.front() << "\" is not exist" 
+      << RESET << endl;
+    files.pop();
+  }
+}
+
+void CatWc::tCatFile(char* const filename)
+{
+  // Lock
+  locker.lock();
+
+  ifstream file;
+
+  file.open(filename);
+
+  // Display messages if open file is fail
+  if(!file.is_open())
+  {
+    cout << RED << "In tCatFile()" << RESET << endl;
+    cout << RED << "Error to open file" << RESET << endl;
+    return;
+  }
+
+  // Display the content of the file
+  string line;
+  unsigned int i{0};
+
+  cout << GRN << breakLine << RESET << endl;
+
+  while(getline(file, line) && i<=maxLine)
+  {
+    cout << line << endl;
+    i++;
+  }
+
+  // Close file when done
+  file.close();
+
+  // Unlock
+  locker.unlock();
+}
+
+void CatWc::tWcFile(char* const filename)
+{
+  // Lock
+  locker.lock();
+
+  // Create open file for share memory
+  char* fileInMemory;
+  struct stat fileSize;
+  sharedFile(filename, &fileInMemory, &fileSize);
+
+  // Print break line after cat file
+  cout << GRN << breakLine << RESET << endl;
+
+  // Create fork
+  pid_t pid;
+  pid = fork();
+
+  if(pid<0)
+  {
+    cout << "In tWcFile()" << endl;
+    cout << "Could not create child process" << endl;
+  }
+  else if(pid==0)
+  {
+    // In Child process
+    stringstream ss(fileInMemory);
+    unsigned int counter{0};
+
+    for(string word; ss >> word; counter++) {};
+
+    cout << GRN 
+      << "Word count: " << counter << " words" 
+      << RESET << endl;
+
+    exit(0);
+  }
+  else 
+  {
+    // In parent process
+    waitpid(pid, NULL, 0);
+
+    stringstream ss(fileInMemory);
+    unsigned int counter{0};
+    
+    for(string line; getline(ss, line); counter++) {};
+
+    cout << GRN 
+      << "Line count: " << counter << " lines" 
+      << RESET << endl;
+  }
+
+  // Unmap the shared file
+  munmap(fileInMemory, fileSize.st_size);
+
+  // Close file
+  //close(fd);
+
+  // Unlock
+  locker.lock();
+}
+
+void CatWc::useThread()
+{
+  //cout << GRN << thread::hardware_concurrency() << RESET << endl;
+
+  while(!files.empty())
+  {
+    if(isExist(files.front()))
+    {
+      // Create ptr to call member function
+      CatWc* ptr = new CatWc();
+
+      thread th1(&CatWc::tCatFile, ptr, files.front());
+      thread th2(&CatWc::tWcFile, ptr, files.front());
+
+      th1.join();
+      th2.join();
+
+      files.pop();
+      delete ptr;
+
+      cout << "here..." << endl;
+      continue;
+    }
+
+    // Print messages if file is not exist
+    cout << RED << "File \""
+      << files.front() << "\" is not exist" 
       << RESET << endl;
     files.pop();
   }

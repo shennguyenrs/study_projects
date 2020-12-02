@@ -5,24 +5,24 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 -recurse	Makefile	/^	ctags --recurse=yes -h .cpp.hpp.c.h$/;"	m
-BLU	CatWc.hpp	12;"	d
+BLU	CatWc.hpp	13;"	d
 CC	Makefile	/^CC=g++$/;"	m
 CC	tests/Makefile	/^CC=gcc$/;"	m
 CP	tests/Makefile	/^CP=g++$/;"	m
-CYN	CatWc.hpp	14;"	d
+CYN	CatWc.hpp	15;"	d
+CatWc	CatWc.hpp	/^    CatWc() {}$/;"	f	class:CatWc
 CatWc	CatWc.hpp	/^    CatWc(int argc, char** argv):$/;"	f	class:CatWc
 CatWc	CatWc.hpp	/^class CatWc$/;"	c
-GRN	CatWc.hpp	10;"	d
+GRN	CatWc.hpp	11;"	d
 LINKERFLAG	Makefile	/^LINKERFLAG=-lm$/;"	m
 LINKERFLAG	tests/Makefile	/^LINKERFLAG=-lm$/;"	m
-MAG	CatWc.hpp	13;"	d
+MAG	CatWc.hpp	14;"	d
 MAIN	Makefile	/^MAIN := main.cpp$/;"	m
-MultiThreads	CatWc.hpp	/^class MultiThreads$/;"	c
 PTHREAD	Makefile	/^PTHREAD=-l pthread$/;"	m
 PTHREAD	tests/Makefile	/^PTHREAD=-l pthread$/;"	m
-RED	CatWc.hpp	9;"	d
+RED	CatWc.hpp	10;"	d
 RED	tests/test6.cpp	4;"	d
-RESET	CatWc.hpp	16;"	d
+RESET	CatWc.hpp	17;"	d
 RESET	tests/test6.cpp	5;"	d
 TEST	tests/Makefile	/^TEST := test.c$/;"	m
 TEST2	tests/Makefile	/^TEST2:= test2.c$/;"	m
@@ -31,8 +31,8 @@ TEST4	tests/Makefile	/^TEST4:= test4.cpp$/;"	m
 TEST5	tests/Makefile	/^TEST5:= test5.cpp$/;"	m
 TEST6	tests/Makefile	/^TEST6:= test6.cpp$/;"	m
 TEST7	tests/Makefile	/^TEST7:= test7.cpp$/;"	m
-WHT	CatWc.hpp	15;"	d
-YEL	CatWc.hpp	11;"	d
+WHT	CatWc.hpp	16;"	d
+YEL	CatWc.hpp	12;"	d
 a	tests/test2.c	/^  int a;$/;"	m	struct:data
 a	tests/test3.c	/^  int a;$/;"	m	struct:data
 addNum	tests/test2.c	/^void* addNum(void* data)$/;"	f
@@ -43,12 +43,12 @@ b	tests/test2.c	/^  int b;$/;"	m	struct:data
 b	tests/test3.c	/^  int b;$/;"	m	struct:data
 breakLine	CatWc.hpp	/^const std::string breakLine = "------------------------------";$/;"	v
 catFile	CatWc.cpp	/^void CatWc::catFile(char* const filename)$/;"	f	class:CatWc
-catFile	CatWc.cpp	/^void* MultiThreads::catFile(void* const file)$/;"	f	class:MultiThreads
 data	tests/test2.c	/^struct data$/;"	s
 data	tests/test3.c	/^struct data$/;"	s
 doCommand	CatWc.cpp	/^void CatWc::doCommand()$/;"	f	class:CatWc
 files	CatWc.hpp	/^    std::queue<char*> files;$/;"	m	class:CatWc
 isExist	CatWc.cpp	/^bool CatWc::isExist(char* const filename)$/;"	f	class:CatWc
+locker	CatWc.hpp	/^    std::mutex locker;$/;"	m	class:CatWc
 longOpts	CatWc.hpp	/^    const struct option longOpts[6] =$/;"	m	class:CatWc	typeref:struct:CatWc::option
 main	main.cpp	/^int main(int argc, char** argv)$/;"	f
 main	tests/test.c	/^int main(int argc, char** argv)$/;"	f
@@ -69,9 +69,11 @@ setIsThread	CatWc.cpp	/^void CatWc::setIsThread(const bool result)$/;"	f	class:C
 setMaxLine	CatWc.cpp	/^void CatWc::setMaxLine(unsigned int const lines)$/;"	f	class:CatWc
 sharedFile	CatWc.cpp	/^void CatWc::sharedFile($/;"	f	class:CatWc
 shortOpts	CatWc.hpp	/^    const char* shortOpts = ":hifp";$/;"	m	class:CatWc
+tCatFile	CatWc.cpp	/^void CatWc::tCatFile(char* const filename)$/;"	f	class:CatWc
+tWcFile	CatWc.cpp	/^void CatWc::tWcFile(char* const filename)$/;"	f	class:CatWc
 useDefault	CatWc.cpp	/^void CatWc::useDefault()$/;"	f	class:CatWc
 useFork	CatWc.cpp	/^void CatWc::useFork()$/;"	f	class:CatWc
-useThread	CatWc.cpp	/^void MultiThreads::useThread()$/;"	f	class:MultiThreads
+useThread	CatWc.cpp	/^void CatWc::useThread()$/;"	f	class:CatWc
 verbose_flag	tests/test5.cpp	/^static int verbose_flag;$/;"	v
 wcFile	CatWc.cpp	/^void CatWc::wcFile(char* const filename)$/;"	f	class:CatWc
-wcFile	CatWc.cpp	/^void* MultiThreads::wcFile(void* const file)$/;"	f	class:MultiThreads
+~CatWc	CatWc.hpp	/^    ~CatWc() {}$/;"	f	class:CatWc

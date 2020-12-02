@@ -1,6 +1,7 @@
 #pragma once
 
 #include <queue>
+#include <mutex>
 #include <string>
 
 #include <getopt.h>
@@ -16,10 +17,6 @@
 #define RESET "\x1B[0m"
 
 const std::string breakLine = "------------------------------";
-
-/*
- * Class CatWc
- */
 
 //#ifndef _CAT_WC_
 //#define _CAT_WC_
@@ -48,16 +45,22 @@ class CatWc
       {0, 0, 0, 0}
     };
 
-    const char* shortOpts = ":hifp";
+    const char* shortOpts = ":hcfp";
 
-    friend class MultiThreads;
+    std::mutex locker;
 
   public:
     // Initializer
     CatWc(int argc, char** argv):
       argc{argc},
       argv{argv}
-    {};
+    {}
+
+    // Constructor
+    CatWc() {}
+
+    // Destructor
+    ~CatWc() {}
 
     // Set max lines
     void setMaxLine(unsigned int const lines);
@@ -78,7 +81,10 @@ class CatWc
     bool isExist(char* const filename);
 
     // Create shared file in memory
-    void sharedFile(char* filename, char** fileInMemory, struct stat* fileSize);
+    void sharedFile(
+        char* filename,
+        char** fileInMemory,
+        struct stat* fileSize);
     
     // Print out help of the funtions
     void printHelp();
@@ -101,30 +107,16 @@ class CatWc
 
     // Using fork to cat and wc
     void useFork();
-};
 
-//#endif
+    // Display file content used by threads
+    void tCatFile(char* const filename);
 
-/*
- * Class Multi threads
- */
+    // Display words and lines count used by thread
+    // Using explicit concurrent to count lines and words
+    void tWcFile(char* const filename);
 
-//#ifndef _MULTI_THREADS_
-//#define _MULTI_THREADS_
-
-class MultiThreads
-{
-  private:
-
-  public:
-    // Display file content, used for threads concurrent
-    void* catFile(void* const file);
-
-    // Count words and lines, used for threads concurrent
-    void* wcFile(void* const file);
-
-    // Using thread to cat and wc 
+    // Using thread to cat and wc
     void useThread();
 };
 
-//#endif 
+//#endif

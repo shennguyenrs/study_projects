@@ -17,7 +17,7 @@ int main(int argc, char** argv)
       {"fork", no_argument, 0, 'f'},
       {"thread", no_argument, 0, 't'},
       {"max-line", required_argument, 0, 0},
-      {0, 0, 0, 0}
+      //{0, 0, 0, 0}
     };
 
     const char* short_opts = ":hftwl";
@@ -52,6 +52,7 @@ int main(int argc, char** argv)
         break;
 
       case '?':
+        cout << argv[optind] << endl;
         cout << "Do not known" << endl;
         break;
       

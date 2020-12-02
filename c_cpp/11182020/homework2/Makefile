@@ -8,7 +8,7 @@ MAIN += CatWc.cpp
 
 catwc: $(MAIN)
 	@echo "Making excutable file..."
-	$(CC) -o $@ $^ $(LINKERFLAG)
+	$(CC) -o $@ $^ $(LINKERFLAG) $(PTHREAD)
 	@echo "Done"
 
 tag:
@@ -17,5 +17,5 @@ tag:
 	@echo "Done"
 
 clean:
-	rm -f test test2 test3 test4 test5
+	rm -f catwc
 	@echo "Done"
