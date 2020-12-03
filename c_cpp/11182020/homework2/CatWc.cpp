@@ -118,11 +118,11 @@ void CatWc::printHelp()
 
   // Examples
   cout << GRN << "Examples:" << RESET << endl;
-  cout << "  cat file1 file2" << "\t\t" 
+  cout << "  catwc file1 file2" << "\t\t" 
     << "Display the content of file1, its words count and lines count, then do the same with file2." << endl;
-  cout << "  cat -c file" << "\t\t" 
+  cout << "  catwc -c file" << "\t\t" 
     << "Display only the words count and lines count of file." << endl;
-  cout << "  cat -f file" << "\t\t" 
+  cout << "  catwc -f file" << "\t\t" 
     << "Display the content of file, its words count and line count using fork." << endl;
   cout << endl;
 }
@@ -251,7 +251,12 @@ void CatWc::doCommand()
   }
 
   // If argv has fork, thread or thread pool with count-only at the same time
-  if(isCount && (isFork || isThread || isPool))
+  if(
+      (isCount && (isFork || isThread || isPool))
+      || (isFork && (isCount || isThread || isPool))
+      || (isThread && (isCount || isFork || isPool))
+      || (isPool && (isCount || isFork || isThread))
+    )
   {
     cout
       << RED 
@@ -554,7 +559,7 @@ void CatWc::usePool()
           char * file = new char;
           file = files.front();
 
-          workers.push(thread( [&] 
+          workers.push(thread( [=] 
                 {
                 catWcFile(file);
                 }));
@@ -595,7 +600,7 @@ void CatWc::usePool()
       char* file = new char;
       file = files.front();
 
-      workers.push(thread( [&] 
+      workers.push(thread( [=] 
             {
             catWcFile(file);
             }));
