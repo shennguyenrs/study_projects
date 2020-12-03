@@ -1,9 +1,11 @@
-#include "QueueHeader/QueueDict.hpp"
+//#include "QueueHeader/QueueDict.hpp"
+#include "QueueHeader/TemplateInQueue.hpp"
 using namespace std;
 
 int main()
 {
-  QueueDict dict;
+  //QueueDict dict;
+  QueueDict<string, string> dict;
 
   // Insert items into dictionary
   dict.insert("Mon", "Kok");

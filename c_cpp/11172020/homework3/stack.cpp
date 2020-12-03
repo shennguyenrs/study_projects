@@ -1,9 +1,11 @@
-#include "StackHeader/StackDict.hpp"
+//#include "StackHeader/StackDict.hpp"
+#include "StackHeader/TemplateInStack.hpp"
 using namespace std;
 
 int main()
 {
-  StackDict dict;
+  //StackDict dict;
+  StackDict<string, string> dict;
 
   // Insert items into dictionary
   dict.insert("Mon", "Kok");
