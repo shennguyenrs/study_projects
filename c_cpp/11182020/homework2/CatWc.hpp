@@ -3,6 +3,7 @@
 #include <queue>
 #include <mutex>
 #include <string>
+#include <thread>
 
 #include <getopt.h>
 
@@ -28,24 +29,32 @@ class CatWc
     char** argv;
 
     std::queue<char*> files;
+    std::queue<std::thread> workers;
 
+    unsigned int workLoads{0};
+    unsigned int maxThreads{std::thread::hardware_concurrency()};
     unsigned int maxLine{5};
     bool isHelp{false};
+    bool isCount{false};
     bool isFork{false};
     bool isThread{false};
-    bool isCount{false};
+    bool isPool{false};
+    bool isReturnHC{false};
 
-    const struct option longOpts[6] =
+    const struct option longOpts[9] =
     {
       {"help", no_argument, 0, 'h'},
       {"count-only", no_argument, 0, 'c'},
       {"fork", no_argument, 0, 'f'},
       {"pthread", no_argument, 0, 'p'},
+      {"threads-pool", no_argument, 0, 'P'},
+      {"get-max-threads", no_argument, 0, 'g'},
+      {"max-thread", required_argument, 0, 1},
       {"max-line", required_argument, 0, 0},
       {0, 0, 0, 0}
     };
 
-    const char* shortOpts = ":hcfp";
+    const char* shortOpts = "::hcfpPg";
 
     std::mutex locker;
 
@@ -62,20 +71,32 @@ class CatWc
     // Destructor
     ~CatWc() {}
 
+    // Set maxThreads
+    void setMaxThreads(unsigned int const threads);
+
     // Set max lines
     void setMaxLine(unsigned int const lines);
 
     // Set exit from help
-    void setIsHelp(bool const result);
+    void setIsHelp(bool const value);
 
     // Set isFork
-    void setIsFork(bool const result);
+    void setIsFork(bool const value);
 
     // Set isThread
-    void setIsThread(bool const result);
+    void setIsThread(bool const value);
 
     // Set isInfo
-    void setIsCount(bool const result);
+    void setIsCount(bool const value);
+
+    // Set isPool
+    void setIsPool(bool const value);
+
+    // Set return hardware concurrency
+    void setReturnHC(bool const value);
+
+    // Get hardware max threads 
+    unsigned int getMaxThreads();
 
     // Check if file is exist
     bool isExist(char* const filename);
@@ -102,6 +123,12 @@ class CatWc
     // Using explicit concurrent to count lines and words
     void wcFile(char* const filename);
 
+    // Cat then wc file
+    void catWcFile(char* const filename);
+
+    // Using count file only
+    void useCount();
+
     // Not using multi threads
     void useDefault();
 
@@ -115,8 +142,11 @@ class CatWc
     // Using explicit concurrent to count lines and words
     void tWcFile(char* const filename);
 
-    // Using thread to cat and wc
+    // Using threads to cat and wc
     void useThread();
+
+    // Using threadPool to cat and wc
+    void usePool();
 };
 
 //#endif

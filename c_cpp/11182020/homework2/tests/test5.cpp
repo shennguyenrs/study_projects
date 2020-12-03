@@ -17,10 +17,11 @@ int main(int argc, char** argv)
       {"fork", no_argument, 0, 'f'},
       {"thread", no_argument, 0, 't'},
       {"max-line", required_argument, 0, 0},
-      //{0, 0, 0, 0}
+      {"max-thread", required_argument, 0, 1},
+      {0, 0, 0, 0}
     };
 
-    const char* short_opts = ":hftwl";
+    const char* short_opts = "::hftwl";
 
     int option_index{0};
 
@@ -31,6 +32,15 @@ int main(int argc, char** argv)
     switch(c)
     {
       case 0:
+        if(long_options[option_index].flag!=0) break;
+        cout << long_options[option_index].name << endl;
+
+        if(optarg)
+          cout << optarg << endl;
+      
+        break;
+
+      case 1:
         if(long_options[option_index].flag!=0) break;
         cout << long_options[option_index].name << endl;
 
