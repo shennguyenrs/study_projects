@@ -11,7 +11,7 @@ struct myData
     string str;
 };
 
-void addData(vector<myData>* vec)
+void addData(vector<myData> *vec)
 {
     vector<string>::iterator itr = raw.begin();
     

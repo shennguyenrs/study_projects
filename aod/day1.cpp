@@ -16,7 +16,7 @@ void findCouple()
     // O(n)
     while (*itr1<*itr2)
     {
-        int sum = *itr1 + *itr2;
+        unsigned int sum = *itr1 + *itr2;
         
         if (sum==2020)
         {
@@ -46,7 +46,7 @@ void findTriplet()
 
         while (*itr2<*itr3) // O(n)
         {
-            int sum = *itr1 + *itr2 + *itr3;
+            unsigned int sum = *itr1 + *itr2 + *itr3;
 
             if (sum==2020)
             {
