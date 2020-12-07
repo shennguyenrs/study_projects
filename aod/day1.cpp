@@ -1,62 +1,72 @@
 #include <iostream>
 #include <iterator>
+#include <algorithm>
 
-#include ".day1.hpp"
+#include "day1.hpp"
 
 using namespace std;
 
 void findCouple()
 {
-    set<int>::iterator itr1;
-    set<int>::iterator itr2;
+    vector<int>::iterator itr1 = mySet.begin();
+    vector<int>::iterator itr2 = prev(mySet.end());
 
-    // O(n log n)
-    for(itr1=mySet.begin(); itr1!=mySet.end(); itr1++) // O(n)
+    sort(mySet.begin(), mySet.end());
+
+    // O(n)
+    while (*itr1<*itr2)
     {
-        int second = 2020 - *itr1;
-        itr2 = mySet.find(second); // O(log n)
-
-        if(itr2!=mySet.end())
+        int sum = *itr1 + *itr2;
+        
+        if (sum==2020)
         {
             cout << "The first number is: " << *itr1 << endl;
             cout << "The second number is: " << *itr2 << endl;
             cout << "Their multiply is: " << *itr1 * *itr2 << endl;
             break;
         }
+        else if (sum>2020) itr2--;
+        else itr1++;
     }
 }
 
 void findTriplet()
 {
-    set<int>::iterator itr1;
-    set<int>::iterator itr2;
-    set<int>::iterator itr3;
+    vector<int>::iterator itr1;
+    vector<int>::iterator itr2;
+    vector<int>::iterator itr3;
 
-    // O(n^2 log n)
-    for(itr1=mySet.begin(); itr1!=mySet.end(); itr1++) // O(n)
+    sort(mySet.begin(), mySet.end());
+
+    // O(n^2)
+    for (itr1=mySet.begin(); itr1!=prev(mySet.end(), 2); itr1++) // O(n)
     {
-        for(itr2=next(itr1); itr2!=mySet.end(); itr2++) // O(n)
+        itr2 = next(itr1);
+        itr3 = prev(mySet.end());
+
+        while (*itr2<*itr3) // O(n)
         {
-            int third = 2020 - *itr1 - *itr2;
+            int sum = *itr1 + *itr2 + *itr3;
 
-            if(third>*mySet.begin())
+            if (sum==2020)
             {
-                itr3 = mySet.find(third); // O(log n)
-
-                if(itr3!=mySet.end())
-                {
-                    cout << "The first number is: " << *itr1 << endl;
-                    cout << "The second number is: " << *itr2 << endl;
-                    cout << "The third number is: " << *itr3 << endl;
-                    cout << "Their multiply is: " << *itr1 * *itr2 * *itr3 << endl;
-                    break;
-                }
+                cout << "The first number is: " << *itr1 << endl;
+                cout << "The second number is: " << *itr2 << endl;
+                cout << "The third number is: " << *itr3 << endl;
+                cout << "Their multiply is: " << *itr1 * *itr2 * *itr3 << endl;
+                break;
             }
+            else if (sum<2020) itr2++;
+            else itr3--;
         }
     }
 }
 
 int main()
 {
+    findCouple();
+    cout << "-------------------------------" << endl;
+    findTriplet();
+
     return 0;
 }

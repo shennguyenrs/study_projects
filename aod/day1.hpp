@@ -1,6 +1,6 @@
-#include <set>
+#include <vector>
 
-static std::set<int> mySet
+static std::vector<int> mySet
 {
     1735,
     1700,
