@@ -64,8 +64,10 @@ void findTriplet()
 
 int main()
 {
+    cout << "----- Part One -----" << endl;
     findCouple();
-    cout << "-------------------------------" << endl;
+    cout << endl;
+    cout << "----- Part Two -----" << endl;
     findTriplet();
 
     return 0;

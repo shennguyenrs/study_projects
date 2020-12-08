@@ -1,0 +1,23 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+-recurse	Makefile	/^	ctags --recurse=yes -h .cpp.hpp.c.h$/;"	m
+CC	Makefile	/^CC=g++$/;"	m
+LINKERFLAG	Makefile	/^LINKERFLAG=-lm$/;"	m
+MAIN	Makefile	/^MAIN := day4.cpp$/;"	m
+PartOne	day4.cpp	/^void PartOne(string const key)$/;"	f
+PartTwo	day4.cpp	/^void PartTwo(string const key, string const value)$/;"	f
+_functions	day4.cpp	/^static vector<bool (*)(string)> _functions;$/;"	v
+addFunctions	day4.cpp	/^void addFunctions()$/;"	f
+checkByr	day4.cpp	/^bool checkByr(string value)$/;"	f
+checkEcl	day4.cpp	/^bool checkEcl(string value)$/;"	f
+checkEyr	day4.cpp	/^bool checkEyr(string value)$/;"	f
+checkHcl	day4.cpp	/^bool checkHcl(string value)$/;"	f
+checkHgt	day4.cpp	/^bool checkHgt(string value)$/;"	f
+checkIyr	day4.cpp	/^bool checkIyr(string value)$/;"	f
+checkPid	day4.cpp	/^bool checkPid(string value)$/;"	f
+getResult	day4.cpp	/^bool getResult(vector<pair<string, bool>> *condition)$/;"	f
+main	day4.cpp	/^int main()$/;"	f

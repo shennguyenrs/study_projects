@@ -33,7 +33,9 @@ int main()
     unsigned long int result{1};
 
     // Part one
+    cout << "----- Part One -----" << endl;
     cout << countTree(3, 1) << endl;
+    cout << endl;
 
     // Part two
     result *= countTree(1, 1);
@@ -42,6 +44,7 @@ int main()
     result *= countTree(7, 1);
     result *= countTree(1, 2);
 
+    cout << "----- Part Two -----" << endl;
     cout << result << endl;
 
     return 0;

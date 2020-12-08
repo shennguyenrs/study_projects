@@ -73,6 +73,8 @@ void doCount(vector<myData> *vec)
         {
             if(str[min-1]!=str[max-1]) partTwo++;
         }
+
+        itr++;
     }
 
     // Print out result
