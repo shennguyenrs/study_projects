@@ -25,7 +25,11 @@ Node* createNode(int newData)
 
 Node* insertNode(Node* root, int newData)
 {
-    if(root==NULL) root = createNode(newData); return root;
+    if(root==NULL)
+    {
+        root = createNode(newData); 
+        return root;
+    }
 
     queue<Node*> q;
     q.push(root);
@@ -38,11 +42,19 @@ Node* insertNode(Node* root, int newData)
 
         // From the left first
         if(temp->left!=NULL) q.push(temp->left);
-        else temp->left = createNode(newData); break;
+        else 
+        {
+            temp->left = createNode(newData); 
+            break;
+        }
 
         // To the right
         if(temp->right!=NULL) q.push(temp->right);
-        else temp->right = createNode(newData); break;
+        else
+        {
+            temp->right = createNode(newData); 
+            break;
+        }
     }
 
     return root;
@@ -68,6 +80,79 @@ void printLevel(Node* node, int level)
         printLevel(node->left, level-1);
         printLevel(node->right, level-1);
     }
+}
+
+void delDeepest(Node* root, Node* deepest)
+{
+    queue<Node*> q;
+    q.push(root);
+
+    Node* temp;
+
+    while(!q.empty())
+    {
+        temp = q.front();
+        q.pop();
+
+        if(temp==deepest)
+        {
+            temp = NULL;
+            delete deepest;
+            return;
+        }
+        
+        if(temp->left==deepest)
+        {
+            temp->left = NULL;
+            delete deepest;
+            return;
+        }
+        else q.push(temp->left);
+
+        if(temp->right==deepest)
+        {
+            temp->right = NULL;
+            delete deepest;
+            return;
+        }
+        else q.push(temp->right);
+    }
+}
+
+Node* deleteNode(Node* root, int data)
+{
+    if(root==NULL) return NULL;
+
+    if(root->left==NULL && root->right==NULL)
+    {
+        if(root->data==data) return NULL;
+        return root;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+
+    Node* deepest;
+    Node* found = NULL;
+
+    while(!q.empty())
+    {
+        deepest = q.front();
+        q.pop();
+
+        if(deepest->data==data) found = deepest;
+        if(deepest->left) q.push(deepest->left);
+        if(deepest->right) q.push(deepest->right);
+    }
+
+    if(found!=NULL)
+    {
+        int deepestData = deepest->data;
+        delDeepest(root, deepest);
+        found->data = deepestData;
+    }
+
+    return root;
 }
 
 void bfsPrint(Node* root)
@@ -137,6 +222,14 @@ int main()
     bfsPrint(root);
     cout << endl;
     dfsPrint(root);
+
+    root = insertNode(root, 8);
+    bfsPrint(root);
+    cout << endl;
+
+    root = deleteNode(root, 3);
+    bfsPrint(root);
+    cout << endl;
 
     return 0;
 }
