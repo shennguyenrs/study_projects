@@ -46,7 +46,7 @@ int main()
                 mmap
                 (
                     NULL, counters.size(), PROT_READ | PROT_WRITE, 
-                    MAP_SHARED |MAP_ANONYMOUS, -1, 0
+                    MAP_SHARED | MAP_ANONYMOUS, -1, 0
                 )
             );
 
