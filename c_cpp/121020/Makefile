@@ -1,8 +1,13 @@
 CC=g++
 LINKERFLAG=-lm
 
-BFS := bsf.cpp
+BFS := bfs.cpp
 BFS += BfsDict/BfsDict.cpp
+BFS += BfsDict/Node.cpp
+
+DFS := dfs.cpp
+DFS += DfsDict/DfsDict.cpp
+BFS += DfsDict/Node.cpp
 
 bfs: $(BFS)
 	@echo "Making excutable file..."

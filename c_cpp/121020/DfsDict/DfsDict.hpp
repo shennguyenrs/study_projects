@@ -7,20 +7,20 @@
 
 using namespace std;
 
-class BfsDict
+class DfsDict
 {
   private:
     Node* root;
   
   public:
     // Constructor
-    BfsDict() 
+    DfsDict() 
     {
       root = NULL;
     }
 
     // Destructor
-    ~BfsDict()
+    ~DfsDict()
     {
       clear();
     }

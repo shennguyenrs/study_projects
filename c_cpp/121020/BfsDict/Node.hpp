@@ -48,20 +48,4 @@ void printLevel(Node* root,unsigned int level);
 // Bfs travesal print tree
 void bfsPrint(Node* root);
 
-/*
- * DFS Travesal Print
- */
-
-// Post order print
-void postOrderPrint(Node* node);
-
-// In-Order print
-void inOrderPrint(Node* node);
-
-// Pre-Order print
-void preOrderPrint(Node* node);
-
-// Dfs travesal print tree
-void dfsPrint(Node* root);
-
 //endif
