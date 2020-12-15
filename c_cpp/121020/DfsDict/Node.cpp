@@ -76,7 +76,7 @@ Node* insertNode(Node* root, pair<string, string> newData)
   // Check if root is NULL
   if(root==NULL)
   {
-    createNode(newData); 
+    root = createNode(newData); 
     return root;
   }
 

@@ -7,6 +7,7 @@ using namespace std;
 void DfsDict::clear()
 {
   deleteTree(root);
+  root =  NULL;
 }
 
 void DfsDict::insert(const string &k, const string &e)

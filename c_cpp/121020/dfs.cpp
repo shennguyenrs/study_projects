@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "BfsDict/BfsDict.hpp"
+#include "DfsDict/DfsDict.hpp"
 
 using namespace std;
 
 int main()
 {
-  BfsDict dict;
+  DfsDict dict;
 
   // Insert items into dictionary
   dict.insert("Mon", "Kok");

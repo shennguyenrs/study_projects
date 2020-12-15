@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "BfsDict/BfsDict.hpp"
-#include "BfsDict/Node.hpp"
 
 using namespace std;
 

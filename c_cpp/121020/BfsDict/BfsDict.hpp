@@ -42,6 +42,12 @@ class BfsDict
 
     // Return dictionary size
     int size();
+
+    // Return root
+    Node* getRoot()
+    {
+      return root;
+    }
 };
 
 //#endif

@@ -7,6 +7,7 @@ using namespace std;
 void BfsDict::clear()
 {
   deleteTree(root);
+  root = NULL;
 }
 
 void BfsDict::insert(const string &k, const string &e)

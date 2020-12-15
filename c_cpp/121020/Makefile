@@ -7,7 +7,7 @@ BFS += BfsDict/Node.cpp
 
 DFS := dfs.cpp
 DFS += DfsDict/DfsDict.cpp
-BFS += DfsDict/Node.cpp
+DFS += DfsDict/Node.cpp
 
 bfs: $(BFS)
 	@echo "Making excutable file..."
