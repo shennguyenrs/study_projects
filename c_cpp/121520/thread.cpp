@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <mutex>
 #include <unistd.h>
@@ -19,31 +20,74 @@ void job(std::ofstream& file)
     file << i << std::endl;
   }
 
-  file << "Exit from thread " << this_id << std::endl;
+  file << "Exit from " << this_id << std::endl;
+  file << std::endl;
 
   locker.unlock();
 }
 
 int main() 
 {  
-  std::ofstream file;
+  // Write file
+  std::ofstream write;
 
-  file.open("test.txt");
+  write.open("test.txt");
 
   std::thread th1( [&]
   {
-    job(file);
+    job(write);
   });
 
   std::thread th2( [&]
   {
-    job(file);
+    job(write);
   });
 
   th1.join();
   th2.join();
 
-  file.close();
+  write.close();
 
-	return 0; 
+  // Read file
+  std::ifstream read;
+  read.open("test.txt");
+
+  std::thread th3( [&]
+  {
+    locker.lock();
+
+    // Count words
+    unsigned int counter{0};
+    
+    for(std::string line; getline(read, line);)
+    {
+      std::stringstream ss(line);
+      for(std::string word; ss >> word; counter++) {}
+    }
+
+    std::cout << "Word count: " << counter << " words" << std::endl;
+
+    locker.unlock();
+  });
+
+  std::thread th4( [&]
+  {
+    locker.lock();
+
+    // Count lines
+    unsigned int counter{0};
+    
+    for(std::string line; getline(read, line); counter++) {}
+
+    std::cout << "Line count: " << counter << " lines" << std::endl;
+    
+    locker.unlock();
+  });
+
+  th3.join();
+  th4.join();
+
+  read.close();
+
+  return 0; 
 } 

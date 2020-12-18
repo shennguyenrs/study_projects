@@ -1,0 +1,30 @@
+Child Process
+Enter from process id 16166
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Exit from 16166
+
+Parent Process
+Enter from process id 16165
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Exit from 16165
+
