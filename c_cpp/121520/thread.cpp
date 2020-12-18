@@ -58,6 +58,11 @@ int main()
 
     // Count words
     unsigned int counter{0};
+
+    read.clear();
+    read.seekg(0, std::ios::beg);
+
+    std::thread::id this_id = std::this_thread::get_id();
     
     for(std::string line; getline(read, line);)
     {
@@ -65,7 +70,7 @@ int main()
       for(std::string word; ss >> word; counter++) {}
     }
 
-    std::cout << "Word count: " << counter << " words" << std::endl;
+    std::cout << this_id << " count word: " << counter << " words" << std::endl;
 
     locker.unlock();
   });
@@ -76,10 +81,15 @@ int main()
 
     // Count lines
     unsigned int counter{0};
+
+    read.clear();
+    read.seekg(0, std::ios::beg);
+
+    std::thread::id this_id = std::this_thread::get_id();
     
     for(std::string line; getline(read, line); counter++) {}
 
-    std::cout << "Line count: " << counter << " lines" << std::endl;
+    std::cout << this_id << " count line: " << counter << " lines" << std::endl;
     
     locker.unlock();
   });

@@ -1,19 +1,14 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <mutex>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <fcntl.h>
 
-std::mutex locker; 
-
 void write(std::ofstream& file) 
 { 
-  locker.lock();
-
   file << "Enter from process id " << getpid() << std::endl;
 
   for(size_t i{0}; i<=10; i++)
@@ -23,8 +18,6 @@ void write(std::ofstream& file)
 
   file << "Exit from " << getpid() << std::endl;
   file << std::endl;
-
-  locker.unlock();
 }
 
 int main() 
@@ -55,17 +48,17 @@ int main()
 
   // Read file
   int fd = open("test.txt", O_RDONLY, S_IRUSR | S_IWUSR);
-  struct stat* fileSize;
+  struct stat fileSize;
   char* fileInMemory;
 
-  if(fstat(fd, fileSize))
+  if(fstat(fd, &fileSize))
   {
     std::cout << "Could not get file size" << std::endl;
   }
 
   // Make shared memory
   fileInMemory = static_cast<char*> 
-    (mmap(NULL, (*fileSize).st_size, PROT_READ, MAP_SHARED, fd, 0));
+    (mmap(NULL, fileSize.st_size, PROT_READ, MAP_SHARED, fd, 0));
 
   pid = fork();
 
@@ -77,7 +70,7 @@ int main()
 
     for(std::string word; ss >> word; counter++) {};
 
-    std::cout << "Word count: " << counter << " words" << std::endl;
+    std::cout << getpid() << " count word: " << counter << " words" << std::endl;
 
     exit(0);
   }
@@ -91,14 +84,14 @@ int main()
     
     for(std::string line; getline(ss, line); counter++) {};
 
-    std::cout << "Line count: " << counter << " lines" << std::endl;
+    std::cout << getpid() << " count line: " << counter << " lines" << std::endl;
   }
 
   // Unmap the shared file
-  munmap(fileInMemory, fileSize->st_size);
+  munmap(fileInMemory, fileSize.st_size);
 
   // Close file
   close(fd);
 
   return 0; 
-} 
+}
