@@ -30,12 +30,25 @@ int main()
   // Show size of dictionary
   cout << "Size of the dictionary: " << dict.size() << endl;
 
+  /*
   // Clear the dictionary
   dict.clear(); 
   cout << "Clear the records in dictionary" << endl;
 
   // Show size of dictionary
   cout << "Size of the dictionary: " << dict.size() << endl;
+  */
+
+  // BFS print
+  char choose;
+
+  cout << endl;
+  cout << "Do you want to print the remains record? (y/n)";
+
+  if(cin>>choose)
+  {
+    if('y'==choose) bfsPrint(dict.getRoot());
+  }
 
   return 0;
 }

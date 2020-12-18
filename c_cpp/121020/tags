@@ -13,73 +13,74 @@ DFS	Makefile	/^DFS := dfs.cpp$/;"	m
 DfsDict	DfsDict/DfsDict.hpp	/^    DfsDict() $/;"	f	class:DfsDict
 DfsDict	DfsDict/DfsDict.hpp	/^class DfsDict$/;"	c
 LINKERFLAG	Makefile	/^LINKERFLAG=-lm$/;"	m
-Node	BfsDict/Node.hpp	/^struct Node$/;"	s
-Node	DfsDict/Node.hpp	/^struct Node$/;"	s
+Node	BfsDict/QueueNode.hpp	/^struct Node$/;"	s
+Node	DfsDict/StackNode.hpp	/^struct Node$/;"	s
 Node	tests/test.cpp	/^struct Node$/;"	s
 Node	tests/test2.cpp	/^struct Node$/;"	s
-bfsPrint	BfsDict/Node.cpp	/^void bfsPrint(Node* root)$/;"	f
+bfsPrint	BfsDict/QueueNode.cpp	/^void bfsPrint(Node* root)$/;"	f
 bfsPrint	tests/test.cpp	/^void bfsPrint(Node* root)$/;"	f
 bfsPrint	tests/test2.cpp	/^void bfsPrint(Node* root)$/;"	f
 clear	BfsDict/BfsDict.cpp	/^void BfsDict::clear()$/;"	f	class:BfsDict
 clear	DfsDict/DfsDict.cpp	/^void DfsDict::clear()$/;"	f	class:DfsDict
-countNode	BfsDict/Node.cpp	/^unsigned int countNode(Node* root)$/;"	f
-countNode	DfsDict/Node.cpp	/^unsigned int countNode(Node* root)$/;"	f
-createNode	BfsDict/Node.cpp	/^Node* createNode(pair<string, string> newData)$/;"	f
-createNode	DfsDict/Node.cpp	/^Node* createNode(pair<string, string> newData)$/;"	f
+countNode	BfsDict/QueueNode.cpp	/^unsigned int countNode(Node* root)$/;"	f
+countNode	DfsDict/StackNode.cpp	/^unsigned int countNode(Node* root)$/;"	f
+createNode	BfsDict/QueueNode.cpp	/^Node* createNode(pair<string, string> newData)$/;"	f
+createNode	DfsDict/StackNode.cpp	/^Node* createNode(pair<string, string> newData)$/;"	f
 createNode	tests/test.cpp	/^Node* createNode(int newData)$/;"	f
 createNode	tests/test2.cpp	/^Node* createNode(int newData)$/;"	f
 data	tests/test.cpp	/^    int data;$/;"	m	struct:Node
 data	tests/test2.cpp	/^    int data;$/;"	m	struct:Node
-delDeepest	BfsDict/Node.cpp	/^void delDeepest(Node* root, Node* delNote)$/;"	f
-delDeepest	DfsDict/Node.cpp	/^void delDeepest(Node* root, Node* delNote)$/;"	f
+delDeepest	BfsDict/QueueNode.cpp	/^void delDeepest(Node* root, Node* delNote)$/;"	f
+delDeepest	DfsDict/StackNode.cpp	/^void delDeepest(Node* root, Node* delNote)$/;"	f
 delDeepest	tests/test2.cpp	/^void delDeepest(Node* root, Node* deepest)$/;"	f
-deleteNode	BfsDict/Node.cpp	/^Node* deleteNode(Node* root, Node* delNote, Node* deepest)$/;"	f
-deleteNode	DfsDict/Node.cpp	/^Node* deleteNode(Node* root, Node* delNote, Node* deepest)$/;"	f
+deleteNode	BfsDict/QueueNode.cpp	/^Node* deleteNode(Node* root, Node* delNote, Node* deepest)$/;"	f
+deleteNode	DfsDict/StackNode.cpp	/^Node* deleteNode(Node* root, Node* delNote, Node* deepest)$/;"	f
 deleteNode	tests/test2.cpp	/^Node* deleteNode(Node* root, int data)$/;"	f
-deleteTree	BfsDict/Node.cpp	/^void deleteTree(Node* node)$/;"	f
-deleteTree	DfsDict/Node.cpp	/^void deleteTree(Node* node)$/;"	f
+deleteTree	BfsDict/QueueNode.cpp	/^void deleteTree(Node* node)$/;"	f
+deleteTree	DfsDict/StackNode.cpp	/^void deleteTree(Node* node)$/;"	f
 dfsPrint	tests/test.cpp	/^void dfsPrint(Node* root)$/;"	f
 dfsPrint	tests/test2.cpp	/^void dfsPrint(Node* root)$/;"	f
 find	BfsDict/BfsDict.cpp	/^string BfsDict::find(const string &k)$/;"	f	class:BfsDict
 find	DfsDict/DfsDict.cpp	/^string DfsDict::find(const string &k)$/;"	f	class:DfsDict
-getHeight	BfsDict/Node.cpp	/^unsigned int getHeight(Node* node)$/;"	f
+getHeight	BfsDict/QueueNode.cpp	/^unsigned int getHeight(Node* node)$/;"	f
 getRoot	BfsDict/BfsDict.hpp	/^    Node* getRoot()$/;"	f	class:BfsDict
+getRoot	DfsDict/DfsDict.hpp	/^    Node* getRoot()$/;"	f	class:DfsDict
 height	tests/test.cpp	/^int height(Node* node)$/;"	f
 height	tests/test2.cpp	/^int height(Node* node)$/;"	f
-inOrderPrint	DfsDict/Node.cpp	/^void inOrderPrint(Node* node)$/;"	f
+inOrderPrint	DfsDict/StackNode.cpp	/^void inOrderPrint(Node* node)$/;"	f
 inOrderPrint	tests/test.cpp	/^void inOrderPrint(Node* node)$/;"	f
 inOrderPrint	tests/test2.cpp	/^void inOrderPrint(Node* node)$/;"	f
 insert	BfsDict/BfsDict.cpp	/^void BfsDict::insert(const string &k, const string &e)$/;"	f	class:BfsDict
 insert	DfsDict/DfsDict.cpp	/^void DfsDict::insert(const string &k, const string &e)$/;"	f	class:DfsDict
-insertNode	BfsDict/Node.cpp	/^Node* insertNode(Node* root, pair<string, string> newData)$/;"	f
-insertNode	DfsDict/Node.cpp	/^Node* insertNode(Node* root, pair<string, string> newData)$/;"	f
+insertNode	BfsDict/QueueNode.cpp	/^Node* insertNode(Node* root, pair<string, string> newData)$/;"	f
+insertNode	DfsDict/StackNode.cpp	/^Node* insertNode(Node* root, pair<string, string> newData)$/;"	f
 insertNode	tests/test.cpp	/^Node* insertNode(Node* root, int newData)$/;"	f
 insertNode	tests/test2.cpp	/^Node* insertNode(Node* root, int newData)$/;"	f
-left	BfsDict/Node.hpp	/^  Node* left;$/;"	m	struct:Node
-left	DfsDict/Node.hpp	/^  Node* left;$/;"	m	struct:Node
+left	BfsDict/QueueNode.hpp	/^  Node* left;$/;"	m	struct:Node
+left	DfsDict/StackNode.hpp	/^  Node* left;$/;"	m	struct:Node
 left	tests/test.cpp	/^    Node* left;$/;"	m	struct:Node
 left	tests/test2.cpp	/^    Node* left;$/;"	m	struct:Node
 main	bfs.cpp	/^int main()$/;"	f
 main	dfs.cpp	/^int main()$/;"	f
 main	tests/test.cpp	/^int main()$/;"	f
 main	tests/test2.cpp	/^int main()$/;"	f
-postOrderPrint	DfsDict/Node.cpp	/^void postOrderPrint(Node* node)$/;"	f
+postOrderPrint	DfsDict/StackNode.cpp	/^void postOrderPrint(Node* node)$/;"	f
 postOrderPrint	tests/test.cpp	/^void postOrderPrint(Node* node)$/;"	f
 postOrderPrint	tests/test2.cpp	/^void postOrderPrint(Node* node)$/;"	f
-preOrderPrint	DfsDict/Node.cpp	/^void preOrderPrint(Node* node)$/;"	f
+preOrderPrint	DfsDict/StackNode.cpp	/^void preOrderPrint(Node* node)$/;"	f
 preOrderPrint	tests/test.cpp	/^void preOrderPrint(Node* node)$/;"	f
 preOrderPrint	tests/test2.cpp	/^void preOrderPrint(Node* node)$/;"	f
-printLevel	BfsDict/Node.cpp	/^void printLevel(Node* node, unsigned int level)$/;"	f
+printLevel	BfsDict/QueueNode.cpp	/^void printLevel(Node* node, unsigned int level)$/;"	f
 printLevel	tests/test.cpp	/^void printLevel(Node* node, int level)$/;"	f
 printLevel	tests/test2.cpp	/^void printLevel(Node* node, int level)$/;"	f
-record	BfsDict/Node.hpp	/^  pair<string, string> record;$/;"	m	struct:Node
-record	DfsDict/Node.hpp	/^  pair<string, string> record;$/;"	m	struct:Node
+record	BfsDict/QueueNode.hpp	/^  pair<string, string> record;$/;"	m	struct:Node
+record	DfsDict/StackNode.hpp	/^  pair<string, string> record;$/;"	m	struct:Node
 remove	BfsDict/BfsDict.cpp	/^string BfsDict::remove(const string &k)$/;"	f	class:BfsDict
 remove	DfsDict/DfsDict.cpp	/^string DfsDict::remove(const string &k)$/;"	f	class:DfsDict
 removeAny	BfsDict/BfsDict.cpp	/^string BfsDict::removeAny()$/;"	f	class:BfsDict
 removeAny	DfsDict/DfsDict.cpp	/^string DfsDict::removeAny()$/;"	f	class:DfsDict
-right	BfsDict/Node.hpp	/^  Node* right;$/;"	m	struct:Node
-right	DfsDict/Node.hpp	/^  Node* right;$/;"	m	struct:Node
+right	BfsDict/QueueNode.hpp	/^  Node* right;$/;"	m	struct:Node
+right	DfsDict/StackNode.hpp	/^  Node* right;$/;"	m	struct:Node
 right	tests/test.cpp	/^    Node* right;$/;"	m	struct:Node
 right	tests/test2.cpp	/^    Node* right;$/;"	m	struct:Node
 root	BfsDict/BfsDict.hpp	/^    Node* root;$/;"	m	class:BfsDict

@@ -30,12 +30,30 @@ int main()
   // Show size of dictionary
   cout << "Size of the dictionary: " << dict.size() << endl;
 
+  /*
   // Clear the dictionary
   dict.clear(); 
   cout << "Clear the records in dictionary" << endl;
 
   // Show size of dictionary
   cout << "Size of the dictionary: " << dict.size() << endl;
+  */
+
+  // DFS Print
+  unsigned int choose{0};
+
+  cout << "Do you want to print remain records?" << endl;
+  cout << "0 - Exit" << endl;
+  cout << "1 - Pre-order print" << endl;
+  cout << "2 - In-order print" << endl;
+  cout << "3 - Post-order print" << endl;
+
+  if(cin>>choose)
+  {
+    if(1==choose) preOrderPrint(dict.getRoot());
+    if(2==choose) inOrderPrint(dict.getRoot());
+    if(3==choose) postOrderPrint(dict.getRoot());
+  }
 
   return 0;
 }

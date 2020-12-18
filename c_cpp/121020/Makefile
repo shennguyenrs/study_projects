@@ -3,11 +3,11 @@ LINKERFLAG=-lm
 
 BFS := bfs.cpp
 BFS += BfsDict/BfsDict.cpp
-BFS += BfsDict/Node.cpp
+BFS += BfsDict/QueueNode.cpp
 
 DFS := dfs.cpp
 DFS += DfsDict/DfsDict.cpp
-DFS += DfsDict/Node.cpp
+DFS += DfsDict/StackNode.cpp
 
 bfs: $(BFS)
 	@echo "Making excutable file..."

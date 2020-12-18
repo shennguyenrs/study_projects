@@ -3,7 +3,7 @@
 //#ifndef _DICTIONARY_H_
 //#define _DICTIONARY_H_
 
-#include "Node.hpp"
+#include "StackNode.hpp"
 
 using namespace std;
 

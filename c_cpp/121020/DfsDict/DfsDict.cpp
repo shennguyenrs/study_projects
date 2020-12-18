@@ -88,7 +88,7 @@ string DfsDict::find(const string &k)
   q.push(root);
 
   Node* temp;
-  Node* found;
+  Node* found = NULL;
 
   // Find the key 
   // while go to the deepest node

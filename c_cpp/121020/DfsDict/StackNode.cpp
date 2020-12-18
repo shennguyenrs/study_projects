@@ -1,7 +1,7 @@
 #include <iostream>
-#include <queue>
+#include <stack>
 
-#include "Node.hpp"
+#include "StackNode.hpp"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ void deleteTree(Node* node)
 
 void delDeepest(Node* root, Node* delNote)
 {
-  queue<Node*> q;
+  stack<Node*> q;
   q.push(root);
 
   Node* temp;
@@ -27,7 +27,7 @@ void delDeepest(Node* root, Node* delNote)
   // and delete it
   while(!q.empty())
   {
-    temp = q.front();
+    temp = q.top();
     q.pop();
 
     if(temp==delNote)
@@ -80,12 +80,12 @@ Node* insertNode(Node* root, pair<string, string> newData)
     return root;
   }
 
-  queue<Node*> q;
+  stack<Node*> q;
   q.push(root);
 
   while(!q.empty())
   {
-    Node* temp = q.front();
+    Node* temp = q.top();
     q.pop();
 
     // Start to insert from the left
@@ -137,14 +137,14 @@ unsigned int countNode(Node* root)
 
   if (root==NULL) return counter;
 
-  queue<Node*> q;
+  stack<Node*> q;
   q.push(root);
 
   Node* temp;
   
   while(!q.empty())
   {
-    temp = q.front();
+    temp = q.top();
     q.pop();
     counter++;
 
@@ -155,46 +155,43 @@ unsigned int countNode(Node* root)
   return counter;
 }
 
-
 /*
- * BFS Travesal Print
- */ 
+ * DFS Travesal Print
+ */
 
-unsigned int getHeight(Node* node)
-{
-  if(node==NULL) return 0;
-  
-  int leftHgt = getHeight(node->left);
-  int rightHgt = getHeight(node->right);
-
-  if(leftHgt>rightHgt) return leftHgt+=1;
-  return rightHgt+=1;
-}
-
-void printLevel(Node* node, unsigned int level)
+void postOrderPrint(Node* node)
 {
   if(node==NULL) return;
 
-  if(1==level)
-  {
-    cout << "Key: " << node->record.first << endl;
-    cout << "Value: " << node->record.second << endl;
-    cout << endl;
-  }
-  
-  if(level>1)
-  {
-    printLevel(node->left, level-1);
-    printLevel(node->right, level-1);
-  }
+  postOrderPrint(node->left);
+  postOrderPrint(node->right);
+
+  cout << "Key: " << node->record.first << endl;
+  cout << "Value: " << node->record.second << endl;
+  cout << endl;
 }
 
-void bfsPrint(Node* root)
+void inOrderPrint(Node* node)
 {
-  cout << "BFS travesal print tree" << endl;
-  unsigned int height = getHeight(root);
-  unsigned int i;
+  if(node==NULL) return;
 
-  for(i=0; i<=height; i++)
-    printLevel(root, i);
+  inOrderPrint(node->left);
+
+  cout << "Key: " << node->record.first << endl;
+  cout << "Value: " << node->record.second << endl;
+  cout << endl;
+
+  inOrderPrint(node->right);
+}
+
+void preOrderPrint(Node* node)
+{
+  if(node==NULL) return;
+
+  cout << "Key: " << node->record.first << endl;
+  cout << "Value: " << node->record.second << endl;
+  cout << endl;
+
+  preOrderPrint(node->left);
+  preOrderPrint(node->right);
 }
