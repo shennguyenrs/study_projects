@@ -1,0 +1,17 @@
+{
+  "name": "day1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "day1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "An Nguyen",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {}
+}
