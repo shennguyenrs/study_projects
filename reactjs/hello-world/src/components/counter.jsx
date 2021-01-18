@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class counter extends Component {
   render() {
@@ -62,3 +63,11 @@ export default class counter extends Component {
     return classes;
   }
 }
+
+counter.propTypes = {
+  onReset: PropTypes.func,
+  counters: PropTypes.func,
+  onDelete: PropTypes.func,
+  onIncrement: PropTypes.func,
+  onDecrement: PropTypes.func,
+};

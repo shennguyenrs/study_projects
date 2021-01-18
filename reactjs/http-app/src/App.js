@@ -67,7 +67,6 @@ export default class App extends Component {
   };
 
   render() {
-    //{{{
     return (
       <>
         <ToastContainer />
@@ -113,5 +112,5 @@ export default class App extends Component {
         </div>
       </>
     );
-  } //}}}
+  }
 }
