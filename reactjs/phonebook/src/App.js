@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import './App.css';
 
 // Components
@@ -18,8 +19,14 @@ const initialInfo = [{ id: 0, name: 'test1', phone: '090-403-3920' }];
 const App = () => {
   // States
   const [info, setInfo] = useState(initialInfo);
-  const [id, setId] = useState(1);
   const [input, setInput] = useState(initialInput);
+
+  // Request data
+  useEffect(() => {
+    axios.get(process.env.REACT_APP_JSON_URL).then((res) => {
+      setInfo(res.data);
+    });
+  }, []);
 
   // Notifications
   const notifyErr = (name) => {
@@ -59,7 +66,7 @@ const App = () => {
     }
 
     // Success adding new record
-    setId(id + 1);
+    const id = info.length + 1;
     setInfo((prevInfo) => [...prevInfo, { id, ...input }]);
     setInput(initialInput);
     notifySuc();
