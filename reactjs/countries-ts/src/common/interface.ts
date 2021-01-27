@@ -13,3 +13,19 @@ export interface CountryInterface {
   languages: Array<Languages>;
   flag: string;
 }
+
+export interface WeatherInterface {
+  localTime: string;
+  temperature: number;
+  feelsLike: number;
+  icon: string;
+  description: string;
+  windSpeed: number;
+  windDir: string;
+  humidity: number;
+  uv: number;
+}
+
+export interface CityName {
+  cityName: string;
+}

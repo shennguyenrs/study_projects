@@ -1,5 +1,10 @@
 import React from 'react';
+
+// Interface
 import { CountryInterface } from '../common/interface';
+
+// Styles
+import { Img } from '../common/styles';
 
 type Props = CountryInterface;
 
@@ -34,7 +39,7 @@ const CountryInfo: React.FC<Props> = ({
         </ul>
       </div>
       <div className="flag">
-        <img src={flag} alt="country-flag" />
+        <Img src={flag} alt="country-flag" />
       </div>
     </>
   );
