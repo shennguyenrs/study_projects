@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
 import './App.css';
-
-// Base url
-const baseUrl = '/api/persons';
 
 // Components
 import NavBar from './components/NavBar';
 
 // Utils
-import { validatePhone } from './utils';
+import validatePhone from './utils/validatePhone';
+
+// Services
+import apiService from './services/apiService';
 
 const initialInput = {
   name: '',
@@ -26,8 +25,8 @@ const App = () => {
 
   // Request data
   useEffect(() => {
-    axios.get(baseUrl).then((res) => {
-      setInfo(res.data);
+    apiService.getAll().then((data) => {
+      setInfo(data);
     });
   }, []);
 
@@ -69,10 +68,18 @@ const App = () => {
     }
 
     // Success adding new record
-    const id = info.length + 1;
-    setInfo((prevInfo) => [...prevInfo, { id, ...input }]);
-    setInput(initialInput);
-    notifySuc();
+    const newId = info.length + 1;
+    const newInfo = {
+      id: newId,
+      name: input.name,
+      phone: input.phone,
+    };
+
+    apiService.create(newInfo).then((newPerson) => {
+      setInfo(info.concat(newPerson));
+      setInput(initialInput);
+      notifySuc();
+    });
   };
 
   const handleReset = () => {
