@@ -1,7 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 morgan.token('content', (req, res) => {
   return JSON.stringify(req.body);
@@ -14,9 +15,10 @@ app.use(
     ':method :url :status :res[content-length] - :response-time ms :content'
   )
 );
+app.use(cors);
 
 // Import json file
-let { persons } = require('../db.json');
+let { persons } = require('./db.json');
 
 // Home
 app.get('/', (req, res) => {
@@ -88,6 +90,7 @@ app.delete('/api/persons/:id', (req, res) => {
   res.status(204).end();
 });
 
+// Logging
 app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });
