@@ -3,6 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import './App.css';
 
+// Base url
+const baseUrl = '/api/persons';
+
 // Components
 import NavBar from './components/NavBar';
 
@@ -23,7 +26,7 @@ const App = () => {
 
   // Request data
   useEffect(() => {
-    axios.get(process.env.REACT_APP_JSON_URL).then((res) => {
+    axios.get(baseUrl).then((res) => {
       setInfo(res.data);
     });
   }, []);

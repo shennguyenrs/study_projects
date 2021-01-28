@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 morgan.token('content', (req, res) => {
   return JSON.stringify(req.body);
@@ -15,7 +15,8 @@ app.use(
     ':method :url :status :res[content-length] - :response-time ms :content'
   )
 );
-app.use(cors);
+app.use(cors());
+app.use(express.static('build'));
 
 // Import json file
 let { persons } = require('./db.json');
@@ -91,6 +92,6 @@ app.delete('/api/persons/:id', (req, res) => {
 });
 
 // Logging
-app.listen(port, () => {
-  console.log(`Server is listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is listening on ${PORT}`);
 });
