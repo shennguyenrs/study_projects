@@ -1,12 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
+const Info = require('./models/info');
 
 morgan.token('content', (req, res) => {
   return JSON.stringify(req.body);
 });
+
+const unknownEndPoint = (req, res) => {
+  res.status(404).json({ error: 'Unknown Endpoint' });
+};
 
 // Middleware
 app.use(express.json());
@@ -19,33 +25,42 @@ app.use(cors());
 app.use(express.static('build'));
 
 // Import json file
-let { persons } = require('./db.json');
+//let { persons } = require('./db.json');
 
 // Home
 app.get('/', (req, res) => {
-  res.send('<h1>Welcome to phonebook app</h1>');
+  res.status(200).send('<h1>Welcome to phonebook app backend</h1>');
 });
 
 // View info of json file
-app.get('/api/info', (req, res) => {
-  const count = Object.keys(persons).length;
+app.get('/api/info', async (req, res) => {
+  const count = await Info.estimatedDocumentCount()
+    .then((result) => result)
+    .catch((err) => {
+      res.status(400).json({
+        error: err.message,
+      });
+    });
+
   const timeStamp = new Date(Date.now());
 
-  res.send(
-    `<h3>Phonebook has info of ${count} people</h3><h3>${timeStamp}</h3>`
-  );
+  res
+    .status(200)
+    .send(
+      `<h3>Phonebook has info of ${count} people</h3><h3>${timeStamp}</h3>`
+    );
 });
 
-// View the whole json file
+// View the whole database
 app.get('/api/persons', (req, res) => {
-  res.json(persons);
+  Info.find({})
+    .then((data) => res.status(200).json(data))
+    .catch((err) => res.status(400).json({ error: err.message }));
 });
 
 // Add new person
-app.post('/api/persons', (req, res) => {
+app.post('/api/persons', async (req, res) => {
   const person = req.body;
-  const maxId =
-    Object.keys(persons).length > 0 ? Math.max(...persons.map((p) => p.id)) : 0;
 
   // Check missing name or number
   if (!person.name || !person.phone) {
@@ -55,7 +70,9 @@ app.post('/api/persons', (req, res) => {
   }
 
   // Check duplicate name
-  const duplicateName = persons.find((p) => p.name === person.name);
+  const duplicateName = await Info.find({ name: person.name })
+    .then((info) => (info.length === 0 ? false : true))
+    .catch((err) => res.status(400).json({ error: err.message }));
 
   if (duplicateName) {
     return res.status(400).json({
@@ -63,33 +80,41 @@ app.post('/api/persons', (req, res) => {
     });
   }
 
-  person.id = maxId + 1;
+  const newInfo = new Info({
+    name: person.name,
+    phone: person.phone,
+  });
 
-  // Join new person to json file
-  persons = persons.concat(person);
-
-  res.json(person);
+  newInfo
+    .save()
+    .then((savedInfo) => {
+      res.status(201).json(savedInfo);
+    })
+    .catch((err) => {
+      res.status(400).json({ error: err.message });
+    });
 });
 
 // View info by using id
 app.get('/api/persons/:id', (req, res) => {
-  const id = Number(req.params.id);
-  const person = persons.find((person) => person.id === id);
-
-  if (person) {
-    res.json(person);
-  } else {
-    res.status(404).end();
-  }
+  Info.findById(req.params.id)
+    .then((info) => res.status(200).json(info))
+    .catch((err) => {
+      res.status(404).json({ error: err.message });
+    });
 });
 
 // Delete info by using id
 app.delete('/api/persons/:id', (req, res) => {
-  const id = Number(req.params.id);
-  persons = persons.filter((person) => person.id !== id);
-
-  res.status(204).end();
+  Info.deleteOne({ _id: req.params.id })
+    .then(() => {
+      res.status(204).end();
+    })
+    .catch((err) => res.status(400).json({ error: err.message }));
 });
+
+// Unknown endpoint
+app.use(unknownEndPoint);
 
 // Logging
 app.listen(PORT, () => {
