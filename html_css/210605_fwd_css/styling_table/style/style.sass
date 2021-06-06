@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+
+
+$background: #C4FFF9 
+$foreground: #ffffff
+$highlight-color: #2dc653
+$header-color: #03045e
+
+
+body
+  margin: 0
+  padding: 0
+  font-family: "Noto Sans", sans-serif
+  font-size: 14px
+
+
+table
+  margin-top: 5vh
+  margin-left: 2vw
+  border-collapse: collapse
+
+
+th
+  padding-top: 1em
+  padding-bottom: 1em
+
+
+th, td
+  padding-right: 3em
+  padding-left: 1em
+
+
+td
+  padding-top: 0.5em
+  padding-bottom: 0.5em
+
+
+tr:nth-child(odd)
+  background-color: $background
+
+
+tr:hover
+  background-color: $highlight-color
+  font-weight: bold
+
+
+tr:first-child
+  background-color: $header-color 
+  color: $foreground
