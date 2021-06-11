@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script src="script/main.js"></script>
+    <title>Sisustuskipina.fi - Homepage</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav--onleft">
+        <ul class="header__links">
+          <li><a class="header__link" href="index.html">Home</a></li>
+          <li><a class="header__link" href="gallery.html">Gallery</a></li>
+          <li><a class="header__link" href="about-us.html">About Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hero container--upper">
+      <img class="hero__img" src="images/rectangle_29.png" alt="hero-img" />
+      <div class="hero__desc">
+        <h1 class="hero__header">Sisustuskipina</h1>
+        <p class="hero__para">We elevate your living space</p>
+      </div>
+    </div>
+    <div class="banner container--upper">
+      <img
+        class="banner_img"
+        src="images/rectangle_5.png"
+        alt="separation-section-img"
+      />
+    </div>
+    <div class="introduction">
+      <div class="introduction__desc">
+        <h1 class="introduction_header">Why you choose us?</h1>
+        <p class="introduction__para">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu
+          libero fringilla, ornare leo vitae, blandit neque. Class aptent
+          taciti.
+        </p>
+      </div>
+      <div class="introduction__img">
+        <img
+          class="introduction__img--onleft"
+          src="images/rectangle_8.png"
+          alt="introduction-img-onleft"
+        />
+        <img
+          class="introduction__img--onright"
+          src="images/rectangle_6.png"
+          alt="introduction-img-onright"
+        />
+      </div>
+      <div class="introduction__desc--al container">
+        <p class="introduction__para">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nuc vitae
+          malesuada odio. Nullam ut porttitor dolor. Mauris posuere lacus sit.
+        </p>
+      </div>
+    </div>
+    <div class="slider container">
+      <img
+        class="slider__img"
+        src="images/slider/slide_1.png"
+        alt="img-slide-1"
+      />
+      <img
+        class="slider__img"
+        src="images/slider/slide_2.png"
+        alt="img-slide-2"
+      />
+      <img
+        class="slider__img"
+        src="images/slider/slide_3.png"
+        alt="img-slide-3"
+      />
+      <img
+        class="slider__img"
+        src="images/slider/slide_4.png"
+        alt="img-slide-4"
+      />
+      <button class="slider__button" onclick="plusImg(-1)">&#10094;</button>
+      <button class="slider__button" onclick="plusImg(1)">&#10095;</button>
+    </div>
+    <div class="services">
+      <div class="services__banner">
+        <img
+          class="services__img-banner"
+          src="images/rectangle_11.png"
+          alt="services-banner"
+        />
+      </div>
+      <div class="services__imgs">
+        <div class="container container--flex">
+          <img
+            class="services__img services__img--onleft"
+            src="images/rectangle_12.png"
+            alt="img_light_planning"
+          />
+          <img
+            class="services__img services__img--onmid"
+            src="images/rectangle_13.png"
+            alt="img_furniture_decoration"
+          />
+          <img
+            class="services__img services__img--onright"
+            src="images/rectangle_14.png"
+            alt="img_textile_design"
+          />
+        </div>
+      </div>
+      <div class="services__header"><h1>Our services</h1></div>
+      <div class="services__titles">
+        <div class="container container--flex">
+          <h2 class="services__title--onleft">Light Planning</h2>
+          <h2 class="services__title--onmid">Furniture Decoration</h2>
+          <h2 class="services__title--onright">Textile Design</h2>
+        </div>
+      </div>
+      <div class="services__paras">
+        <div class="container container--flex">
+          <p class="services__para services_para--onleft">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac lectus mi. Suspendisse commodo sapien tincidunt, scelerisque
+            metus sed, feugiat.
+          </p>
+          <p class="services__para services__para--onmid">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac lectus mi. Suspendisse commodo sapien tincidunt, scelerisque
+            metus sed, feugiat.
+          </p>
+          <p class="services__para services__para--onright">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac lectus mi. Suspendisse commodo sapien tincidunt, scelerisque
+            metus sed, feugiat.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="inspiration">
+      <div class="container container--flex">
+        <div class="inspiration__img-container">
+          <img
+            class="inspiration__img"
+            src="images/rectangle_16.png"
+            alt="img-ceo"
+          />
+        </div>
+        <div class="inspiration__desc">
+          <h1 class="inspiration__header">We do with our passion!</h1>
+          <p class="inspiration__para">
+            <i
+              >"Ten years of interior design background is an absolutely
+              important in helping archive customers' satisfaction, exploiting
+              and developing functionalities of their lovely house"</i
+            >
+          </p>
+          <p class="inspiration__sign"><b>An Nguyen, CEO</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="white-strip">
+      <span></span>
+    </div>
+    <footer class="information">
+      <div class="container container--grid-3">
+        <div class="information__col">
+          <div class="information__desc">
+            <h1 class="information__header">Contact Us</h1>
+            <div class="information__para">
+              <ul class="information__list">
+                <li class="information__item">
+                  <i class="fas fa-map-marker-alt information__icon"></i>
+                  <p>Kurjentaival 41, 33100 Tampere</p>
+                </li>
+                <li class="information__item">
+                  <i class="fas fa-phone-alt information__icon"></i>
+                  <p>040 7747 0353</p>
+                </li>
+                <li class="information__item">
+                  <i class="fas fa-at information__icon"></i>
+                  <p>myemailatwork@email.com</p>
+                </li>
+                <li class="information__item">
+                  <div class="mapouter">
+                    <div class="gmap_canvas">
+                      <iframe
+                        width="500"
+                        height="300"
+                        id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Kurjentaival%2041,%2033100%20Tampere&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        scrolling="no"
+                      ></iframe
+                      ><style>
+                        .mapouter {
+                          position: relative;
+                          text-align: left;
+                          height: 300px;
+                          width: 500px;
+                        }</style
+                      ><style>
+                        .gmap_canvas {
+                          overflow: hidden;
+                          background: none !important;
+                          height: 300px;
+                          width: 500px;
+                        }
+                      </style>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="information__col">
+          <div class="information__desc">
+            <h1 class="information__header">Follow Us</h1>
+            <a href="https://facebook.com" target="_blank">
+              <img
+                class="information__social"
+                src="images/facebook_1.png"
+                alt="facebook-icon"
+              />
+            </a>
+            <a href="https://instagram.com" target="_blank">
+              <img
+                class="information__social"
+                src="images/instagram_1.png"
+                alt="instagram-icon"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="information__col">
+          <h1 class="information__header">Send us an email</h1>
+          <form action="#" class="information__form">
+            <input
+              class="information__input"
+              type="text"
+              name="username"
+              placeholder="Name"
+            />
+            <input
+              class="information__input"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              class="information__input"
+              type="text"
+              name="phone"
+              placeholder="Phone number"
+            />
+            <textarea
+              class="information__textarea"
+              name="message"
+              cols="30"
+              rows="5"
+              placeholder="Messages"
+            ></textarea>
+            <button class="information__button" type="submit">
+              <i class="fas fa-paper-plane"></i>
+              <span></span>Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

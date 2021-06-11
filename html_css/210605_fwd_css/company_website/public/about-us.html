@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <title>Sisustuskipina.fi - About us</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav--onleft">
+        <ul class="header__links">
+          <li><a class="header__link" href="index.html">Home</a></li>
+          <li><a class="header__link" href="gallery.html">Gallery</a></li>
+          <li><a class="header__link" href="about-us.html">About Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="banner">
+      <img
+        class="banner__img"
+        src="images/aboutus/rectangle_30.png"
+        alt="about-us-banner"
+      />
+    </div>
+    <footer class="information container--upper">
+      <div class="container container--grid-3">
+        <div class="information__col">
+          <div class="information__desc">
+            <h1 class="information__header">Contact Us</h1>
+            <div class="information__para">
+              <ul class="information__list">
+                <li class="information__item">
+                  <i class="fas fa-map-marker-alt information__icon"></i>
+                  <p>Kurjentaival 41, 33100 Tampere</p>
+                </li>
+                <li class="information__item">
+                  <i class="fas fa-phone-alt information__icon"></i>
+                  <p>040 7747 0353</p>
+                </li>
+                <li class="information__item">
+                  <i class="fas fa-at information__icon"></i>
+                  <p>myemailatwork@email.com</p>
+                </li>
+                <li class="information__item">
+                  <div class="mapouter">
+                    <div class="gmap_canvas">
+                      <iframe
+                        width="500"
+                        height="300"
+                        id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=Kurjentaival%2041,%2033100%20Tampere&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"
+                        scrolling="no"
+                      ></iframe
+                      ><style>
+                        .mapouter {
+                          position: relative;
+                          text-align: left;
+                          height: 300px;
+                          width: 500px;
+                        }</style
+                      ><style>
+                        .gmap_canvas {
+                          overflow: hidden;
+                          background: none !important;
+                          height: 300px;
+                          width: 500px;
+                        }
+                      </style>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="information__col">
+          <div class="information__desc">
+            <h1 class="information__header">Follow Us</h1>
+            <a href="https://facebook.com" target="_blank">
+              <img
+                class="information__social"
+                src="images/facebook_1.png"
+                alt="facebook-icon"
+              />
+            </a>
+            <a href="https://instagram.com" target="_blank">
+              <img
+                class="information__social"
+                src="images/instagram_1.png"
+                alt="instagram-icon"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="information__col">
+          <h1 class="information__header">Send us an email</h1>
+          <form action="#" class="information__form">
+            <input
+              class="information__input"
+              type="text"
+              name="username"
+              placeholder="Name"
+            />
+            <input
+              class="information__input"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              class="information__input"
+              type="text"
+              name="phone"
+              placeholder="Phone number"
+            />
+            <textarea
+              class="information__textarea"
+              name="message"
+              cols="30"
+              rows="5"
+              placeholder="Messages"
+            ></textarea>
+            <button class="information__button" type="submit">
+              <i class="fas fa-paper-plane"></i>
+              <span></span>Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

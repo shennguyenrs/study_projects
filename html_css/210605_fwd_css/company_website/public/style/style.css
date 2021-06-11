@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Merriweather:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F9F2E8;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  overflow: scroll;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+  margin-right: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #222222;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #FFFFFF;
+  background-color: #222222;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-family: "Merriweather", sans-serif;
+}
+
+.container {
+  margin: 0 15vw;
+}
+.container--upper {
+  top: -5px;
+}
+.container--flex {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.container--grid-3 {
+  display: grid;
+  grid-template-columns: 30% 30% 40%;
+}
+.container--grid-2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.header {
+  display: inline-block;
+  background-color: #FFFFFF;
+  width: 100%;
+}
+.header__nav--onleft {
+  float: right;
+  margin-right: 5vw;
+}
+.header__link {
+  padding: 0.2em 1em;
+}
+
+.hero {
+  position: relative;
+}
+.hero__desc {
+  background-color: #222222;
+  opacity: 80%;
+  position: absolute;
+  top: 40%;
+  padding-left: 10vw;
+  padding-right: 20vw;
+  font-size: 1.2em;
+}
+.hero__header {
+  color: #F6E9D1;
+}
+.hero__para {
+  color: #FFFFFF;
+}
+
+.banner {
+  position: relative;
+  top: -10px;
+}
+
+.introduction {
+  text-align: center;
+  padding: 2vw 0;
+  postion: relative;
+}
+.introduction__desc {
+  margin: 0 20vw;
+}
+.introduction__img--onleft {
+  max-width: 35%;
+  float: left;
+}
+.introduction__img--onright {
+  max-width: 63%;
+  float: right;
+}
+.introduction__desc--al {
+  text-align: left;
+  margin-top: 38%;
+  margin-left: 40%;
+}
+
+.slider {
+  margin: 5vw;
+  text-align: center;
+  postion: relative;
+}
+.slider__img {
+  max-width: 90%;
+}
+
+.services {
+  position: relative;
+  text-align: center;
+}
+.services__imgs {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+}
+.services__img {
+  max-width: 25%;
+}
+.services__header {
+  margin-top: 8vw;
+}
+.services__paras {
+  background-color: #FFFFFF;
+  padding-bottom: 10vw;
+}
+.services__para {
+  padding: 0 0.5em;
+}
+
+.inspiration {
+  text-align: justify;
+  padding-bottom: 2vw;
+}
+.inspiration__img-container {
+  position: relative;
+  width: 100vw;
+}
+.inspiration__img {
+  position: absolute;
+  top: -5vw;
+}
+.inspiration__desc {
+  margin-left: 5vw;
+}
+.inspiration__header {
+  font-family: "Dancing Script", sans-serif;
+}
+.inspiration__sign {
+  float: right;
+}
+
+.white-strip {
+  background-color: #FFFFFF;
+  height: 3vw;
+}
+
+.information {
+  padding: 3vw 0;
+  background-color: #222222;
+  width: 100%;
+}
+.information__header {
+  color: #F6E9D1;
+  font-size: 1.5em;
+}
+.information__para {
+  color: #FFFFFF;
+  font-size: 0.8em;
+}
+.information__list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.information__item {
+  display: flex;
+  align-items: center;
+}
+.information__icon {
+  margin-right: 0.8em;
+}
+.information__social {
+  max-width: 15%;
+}
+.information__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.information__input, .information__textarea {
+  margin-bottom: 0.8em;
+  padding: 1em 0.8em;
+  width: 90%;
+  justify-self: left;
+}
+.information__button {
+  margin-top: 1.2em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  width: 30%;
+  background-color: #F6E9D1;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 30px;
+}
+.information__button:hover {
+  background-color: #D0F9D8;
+  width: 40%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  transition: background-color 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  transition: padding 1s ease-in-out;
+}
+.information__button:hover i {
+  transform: scale(1.5, 1.5);
+  transition: transform 1s ease-in-out;
+  margin-right: 0.3em;
+}
+
+.gallery {
+  margin-bottom: 2vw;
+}
+
+/*# sourceMappingURL=style.css.map */

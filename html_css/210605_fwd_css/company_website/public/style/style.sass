@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Merriweather:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+
+
+$light-tan: #F9F2E8
+$tan: #F6E9D1
+$light-green: #D0F9D8
+$black: #222222
+$white: #FFFFFF
+
+
+body
+  margin: 0
+  padding: 0
+  background-color: $light-tan
+  font-family: "Montserrat", sans-serif
+  font-size: 22px
+  overflow: scroll
+
+
+ul
+  display: flex
+
+
+li
+  list-style-type: none
+  margin-right: 1em
+
+
+a
+  text-decoration: none
+  color: $black
+  font-weight: bold
+
+a:hover
+  color: $white
+  background-color: $black
+
+
+img
+  max-width: 100%
+
+
+h1
+  font-family: "Merriweather", sans-serif
+
+
+.container
+  margin: 0 15vw
+
+  &--upper
+    top: -5px
+
+  &--flex
+    display: flex
+    justify-content: space-around
+    flex-direction: row
+
+  &--grid-3
+    display: grid
+    grid-template-columns: 30% 30% 40%
+
+  &--grid-2
+    display: grid
+    grid-template-columns: 50% 50%
+    column-gap: 1em
+    row-gap: 1em
+
+
+.header
+  display: inline-block
+  background-color: $white
+  width: 100%
+
+  &__nav--onleft
+    float: right
+    margin-right: 5vw
+
+  &__link
+    padding: .2em 1em
+
+
+.hero
+  position: relative
+
+  &__desc
+    background-color: $black
+    opacity: 80%
+    position: absolute
+    top: 40%
+    padding-left: 10vw
+    padding-right: 20vw
+    font-size: 1.2em
+
+  &__header
+    color: $tan
+
+  &__para
+    color: $white
+
+
+.banner
+  position: relative
+  top: -10px
+
+
+.introduction
+  text-align: center
+  padding: 2vw 0
+  postion: relative
+
+  &__desc
+    margin: 0 20vw
+
+  &__img--onleft
+    max-width: 35%
+    float: left
+
+  &__img--onright
+    max-width: 63%
+    float: right
+
+  &__desc--al
+    text-align: left
+    margin-top: 38%
+    margin-left: 40%
+
+
+.slider 
+  margin: 5vw
+  text-align: center
+  postion: relative
+
+  &__img
+    max-width: 90%
+
+
+.services
+  position: relative
+  text-align: center
+
+  &__imgs
+    position: absolute
+    top: 20%
+    width: 100%
+
+  &__img 
+    max-width: 25%
+
+  &__header
+    margin-top: 8vw
+
+  &__paras
+    background-color: $white
+    padding-bottom: 10vw
+
+  &__para
+    padding: 0  .5em
+
+
+.inspiration
+  text-align: justify
+  padding-bottom: 2vw
+
+  &__img-container
+    position: relative
+    width: 100vw
+
+  &__img
+    position: absolute
+    top: -5vw
+
+  &__desc
+    margin-left: 5vw
+
+  &__header
+    font-family: "Dancing Script", sans-serif
+
+  &__sign
+    float: right
+  
+
+.white-strip
+  background-color: $white
+  height: 3vw
+
+
+.information
+  padding: 3vw 0
+  background-color: $black
+  width: 100%
+
+  &__header
+    color: $tan
+    font-size: 1.5em
+
+  &__para
+    color: $white
+    font-size: .8em
+
+  &__list
+    padding: 0
+    display: flex
+    flex-direction: column
+
+  &__item
+    display: flex
+    align-items: center
+
+  &__icon
+    margin-right: .8em
+
+  &__social
+    max-width: 15%
+
+  &__form
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  &__input, &__textarea
+    margin-bottom: .8em
+    padding: 1em .8em
+    width: 90%
+    justify-self: left
+
+  &__button
+    margin-top: 1.2em
+    padding-top: 0.3em
+    padding-bottom: 0.3em
+    width: 30%
+    background-color: $tan
+    font-size: 0.8em
+    border: none
+    border-radius: 30px
+
+  &__button:hover
+    background-color: $light-green
+    width: 40%
+    padding-top: 0.5em
+    padding-bottom: 0.5em
+    transition: background-color 1s ease-in-out
+    transition: width 1s ease-in-out
+    transition: padding 1s ease-in-out
+
+    i
+      transform: scale(1.5, 1.5)
+      transition: transform 1s ease-in-out
+      margin-right: .3em
+
+
+.gallery
+  margin-bottom: 2vw
