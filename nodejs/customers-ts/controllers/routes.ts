@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
 import db from "../utils/dbConnection";
+import presentId from "../utils/presentId";
 
 // Get all customers
 export const getAllCustomers = (
@@ -41,15 +42,17 @@ export const getCustomerById = (
 };
 
 // Post new customer
-export const addCustomer = (
+export const addCustomer = async (
   req: Request,
   res: Response,
   next: NextFunction
-): void => {
+): Promise<void> => {
+  // Get the highest id of the table
+  const newId = (await presentId()) + 1;
   const data = req.body;
   const query = {
     text: "insert into customers (id, firstname, lastname, email, phone) values ($1, $2, $3, $4, $5)",
-    values: [data.id, data.firstname, data.lastname, data.email, data.phone],
+    values: [newId, data.firstname, data.lastname, data.email, data.phone],
   };
 
   db.query(query, (err) => {
