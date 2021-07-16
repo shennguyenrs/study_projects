@@ -1,0 +1,71 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Customer	interface/customers.ts	/^export interface Customer {$/;"	i
+DATABASE	utils/config.ts	/^export const DATABASE = process.env.DATABASE;$/;"	v
+HOST	utils/config.ts	/^export const HOST = process.env.HOST;$/;"	v
+PASSWD	utils/config.ts	/^export const PASSWD = process.env.PASSWD;$/;"	v
+SQL_PORT	utils/config.ts	/^export const SQL_PORT = Number(process.env.SQL_PORT);$/;"	v
+USER	utils/config.ts	/^export const USER = process.env.DBUSER;$/;"	v
+_req	controllers/routes.ts	/^  _req: Request,$/;"	m
+addCustomer	controllers/routes.ts	/^export const addCustomer = async ($/;"	v
+app	index.ts	/^import app from ".\/app";$/;"	I
+app	test/customer.spec.ts	/^import app from "..\/app";$/;"	I
+chai	test/customer.spec.ts	/^import chai from "chai";$/;"	I
+chaiHttp	test/customer.spec.ts	/^import chaiHttp from "chai-http";$/;"	I
+cors	app.ts	/^import cors from "cors";$/;"	I
+database	utils/dbConnection.ts	/^  database: config.DATABASE,$/;"	m
+db	controllers/routes.ts	/^import db from "..\/utils\/dbConnection";$/;"	I
+db	utils/presentId.ts	/^import db from ".\/dbConnection";$/;"	I
+deleteAllCustomers	controllers/routes.ts	/^export const deleteAllCustomers = ($/;"	v
+deleteCustomerById	controllers/routes.ts	/^export const deleteCustomerById = ($/;"	v
+describe	test/customer.spec.ts	/^describe("\/GET customer", () => {$/;"	m
+describe	test/customer.spec.ts	/^describe("\/POST customer", () => {$/;"	m
+describe	test/utils.spec.ts	/^describe("Get present id", () => {$/;"	m
+dotenv	index.ts	/^import dotenv from "dotenv";$/;"	I
+dotenv	utils/config.ts	/^import dotenv from "dotenv";$/;"	I
+email	interface/customers.ts	/^  email: string;$/;"	m
+email	test/customer.spec.ts	/^  email: "newtestuser@gmail.com",$/;"	m
+expect	test/customer.spec.ts	/^        expect(res.body).have.property("firstname");$/;"	m
+expect	test/customer.spec.ts	/^        expect(res.body).to.be.an("array");$/;"	m
+expect	test/customer.spec.ts	/^        expect(res.body).to.be.an("object");$/;"	m
+expect	test/customer.spec.ts	/^        expect(res.body.length).to.be.greaterThan(0);$/;"	m
+expect	test/customer.spec.ts	/^        expect(res.status).to.equal(200);$/;"	m
+expect	test/utils.spec.ts	/^    expect(value > 0).to.be.true;$/;"	m
+express	app.ts	/^import express from "express";$/;"	I
+firstname	interface/customers.ts	/^  firstname: string;$/;"	m
+firstname	test/customer.spec.ts	/^  firstname: "test",$/;"	m
+getAllCustomers	controllers/routes.ts	/^export const getAllCustomers = ($/;"	v
+getCustomerById	controllers/routes.ts	/^export const getCustomerById = ($/;"	v
+host	utils/dbConnection.ts	/^  host: config.HOST,$/;"	m
+http	index.ts	/^import http from "http";$/;"	I
+id	interface/customers.ts	/^  id: number;$/;"	m
+if	controllers/routes.ts	/^      if (result.rows.length > 0) res.status(200).json(result.rows);$/;"	m
+if	controllers/routes.ts	/^    if (err) next(err);$/;"	m
+it	test/customer.spec.ts	/^  it("Add new customer", () => {$/;"	m
+it	test/customer.spec.ts	/^  it("Fetch all customers", () => {$/;"	m
+it	test/utils.spec.ts	/^  it("Should return value greater than 0", async () => {$/;"	m
+lastname	interface/customers.ts	/^  lastname: string;$/;"	m
+lastname	test/customer.spec.ts	/^  lastname: "user",$/;"	m
+next	controllers/routes.ts	/^  next: NextFunction$/;"	m
+password	utils/dbConnection.ts	/^  password: config.PASSWD,$/;"	m
+phone	interface/customers.ts	/^  phone: number;$/;"	m
+phone	test/customer.spec.ts	/^  phone: "09293002903",$/;"	m
+port	utils/dbConnection.ts	/^  port: config.SQL_PORT,$/;"	m
+presentId	controllers/routes.ts	/^import presentId from "..\/utils\/presentId";$/;"	I
+presentId	test/utils.spec.ts	/^import presentId from "..\/utils\/presentId";$/;"	I
+req	controllers/routes.ts	/^  req: Request,$/;"	m
+res	controllers/routes.ts	/^  res: Response,$/;"	m
+text	controllers/routes.ts	/^    text: "delete from customers where id = $1",$/;"	m
+text	controllers/routes.ts	/^    text: "delete from customers",$/;"	m
+text	controllers/routes.ts	/^    text: "insert into customers (id, firstname, lastname, email, phone) values ($1, $2, $3, $4, $5)",$/;"	m
+text	controllers/routes.ts	/^    text: "select * from customers where id = $1",$/;"	m
+text	controllers/routes.ts	/^    text: "update customers set firstname=$1, lastname=$2, email=$3, phone=$4 where id=$5",$/;"	m
+updateCustomerById	controllers/routes.ts	/^export const updateCustomerById = ($/;"	v
+user	utils/dbConnection.ts	/^  user: config.USER,$/;"	m
+values	controllers/routes.ts	/^    values: [data.firstname, data.lastname, data.email, data.phone, id],$/;"	m
+values	controllers/routes.ts	/^    values: [id],$/;"	m
+values	controllers/routes.ts	/^    values: [newId, data.firstname, data.lastname, data.email, data.phone],$/;"	m
